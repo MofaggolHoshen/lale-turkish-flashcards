@@ -2,7 +2,12 @@ import React, { useState, useEffect, useCallback } from "react";
 import { C } from "./styles/theme";
 import { loadWords, persistWords, loadMeta, persistMeta } from "./services/storage";
 import { DAY_MS } from "./utils/flashcards";
-import { Header, Home, AddWord, Review, LibraryView, VocabularyView } from "./components/views";
+import { Header } from "./components/Header";
+import { Home } from "./components/Home";
+import { AddWord } from "./components/AddWord";
+import { Review } from "./components/Review";
+import { LibraryView } from "./components/LibraryView";
+import { VocabularyView } from "./components/VocabularyView";
 import type { Meta, ReviewMode, Tab, Word } from "./types";
 
 const todayStr = () => new Date().toDateString();
