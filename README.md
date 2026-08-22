@@ -36,6 +36,22 @@ npm run preview
 - **Pronunciation**: uses the browser's built-in text-to-speech
   (`speechSynthesis`) with a Turkish voice if your OS/browser has one
   installed. No API key or network call needed.
+- **Install a Turkish voice**:
+  - **Windows 10/11**: Go to **Settings → Time & Language → Language & region
+    → Add a language**, search for **Türkçe (Turkish)**, and install it. Make
+    sure to select **Speech** under the optional features so the TTS voice pack
+    downloads, not just the keyboard or display language.
+  - **macOS**: Go to **System Settings → Accessibility → Spoken Content →
+    System Voice → Manage Voices/Customize**, find a Turkish voice such as
+    **Yelda**, and download it. Chrome, Safari, and Edge will pick it up
+    automatically.
+  - **iPhone/iPad (iOS)**: Go to **Settings → Accessibility → Spoken Content
+    → Voices**, find Turkish in the language list, and download a voice.
+    Safari and other browsers on iOS will then have it available.
+  - **Android**: Go to **Settings → System** (or **General management**) →
+    **Languages & input → Text-to-speech output**, tap the gear next to your
+    engine (usually Google), choose **Install voice data**, then select and
+    download Turkish.
 - **Translation lookups**: the Add Word screen first checks a small
   built-in Turkish↔English dictionary (instant, offline). For words outside
   that list, it also tries a free online API
