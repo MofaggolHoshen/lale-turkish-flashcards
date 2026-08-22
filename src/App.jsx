@@ -1,136 +1,69 @@
 import React, { useState, useEffect, useCallback } from "react";
 import {
-  Plus, Check, X, Sparkles, Flame, ChevronLeft, Library, LayoutGrid, RotateCcw,
-  MessageCircle, UserRound, HelpCircle, Hash, CalendarDays, Clock, Users, Palette,
-  Utensils, Home as HomeIcon, Trees, PawPrint, Zap, SlidersHorizontal, BookOpen, Volume2,
+  Plus,
+  Check,
+  X,
+  Sparkles,
+  Flame,
+  ChevronLeft,
+  Library,
+  LayoutGrid,
+  RotateCcw,
+  MessageCircle,
+  UserRound,
+  HelpCircle,
+  Hash,
+  CalendarDays,
+  Clock,
+  Users,
+  Palette,
+  Utensils,
+  Home as HomeIcon,
+  Trees,
+  PawPrint,
+  Zap,
+  SlidersHorizontal,
+  BookOpen,
+  Volume2,
 } from "lucide-react";
+import { C, btnStyle, inputStyle } from "./styles/theme";
+import {
+  SpeakButton,
+  TulipGlyph,
+  StatChip,
+  EmptyNote,
+  Field,
+} from "./components/common";
+import {
+  loadWords,
+  persistWords,
+  loadMeta,
+  persistMeta,
+} from "./services/storage";
+import { speak } from "./services/speech";
+import { translateWord as lookupTranslation } from "./services/translation";
+import { DAY_MS, INTERVAL_DAYS, uid, shuffle } from "./utils/flashcards";
 
-// ---------- Design tokens ----------
-// Palette drawn from İznik tile-work: porcelain ground, cobalt + turquoise glaze,
-// coral-red slip line work, and a gold-leaf accent reserved for mastery.
-const C = {
-  paper: "#F2F6F5",
-  paperDeep: "#E7EFEE",
-  ink: "#132A33",
-  inkSoft: "#3E5A62",
-  cobalt: "#0F4C5C",
-  cobaltDeep: "#0A3745",
-  turquoise: "#2E9C97",
-  coral: "#D2492F",
-  gold: "#C9A24B",
-  line: "#CFDBDA",
-};
-
-const INTERVAL_DAYS = [0, 1, 3, 7, 14, 30]; // by mastery level 0-5
-const DAY_MS = 24 * 60 * 60 * 1000;
-
-const uid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
-
-// Speaks text aloud using the browser's built-in text-to-speech. No network
-// call — quality depends on whether the device has a Turkish voice installed.
-function speak(text, lang = "tr-TR") {
-  try {
-    if (!("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = lang;
-    utter.rate = 0.9;
-    window.speechSynthesis.speak(utter);
-  } catch (e) {
-    console.error("speech failed", e);
-  }
-}
-
-function SpeakButton({ text, lang = "tr-TR", size = 15 }) {
-  return (
-    <button
-      className="lale-btn"
-      onClick={(e) => { e.stopPropagation(); speak(text, lang); }}
-      title="Pronounce"
-      style={{ border: "none", background: "transparent", cursor: "pointer", padding: 4, color: C.cobalt, display: "inline-flex", alignItems: "center" }}
-    >
-      <Volume2 size={size} />
-    </button>
-  );
-}
-
-// ---------- Tulip + nazar-bead mastery glyph ----------
-function TulipGlyph({ level = 0, size = 44 }) {
-  const t = level / 5;
-  const petal = level === 0 ? "#9FB0AC" : level < 3 ? C.turquoise : level < 5 ? C.coral : C.gold;
-  const stem = "#5C8A72";
-  const beads = new Array(5).fill(0).map((_, i) => i < level);
-
-  return (
-    <svg width={size} height={size} viewBox="0 0 64 64" style={{ overflow: "visible" }}>
-      <circle cx="32" cy="32" r="29" fill="none" stroke={C.line} strokeWidth="1.5" />
-      {beads.map((filled, i) => {
-        const angle = -90 + i * 72;
-        const rad = (angle * Math.PI) / 180;
-        const cx = 32 + 29 * Math.cos(rad);
-        const cy = 32 + 29 * Math.sin(rad);
-        return (
-          <circle
-            key={i}
-            cx={cx}
-            cy={cy}
-            r="3.4"
-            fill={filled ? C.cobalt : "#fff"}
-            stroke={C.line}
-            strokeWidth="1"
-          />
-        );
-      })}
-      <path d="M32 46 C 32 38, 32 34, 32 30" stroke={stem} strokeWidth="2.4" fill="none" strokeLinecap="round" />
-      <g transform={`translate(32,26) scale(${0.72 + t * 0.34})`}>
-        <path d="M0,10 C -9,4 -10,-9 -3,-14 C -1,-10 0,-6 0,-2 C 0,-6 1,-10 3,-14 C 10,-9 9,4 0,10 Z" fill={petal} />
-        <path d="M0,10 C -5,3 -6,-6 -2,-11 C -1,-7 0,-3 0,1 Z" fill={petal} opacity="0.55" />
-        <path d="M0,10 C 5,3 6,-6 2,-11 C 1,-7 0,-3 0,1 Z" fill={petal} opacity="0.35" />
-      </g>
-    </svg>
-  );
-}
-
-// ---------- Storage helpers ----------
-// Runs on plain localStorage here, so it works in any normal browser —
-// no artifact-only APIs required.
-async function loadWords() {
-  try {
-    const raw = localStorage.getItem("lale_words");
-    return raw ? JSON.parse(raw) : [];
-  } catch {
-    return [];
-  }
-}
-async function persistWords(words) {
-  try {
-    localStorage.setItem("lale_words", JSON.stringify(words));
-  } catch (e) {
-    console.error("save failed", e);
-  }
-}
-async function loadMeta() {
-  try {
-    const raw = localStorage.getItem("lale_meta");
-    return raw ? JSON.parse(raw) : { streak: 0, lastDay: null, best: 0 };
-  } catch {
-    return { streak: 0, lastDay: null, best: 0 };
-  }
-}
-async function persistMeta(meta) {
-  try {
-    localStorage.setItem("lale_meta", JSON.stringify(meta));
-  } catch (e) {
-    console.error("save failed", e);
-  }
-}
+// Shared UI, browser services, and flashcard rules live in their own modules.
 
 // ---------- Built-in mini dictionary, organized by category ----------
 // Works with no network call at all, so lookups and vocabulary browsing are
 // instant and don't depend on external APIs being reachable.
 const CATEGORY_ORDER = [
-  "greetings", "pronouns", "questions", "numbers", "days", "time",
-  "family", "colors", "food", "household", "nature", "animals", "verbs", "adjectives",
+  "greetings",
+  "pronouns",
+  "questions",
+  "numbers",
+  "days",
+  "time",
+  "family",
+  "colors",
+  "food",
+  "household",
+  "nature",
+  "animals",
+  "verbs",
+  "adjectives",
 ];
 
 const CATEGORY_META = {
@@ -152,74 +85,210 @@ const CATEGORY_META = {
 
 const CATEGORIES = {
   greetings: [
-    ["merhaba", "hello"], ["selam", "hi"], ["günaydın", "good morning"], ["iyi geceler", "good night"],
-    ["iyi akşamlar", "good evening"], ["hoşça kal", "goodbye"], ["güle güle", "goodbye"],
-    ["teşekkürler", "thank you"], ["teşekkür ederim", "thank you"], ["rica ederim", "you're welcome"],
-    ["lütfen", "please"], ["evet", "yes"], ["hayır", "no"], ["tamam", "okay"], ["affedersiniz", "excuse me"],
-    ["özür dilerim", "sorry"], ["nasılsın", "how are you"], ["iyiyim", "I'm fine"], ["hoşgeldin", "welcome"],
+    ["merhaba", "hello"],
+    ["selam", "hi"],
+    ["günaydın", "good morning"],
+    ["iyi geceler", "good night"],
+    ["iyi akşamlar", "good evening"],
+    ["hoşça kal", "goodbye"],
+    ["güle güle", "goodbye"],
+    ["teşekkürler", "thank you"],
+    ["teşekkür ederim", "thank you"],
+    ["rica ederim", "you're welcome"],
+    ["lütfen", "please"],
+    ["evet", "yes"],
+    ["hayır", "no"],
+    ["tamam", "okay"],
+    ["affedersiniz", "excuse me"],
+    ["özür dilerim", "sorry"],
+    ["nasılsın", "how are you"],
+    ["iyiyim", "I'm fine"],
+    ["hoşgeldin", "welcome"],
     ["hoşbulduk", "glad to be here"],
   ],
   pronouns: [
-    ["ben", "I"], ["sen", "you"], ["o", "he/she/it"], ["biz", "we"], ["siz", "you (formal)"], ["onlar", "they"],
+    ["ben", "I"],
+    ["sen", "you"],
+    ["o", "he/she/it"],
+    ["biz", "we"],
+    ["siz", "you (formal)"],
+    ["onlar", "they"],
   ],
   questions: [
-    ["ne", "what"], ["kim", "who"], ["nerede", "where"], ["ne zaman", "when"], ["neden", "why"],
-    ["nasıl", "how"], ["hangi", "which"], ["kaç", "how many"],
+    ["ne", "what"],
+    ["kim", "who"],
+    ["nerede", "where"],
+    ["ne zaman", "when"],
+    ["neden", "why"],
+    ["nasıl", "how"],
+    ["hangi", "which"],
+    ["kaç", "how many"],
   ],
   numbers: [
-    ["bir", "one"], ["iki", "two"], ["üç", "three"], ["dört", "four"], ["beş", "five"], ["altı", "six"],
-    ["yedi", "seven"], ["sekiz", "eight"], ["dokuz", "nine"], ["on", "ten"], ["yirmi", "twenty"],
-    ["otuz", "thirty"], ["yüz", "hundred"], ["bin", "thousand"],
+    ["bir", "one"],
+    ["iki", "two"],
+    ["üç", "three"],
+    ["dört", "four"],
+    ["beş", "five"],
+    ["altı", "six"],
+    ["yedi", "seven"],
+    ["sekiz", "eight"],
+    ["dokuz", "nine"],
+    ["on", "ten"],
+    ["yirmi", "twenty"],
+    ["otuz", "thirty"],
+    ["yüz", "hundred"],
+    ["bin", "thousand"],
   ],
   days: [
-    ["pazartesi", "Monday"], ["salı", "Tuesday"], ["çarşamba", "Wednesday"], ["perşembe", "Thursday"],
-    ["cuma", "Friday"], ["cumartesi", "Saturday"], ["pazar", "Sunday"],
+    ["pazartesi", "Monday"],
+    ["salı", "Tuesday"],
+    ["çarşamba", "Wednesday"],
+    ["perşembe", "Thursday"],
+    ["cuma", "Friday"],
+    ["cumartesi", "Saturday"],
+    ["pazar", "Sunday"],
   ],
   time: [
-    ["gün", "day"], ["hafta", "week"], ["ay", "month"], ["yıl", "year"], ["saat", "hour"], ["dakika", "minute"],
-    ["bugün", "today"], ["yarın", "tomorrow"], ["dün", "yesterday"], ["şimdi", "now"], ["sonra", "later"],
+    ["gün", "day"],
+    ["hafta", "week"],
+    ["ay", "month"],
+    ["yıl", "year"],
+    ["saat", "hour"],
+    ["dakika", "minute"],
+    ["bugün", "today"],
+    ["yarın", "tomorrow"],
+    ["dün", "yesterday"],
+    ["şimdi", "now"],
+    ["sonra", "later"],
   ],
   family: [
-    ["anne", "mother"], ["baba", "father"], ["kardeş", "sibling"], ["abla", "older sister"],
-    ["ağabey", "older brother"], ["kız", "girl"], ["oğul", "son"], ["çocuk", "child"], ["aile", "family"],
-    ["arkadaş", "friend"], ["eş", "spouse"],
+    ["anne", "mother"],
+    ["baba", "father"],
+    ["kardeş", "sibling"],
+    ["abla", "older sister"],
+    ["ağabey", "older brother"],
+    ["kız", "girl"],
+    ["oğul", "son"],
+    ["çocuk", "child"],
+    ["aile", "family"],
+    ["arkadaş", "friend"],
+    ["eş", "spouse"],
   ],
   colors: [
-    ["kırmızı", "red"], ["mavi", "blue"], ["yeşil", "green"], ["sarı", "yellow"], ["siyah", "black"],
-    ["beyaz", "white"], ["turuncu", "orange"], ["mor", "purple"], ["pembe", "pink"], ["kahverengi", "brown"],
+    ["kırmızı", "red"],
+    ["mavi", "blue"],
+    ["yeşil", "green"],
+    ["sarı", "yellow"],
+    ["siyah", "black"],
+    ["beyaz", "white"],
+    ["turuncu", "orange"],
+    ["mor", "purple"],
+    ["pembe", "pink"],
+    ["kahverengi", "brown"],
     ["gri", "gray"],
   ],
   food: [
-    ["su", "water"], ["ekmek", "bread"], ["süt", "milk"], ["çay", "tea"], ["kahve", "coffee"], ["et", "meat"],
-    ["tavuk", "chicken"], ["peynir", "cheese"], ["yumurta", "egg"], ["elma", "apple"], ["muz", "banana"],
-    ["portakal", "orange (fruit)"], ["şeker", "sugar"], ["tuz", "salt"], ["yemek", "food"],
-    ["kahvaltı", "breakfast"], ["akşam yemeği", "dinner"],
+    ["su", "water"],
+    ["ekmek", "bread"],
+    ["süt", "milk"],
+    ["çay", "tea"],
+    ["kahve", "coffee"],
+    ["et", "meat"],
+    ["tavuk", "chicken"],
+    ["peynir", "cheese"],
+    ["yumurta", "egg"],
+    ["elma", "apple"],
+    ["muz", "banana"],
+    ["portakal", "orange (fruit)"],
+    ["şeker", "sugar"],
+    ["tuz", "salt"],
+    ["yemek", "food"],
+    ["kahvaltı", "breakfast"],
+    ["akşam yemeği", "dinner"],
   ],
   household: [
-    ["ev", "house"], ["oda", "room"], ["mutfak", "kitchen"], ["banyo", "bathroom"], ["yatak", "bed"],
-    ["masa", "table"], ["sandalye", "chair"], ["kapı", "door"], ["pencere", "window"], ["dolap", "cabinet"],
-    ["buzdolabı", "refrigerator"], ["fırın", "oven"], ["lamba", "lamp"], ["ayna", "mirror"], ["halı", "carpet"],
+    ["ev", "house"],
+    ["oda", "room"],
+    ["mutfak", "kitchen"],
+    ["banyo", "bathroom"],
+    ["yatak", "bed"],
+    ["masa", "table"],
+    ["sandalye", "chair"],
+    ["kapı", "door"],
+    ["pencere", "window"],
+    ["dolap", "cabinet"],
+    ["buzdolabı", "refrigerator"],
+    ["fırın", "oven"],
+    ["lamba", "lamp"],
+    ["ayna", "mirror"],
+    ["halı", "carpet"],
   ],
   nature: [
-    ["güneş", "sun"], ["yıldız", "star"], ["gökyüzü", "sky"], ["deniz", "sea"], ["dağ", "mountain"],
-    ["ağaç", "tree"], ["çiçek", "flower"], ["lale", "tulip"], ["yol", "road"], ["şehir", "city"], ["ülke", "country"],
+    ["güneş", "sun"],
+    ["yıldız", "star"],
+    ["gökyüzü", "sky"],
+    ["deniz", "sea"],
+    ["dağ", "mountain"],
+    ["ağaç", "tree"],
+    ["çiçek", "flower"],
+    ["lale", "tulip"],
+    ["yol", "road"],
+    ["şehir", "city"],
+    ["ülke", "country"],
   ],
   animals: [
-    ["köpek", "dog"], ["kedi", "cat"], ["kuş", "bird"], ["balık", "fish"],
+    ["köpek", "dog"],
+    ["kedi", "cat"],
+    ["kuş", "bird"],
+    ["balık", "fish"],
   ],
   verbs: [
-    ["gitmek", "to go"], ["gelmek", "to come"], ["içmek", "to drink"], ["görmek", "to see"],
-    ["bilmek", "to know"], ["istemek", "to want"], ["sevmek", "to love"], ["yapmak", "to do"],
-    ["almak", "to take"], ["vermek", "to give"], ["konuşmak", "to speak"], ["anlamak", "to understand"],
-    ["okumak", "to read"], ["yazmak", "to write"], ["duymak", "to hear"], ["uyumak", "to sleep"],
-    ["çalışmak", "to work"], ["oynamak", "to play"], ["düşünmek", "to think"], ["beklemek", "to wait"],
-    ["başlamak", "to start"], ["bitirmek", "to finish"],
+    ["gitmek", "to go"],
+    ["gelmek", "to come"],
+    ["içmek", "to drink"],
+    ["görmek", "to see"],
+    ["bilmek", "to know"],
+    ["istemek", "to want"],
+    ["sevmek", "to love"],
+    ["yapmak", "to do"],
+    ["almak", "to take"],
+    ["vermek", "to give"],
+    ["konuşmak", "to speak"],
+    ["anlamak", "to understand"],
+    ["okumak", "to read"],
+    ["yazmak", "to write"],
+    ["duymak", "to hear"],
+    ["uyumak", "to sleep"],
+    ["çalışmak", "to work"],
+    ["oynamak", "to play"],
+    ["düşünmek", "to think"],
+    ["beklemek", "to wait"],
+    ["başlamak", "to start"],
+    ["bitirmek", "to finish"],
   ],
   adjectives: [
-    ["büyük", "big"], ["küçük", "small"], ["iyi", "good"], ["kötü", "bad"], ["güzel", "beautiful"],
-    ["çirkin", "ugly"], ["yeni", "new"], ["eski", "old"], ["sıcak", "hot"], ["soğuk", "cold"],
-    ["hızlı", "fast"], ["yavaş", "slow"], ["mutlu", "happy"], ["üzgün", "sad"], ["yorgun", "tired"],
-    ["zengin", "rich"], ["fakir", "poor"], ["uzun", "long"], ["kısa", "short"], ["kolay", "easy"], ["zor", "difficult"],
+    ["büyük", "big"],
+    ["küçük", "small"],
+    ["iyi", "good"],
+    ["kötü", "bad"],
+    ["güzel", "beautiful"],
+    ["çirkin", "ugly"],
+    ["yeni", "new"],
+    ["eski", "old"],
+    ["sıcak", "hot"],
+    ["soğuk", "cold"],
+    ["hızlı", "fast"],
+    ["yavaş", "slow"],
+    ["mutlu", "happy"],
+    ["üzgün", "sad"],
+    ["yorgun", "tired"],
+    ["zengin", "rich"],
+    ["fakir", "poor"],
+    ["uzun", "long"],
+    ["kısa", "short"],
+    ["kolay", "easy"],
+    ["zor", "difficult"],
   ],
 };
 
@@ -237,55 +306,134 @@ CATEGORY_ORDER.forEach((cat) => {
 // Abstract words (pronouns, question words, most verbs/adjectives) are left
 // out on purpose — a picture wouldn't add much there.
 const EMOJI = {
-  "merhaba": "👋", "selam": "👋", "günaydın": "🌅", "iyi geceler": "🌙", "iyi akşamlar": "🌆",
-  "hoşça kal": "👋", "güle güle": "👋", "teşekkürler": "🙏", "teşekkür ederim": "🙏",
-  "evet": "✅", "hayır": "❌", "tamam": "👍", "hoşgeldin": "🎉", "hoşbulduk": "🎉",
-  "bir": "1️⃣", "iki": "2️⃣", "üç": "3️⃣", "dört": "4️⃣", "beş": "5️⃣", "altı": "6️⃣",
-  "yedi": "7️⃣", "sekiz": "8️⃣", "dokuz": "9️⃣", "on": "🔟", "yüz": "💯",
-  "pazartesi": "📅", "salı": "📅", "çarşamba": "📅", "perşembe": "📅", "cuma": "📅",
-  "cumartesi": "📅", "pazar": "📅",
-  "gün": "☀️", "hafta": "🗓️", "ay": "🌙", "yıl": "📆", "saat": "⏰", "dakika": "⏱️",
-  "bugün": "📍", "yarın": "➡️", "dün": "⬅️",
-  "anne": "👩", "baba": "👨", "kardeş": "👫", "abla": "👧", "ağabey": "👦", "kız": "👧",
-  "oğul": "👦", "çocuk": "🧒", "aile": "👪", "arkadaş": "🧑‍🤝‍🧑", "eş": "💑",
-  "kırmızı": "🔴", "mavi": "🔵", "yeşil": "🟢", "sarı": "🟡", "siyah": "⚫", "beyaz": "⚪",
-  "turuncu": "🟠", "mor": "🟣", "pembe": "🌸", "kahverengi": "🟤", "gri": "⬜",
-  "su": "💧", "ekmek": "🍞", "süt": "🥛", "çay": "🍵", "kahve": "☕", "et": "🥩",
-  "tavuk": "🍗", "peynir": "🧀", "yumurta": "🥚", "elma": "🍎", "muz": "🍌",
-  "portakal": "🍊", "şeker": "🍬", "tuz": "🧂", "yemek": "🍽️", "kahvaltı": "🍳", "akşam yemeği": "🍽️",
-  "ev": "🏠", "oda": "🚪", "mutfak": "🍳", "banyo": "🛁", "yatak": "🛏️", "masa": "🍽️",
-  "sandalye": "🪑", "kapı": "🚪", "pencere": "🪟", "dolap": "🗄️", "buzdolabı": "🧊",
-  "fırın": "🔥", "lamba": "💡", "ayna": "🪞", "halı": "🟫",
-  "güneş": "☀️", "yıldız": "⭐", "gökyüzü": "☁️", "deniz": "🌊", "dağ": "⛰️", "ağaç": "🌳",
-  "çiçek": "🌸", "lale": "🌷", "yol": "🛣️", "şehir": "🏙️", "ülke": "🌍",
-  "köpek": "🐶", "kedi": "🐱", "kuş": "🐦", "balık": "🐟",
-  "büyük": "🐘", "küçük": "🐜", "iyi": "👍", "kötü": "👎", "güzel": "😍", "çirkin": "😬",
-  "yeni": "🆕", "eski": "🕰️", "sıcak": "🔥", "soğuk": "❄️", "hızlı": "⚡", "yavaş": "🐌",
-  "mutlu": "😊", "üzgün": "😢", "yorgun": "😴", "zengin": "💰", "kısa": "✂️",
+  merhaba: "👋",
+  selam: "👋",
+  günaydın: "🌅",
+  "iyi geceler": "🌙",
+  "iyi akşamlar": "🌆",
+  "hoşça kal": "👋",
+  "güle güle": "👋",
+  teşekkürler: "🙏",
+  "teşekkür ederim": "🙏",
+  evet: "✅",
+  hayır: "❌",
+  tamam: "👍",
+  hoşgeldin: "🎉",
+  hoşbulduk: "🎉",
+  bir: "1️⃣",
+  iki: "2️⃣",
+  üç: "3️⃣",
+  dört: "4️⃣",
+  beş: "5️⃣",
+  altı: "6️⃣",
+  yedi: "7️⃣",
+  sekiz: "8️⃣",
+  dokuz: "9️⃣",
+  on: "🔟",
+  yüz: "💯",
+  pazartesi: "📅",
+  salı: "📅",
+  çarşamba: "📅",
+  perşembe: "📅",
+  cuma: "📅",
+  cumartesi: "📅",
+  pazar: "📅",
+  gün: "☀️",
+  hafta: "🗓️",
+  ay: "🌙",
+  yıl: "📆",
+  saat: "⏰",
+  dakika: "⏱️",
+  bugün: "📍",
+  yarın: "➡️",
+  dün: "⬅️",
+  anne: "👩",
+  baba: "👨",
+  kardeş: "👫",
+  abla: "👧",
+  ağabey: "👦",
+  kız: "👧",
+  oğul: "👦",
+  çocuk: "🧒",
+  aile: "👪",
+  arkadaş: "🧑‍🤝‍🧑",
+  eş: "💑",
+  kırmızı: "🔴",
+  mavi: "🔵",
+  yeşil: "🟢",
+  sarı: "🟡",
+  siyah: "⚫",
+  beyaz: "⚪",
+  turuncu: "🟠",
+  mor: "🟣",
+  pembe: "🌸",
+  kahverengi: "🟤",
+  gri: "⬜",
+  su: "💧",
+  ekmek: "🍞",
+  süt: "🥛",
+  çay: "🍵",
+  kahve: "☕",
+  et: "🥩",
+  tavuk: "🍗",
+  peynir: "🧀",
+  yumurta: "🥚",
+  elma: "🍎",
+  muz: "🍌",
+  portakal: "🍊",
+  şeker: "🍬",
+  tuz: "🧂",
+  yemek: "🍽️",
+  kahvaltı: "🍳",
+  "akşam yemeği": "🍽️",
+  ev: "🏠",
+  oda: "🚪",
+  mutfak: "🍳",
+  banyo: "🛁",
+  yatak: "🛏️",
+  masa: "🍽️",
+  sandalye: "🪑",
+  kapı: "🚪",
+  pencere: "🪟",
+  dolap: "🗄️",
+  buzdolabı: "🧊",
+  fırın: "🔥",
+  lamba: "💡",
+  ayna: "🪞",
+  halı: "🟫",
+  güneş: "☀️",
+  yıldız: "⭐",
+  gökyüzü: "☁️",
+  deniz: "🌊",
+  dağ: "⛰️",
+  ağaç: "🌳",
+  çiçek: "🌸",
+  lale: "🌷",
+  yol: "🛣️",
+  şehir: "🏙️",
+  ülke: "🌍",
+  köpek: "🐶",
+  kedi: "🐱",
+  kuş: "🐦",
+  balık: "🐟",
+  büyük: "🐘",
+  küçük: "🐜",
+  iyi: "👍",
+  kötü: "👎",
+  güzel: "😍",
+  çirkin: "😬",
+  yeni: "🆕",
+  eski: "🕰️",
+  sıcak: "🔥",
+  soğuk: "❄️",
+  hızlı: "⚡",
+  yavaş: "🐌",
+  mutlu: "😊",
+  üzgün: "😢",
+  yorgun: "😴",
+  zengin: "💰",
+  kısa: "✂️",
 };
-
-async function translateWord(text, direction = "tr-en") {
-  const q = text.trim();
-  const dict = direction === "tr-en" ? TR_EN : EN_TR;
-  const norm = direction === "tr-en" ? q.toLocaleLowerCase("tr-TR") : q.toLowerCase();
-  if (dict[norm]) return dict[norm];
-
-  // Fall back to an online lookup for words outside the built-in list — this
-  // may not work in every environment, so it's a bonus, not a requirement.
-  const langpair = direction === "tr-en" ? "tr|en" : "en|tr";
-  try {
-    const r = await fetch(
-      `https://api.mymemory.translated.net/get?q=${encodeURIComponent(q)}&langpair=${langpair}`
-    );
-    if (!r.ok) return null;
-    const data = await r.json();
-    const out = data?.responseData?.translatedText;
-    if (out && !/^\s*$/.test(out) && !/MYMEMORY WARNING/i.test(out)) return out;
-    return null;
-  } catch {
-    return null;
-  }
-}
 
 const todayStr = () => new Date().toDateString();
 
@@ -321,7 +469,11 @@ export default function App() {
       if (base.lastDay === todayStr()) return base;
       const yesterday = new Date(Date.now() - DAY_MS).toDateString();
       const streak = base.lastDay === yesterday ? base.streak + 1 : 1;
-      const next = { streak, lastDay: todayStr(), best: Math.max(base.best, streak) };
+      const next = {
+        streak,
+        lastDay: todayStr(),
+        best: Math.max(base.best, streak),
+      };
       persistMeta(next);
       return next;
     });
@@ -329,7 +481,17 @@ export default function App() {
 
   if (loading) {
     return (
-      <div style={{ minHeight: 480, display: "flex", alignItems: "center", justifyContent: "center", background: C.paper, fontFamily: "Inter, sans-serif", color: C.inkSoft }}>
+      <div
+        style={{
+          minHeight: 480,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: C.paper,
+          fontFamily: "Inter, sans-serif",
+          color: C.inkSoft,
+        }}
+      >
         Loading your garden…
       </div>
     );
@@ -339,8 +501,16 @@ export default function App() {
   const due = words.filter((w) => w.nextReview <= now);
   const masteredWords = words.filter((w) => w.level >= 5);
   const mastered = masteredWords.length;
-  const queueWords = reviewMode === "mastered" ? masteredWords : reviewMode === "all" ? words : due;
-  const goReview = (mode) => { setReviewMode(mode); setTab("review"); };
+  const queueWords =
+    reviewMode === "mastered"
+      ? masteredWords
+      : reviewMode === "all"
+        ? words
+        : due;
+  const goReview = (mode) => {
+    setReviewMode(mode);
+    setTab("review");
+  };
 
   return (
     <div
@@ -371,14 +541,44 @@ export default function App() {
 
       <div className="lale-content" style={{ padding: "24px 28px 32px" }}>
         {tab === "home" && (
-          <Home words={words} due={due} mastered={mastered} meta={meta} goReview={() => goReview("due")} goReviewMastered={() => goReview("mastered")} goReviewAll={() => goReview("all")} goAdd={() => setTab("add")} />
+          <Home
+            words={words}
+            due={due}
+            mastered={mastered}
+            meta={meta}
+            goReview={() => goReview("due")}
+            goReviewMastered={() => goReview("mastered")}
+            goReviewAll={() => goReview("all")}
+            goAdd={() => setTab("add")}
+          />
         )}
-        {tab === "vocab" && <VocabularyView words={words} updateWords={updateWords} registerPractice={registerPractice} />}
+        {tab === "vocab" && (
+          <VocabularyView
+            words={words}
+            updateWords={updateWords}
+            registerPractice={registerPractice}
+          />
+        )}
         {tab === "review" && (
-          <Review words={words} queueWords={queueWords} reviewMode={reviewMode} updateWords={updateWords} registerPractice={registerPractice} onDone={() => setTab("home")} />
+          <Review
+            words={words}
+            queueWords={queueWords}
+            reviewMode={reviewMode}
+            updateWords={updateWords}
+            registerPractice={registerPractice}
+            onDone={() => setTab("home")}
+          />
         )}
-        {tab === "add" && <AddWord words={words} updateWords={updateWords} onAdded={() => setTab("home")} />}
-        {tab === "library" && <LibraryView words={words} updateWords={updateWords} />}
+        {tab === "add" && (
+          <AddWord
+            words={words}
+            updateWords={updateWords}
+            onAdded={() => setTab("home")}
+          />
+        )}
+        {tab === "library" && (
+          <LibraryView words={words} updateWords={updateWords} />
+        )}
       </div>
     </div>
   );
@@ -394,14 +594,42 @@ function Header({ tab, setTab, dueCount }) {
   ];
   return (
     <div style={{ background: C.cobalt, padding: "14px 16px" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10, flexWrap: "wrap" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+          marginBottom: 10,
+          flexWrap: "wrap",
+        }}
+      >
         <TulipGlyph level={3} size={28} />
-        <span className="lale-display" style={{ color: "#fff", fontSize: 19, fontWeight: 600, letterSpacing: 0.2 }}>
+        <span
+          className="lale-display"
+          style={{
+            color: "#fff",
+            fontSize: 19,
+            fontWeight: 600,
+            letterSpacing: 0.2,
+          }}
+        >
           Lâle
         </span>
-        <span style={{ color: "#B9D3D0", fontSize: 12.5 }}>Turkish word garden</span>
+        <span style={{ color: "#B9D3D0", fontSize: 12.5 }}>
+          Turkish word garden
+        </span>
       </div>
-      <div className="lale-nav-scroll" style={{ display: "flex", gap: 4, background: C.cobaltDeep, borderRadius: 10, padding: 4, overflowX: "auto" }}>
+      <div
+        className="lale-nav-scroll"
+        style={{
+          display: "flex",
+          gap: 4,
+          background: C.cobaltDeep,
+          borderRadius: 10,
+          padding: 4,
+          overflowX: "auto",
+        }}
+      >
         {items.map((it) => (
           <button
             key={it.id}
@@ -428,7 +656,16 @@ function Header({ tab, setTab, dueCount }) {
   );
 }
 
-function Home({ words, due, mastered, meta, goReview, goReviewMastered, goReviewAll, goAdd }) {
+function Home({
+  words,
+  due,
+  mastered,
+  meta,
+  goReview,
+  goReviewMastered,
+  goReviewAll,
+  goAdd,
+}) {
   return (
     <div>
       <div
@@ -445,34 +682,55 @@ function Home({ words, due, mastered, meta, goReview, goReviewMastered, goReview
         }}
       >
         <div>
-          <div className="lale-display" style={{ fontSize: 34, fontWeight: 600 }}>
-            {due.length === 0 ? "Nothing due — well tended." : `${due.length} word${due.length === 1 ? "" : "s"} ready to review`}
+          <div
+            className="lale-display"
+            style={{ fontSize: 34, fontWeight: 600 }}
+          >
+            {due.length === 0
+              ? "Nothing due — well tended."
+              : `${due.length} word${due.length === 1 ? "" : "s"} ready to review`}
           </div>
           <div style={{ color: "#B9D3D0", marginTop: 6, fontSize: 14.5 }}>
             {words.length} planted in total · {mastered} in full bloom
           </div>
         </div>
         <div style={{ display: "flex", gap: 10 }}>
-          <button className="lale-btn" onClick={goReview} disabled={due.length === 0} style={btnStyle(C.turquoise, "#04292A", due.length === 0)}>
+          <button
+            className="lale-btn"
+            onClick={goReview}
+            disabled={due.length === 0}
+            style={btnStyle(C.turquoise, "#04292A", due.length === 0)}
+          >
             <Check size={16} style={{ marginRight: 6, verticalAlign: -3 }} />
             Review now
           </button>
-          <button className="lale-btn" onClick={goAdd} style={btnStyle("#fff", C.cobalt, false)}>
+          <button
+            className="lale-btn"
+            onClick={goAdd}
+            style={btnStyle("#fff", C.cobalt, false)}
+          >
             <Plus size={16} style={{ marginRight: 6, verticalAlign: -3 }} />
             Plant a word
           </button>
         </div>
       </div>
 
-      <div style={{ display: "flex", gap: 10, marginTop: 14, flexWrap: "wrap" }}>
+      <div
+        style={{ display: "flex", gap: 10, marginTop: 14, flexWrap: "wrap" }}
+      >
         <button
           className="lale-btn"
           onClick={goReviewMastered}
           disabled={mastered === 0}
           style={{
-            display: "flex", alignItems: "center", fontSize: 13, fontWeight: 700,
-            padding: "9px 14px", borderRadius: 9,
-            background: "#fff", border: `1.5px solid ${mastered === 0 ? C.line : C.cobalt}`,
+            display: "flex",
+            alignItems: "center",
+            fontSize: 13,
+            fontWeight: 700,
+            padding: "9px 14px",
+            borderRadius: 9,
+            background: "#fff",
+            border: `1.5px solid ${mastered === 0 ? C.line : C.cobalt}`,
             color: mastered === 0 ? C.inkSoft : C.cobalt,
             cursor: mastered === 0 ? "not-allowed" : "pointer",
           }}
@@ -485,9 +743,14 @@ function Home({ words, due, mastered, meta, goReview, goReviewMastered, goReview
           onClick={goReviewAll}
           disabled={words.length === 0}
           style={{
-            display: "flex", alignItems: "center", fontSize: 13, fontWeight: 700,
-            padding: "9px 14px", borderRadius: 9,
-            background: "#fff", border: `1.5px solid ${words.length === 0 ? C.line : C.cobalt}`,
+            display: "flex",
+            alignItems: "center",
+            fontSize: 13,
+            fontWeight: 700,
+            padding: "9px 14px",
+            borderRadius: 9,
+            background: "#fff",
+            border: `1.5px solid ${words.length === 0 ? C.line : C.cobalt}`,
             color: words.length === 0 ? C.inkSoft : C.cobalt,
             cursor: words.length === 0 ? "not-allowed" : "pointer",
           }}
@@ -497,31 +760,88 @@ function Home({ words, due, mastered, meta, goReview, goReviewMastered, goReview
         </button>
       </div>
       <div style={{ fontSize: 11.5, color: C.inkSoft, marginTop: 6 }}>
-        These are on-demand — anytime you like, regardless of the schedule above.
+        These are on-demand — anytime you like, regardless of the schedule
+        above.
       </div>
 
-      <div style={{ display: "flex", gap: 18, marginTop: 18, flexWrap: "wrap" }}>
-        <StatChip icon={<Flame size={16} color={C.coral} />} label="Day streak" value={meta.streak} />
-        <StatChip icon={<Sparkles size={16} color={C.gold} />} label="Best streak" value={meta.best} />
-        <StatChip icon={<Library size={16} color={C.cobalt} />} label="Words planted" value={words.length} />
+      <div
+        style={{ display: "flex", gap: 18, marginTop: 18, flexWrap: "wrap" }}
+      >
+        <StatChip
+          icon={<Flame size={16} color={C.coral} />}
+          label="Day streak"
+          value={meta.streak}
+        />
+        <StatChip
+          icon={<Sparkles size={16} color={C.gold} />}
+          label="Best streak"
+          value={meta.best}
+        />
+        <StatChip
+          icon={<Library size={16} color={C.cobalt} />}
+          label="Words planted"
+          value={words.length}
+        />
       </div>
 
       <div style={{ marginTop: 26 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            marginBottom: 10,
+          }}
+        >
           <LayoutGrid size={16} color={C.inkSoft} />
-          <span className="lale-display" style={{ fontSize: 17, fontWeight: 600 }}>Your garden</span>
+          <span
+            className="lale-display"
+            style={{ fontSize: 17, fontWeight: 600 }}
+          >
+            Your garden
+          </span>
         </div>
         {words.length === 0 ? (
           <EmptyNote text="Plant your first word and it'll bloom here as you review it." />
         ) : (
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(58px, 1fr))", gap: 10, background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 16 }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(58px, 1fr))",
+              gap: 10,
+              background: "#fff",
+              border: `1px solid ${C.line}`,
+              borderRadius: 12,
+              padding: 16,
+            }}
+          >
             {words
               .slice()
               .sort((a, b) => b.level - a.level)
               .map((w) => (
-                <div key={w.id} title={`${w.tr} — level ${w.level}/5`} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+                <div
+                  key={w.id}
+                  title={`${w.tr} — level ${w.level}/5`}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: 4,
+                  }}
+                >
                   <TulipGlyph level={w.level} size={40} />
-                  <span style={{ fontSize: 10.5, color: C.inkSoft, maxWidth: 56, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{w.tr}</span>
+                  <span
+                    style={{
+                      fontSize: 10.5,
+                      color: C.inkSoft,
+                      maxWidth: 56,
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {w.tr}
+                  </span>
                 </div>
               ))}
           </div>
@@ -529,40 +849,6 @@ function Home({ words, due, mastered, meta, goReview, goReviewMastered, goReview
       </div>
     </div>
   );
-}
-
-function StatChip({ icon, label, value }) {
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: 10, background: "#fff", border: `1px solid ${C.line}`, borderRadius: 10, padding: "10px 16px" }}>
-      {icon}
-      <div>
-        <div style={{ fontSize: 18, fontWeight: 700, lineHeight: 1 }}>{value}</div>
-        <div style={{ fontSize: 11.5, color: C.inkSoft }}>{label}</div>
-      </div>
-    </div>
-  );
-}
-
-function EmptyNote({ text }) {
-  return (
-    <div style={{ background: "#fff", border: `1px dashed ${C.line}`, borderRadius: 12, padding: 24, textAlign: "center", color: C.inkSoft, fontSize: 14 }}>
-      {text}
-    </div>
-  );
-}
-
-function btnStyle(bg, fg, disabled) {
-  return {
-    border: "none",
-    cursor: disabled ? "not-allowed" : "pointer",
-    opacity: disabled ? 0.5 : 1,
-    background: bg,
-    color: fg,
-    padding: "10px 16px",
-    borderRadius: 9,
-    fontWeight: 700,
-    fontSize: 14,
-  };
 }
 
 function AddWord({ words, updateWords, onAdded }) {
@@ -587,13 +873,19 @@ function AddWord({ words, updateWords, onAdded }) {
     timerRef.current = setTimeout(async () => {
       setErr("");
       setFetchingSide(sourceIsT ? "en" : "tr");
-      const result = await translateWord(value.trim(), sourceIsT ? "tr-en" : "en-tr");
+      const result = await lookupTranslation(
+        value.trim(),
+        sourceIsT ? "tr-en" : "en-tr",
+        { trToEn: TR_EN, enToTr: EN_TR },
+      );
       setFetchingSide(null);
       if (result) {
         if (sourceIsT) setEn(result);
         else setTr(result);
       } else {
-        setErr("No automatic match for that word yet — type the meaning in yourself.");
+        setErr(
+          "No automatic match for that word yet — type the meaning in yourself.",
+        );
       }
     }, 600);
   };
@@ -644,35 +936,71 @@ function AddWord({ words, updateWords, onAdded }) {
 
   return (
     <div style={{ maxWidth: 480 }}>
-      <div className="lale-display" style={{ fontSize: 22, fontWeight: 600, marginBottom: 4 }}>Plant a new word</div>
+      <div
+        className="lale-display"
+        style={{ fontSize: 22, fontWeight: 600, marginBottom: 4 }}
+      >
+        Plant a new word
+      </div>
       <div style={{ color: C.inkSoft, fontSize: 13.5, marginBottom: 18 }}>
         Type into either field — the other fills in automatically.
       </div>
 
-      <Field label="Turkish word" hint={fetchingSide === "tr" ? "translating…" : null}>
+      <Field
+        label="Turkish word"
+        hint={fetchingSide === "tr" ? "translating…" : null}
+      >
         <div style={{ display: "flex", gap: 8 }}>
-          <input value={tr} onChange={(e) => handleTrChange(e.target.value)} placeholder="e.g. merhaba" style={inputStyle} />
+          <input
+            value={tr}
+            onChange={(e) => handleTrChange(e.target.value)}
+            placeholder="e.g. merhaba"
+            style={inputStyle}
+          />
           {tr.trim() && (
-            <button className="lale-btn" onClick={() => speak(tr.trim())} title="Hear pronunciation" style={{ ...btnStyle(C.paperDeep, C.cobalt, false), padding: "0 12px" }}>
+            <button
+              className="lale-btn"
+              onClick={() => speak(tr.trim())}
+              title="Hear pronunciation"
+              style={{
+                ...btnStyle(C.paperDeep, C.cobalt, false),
+                padding: "0 12px",
+              }}
+            >
               <Volume2 size={16} />
             </button>
           )}
         </div>
       </Field>
 
-      <div style={{ display: "flex", justifyContent: "center", margin: "2px 0" }}>
-        <span style={{ fontSize: 11, color: C.inkSoft, letterSpacing: 1 }}>⇅</span>
+      <div
+        style={{ display: "flex", justifyContent: "center", margin: "2px 0" }}
+      >
+        <span style={{ fontSize: 11, color: C.inkSoft, letterSpacing: 1 }}>
+          ⇅
+        </span>
       </div>
 
-      <Field label="Meaning (English)" hint={fetchingSide === "en" ? "translating…" : null}>
-        <input value={en} onChange={(e) => handleEnChange(e.target.value)} placeholder="e.g. hello" style={inputStyle} />
+      <Field
+        label="Meaning (English)"
+        hint={fetchingSide === "en" ? "translating…" : null}
+      >
+        <input
+          value={en}
+          onChange={(e) => handleEnChange(e.target.value)}
+          placeholder="e.g. hello"
+          style={inputStyle}
+        />
       </Field>
 
       <Field label="Picture (emoji, optional)">
         <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
           <input
             value={emoji}
-            onChange={(e) => { setEmoji(e.target.value); setEmojiManual(true); }}
+            onChange={(e) => {
+              setEmoji(e.target.value);
+              setEmojiManual(true);
+            }}
             placeholder="🙂 paste or type an emoji"
             style={{ ...inputStyle, width: 160 }}
           />
@@ -681,12 +1009,29 @@ function AddWord({ words, updateWords, onAdded }) {
       </Field>
 
       <Field label="Notes (optional)">
-        <input value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="example sentence, gender, root, etc." style={inputStyle} />
+        <input
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+          placeholder="example sentence, gender, root, etc."
+          style={inputStyle}
+        />
       </Field>
 
-      {err && <div style={{ color: C.coral, fontSize: 13, marginBottom: 10 }}>{err}</div>}
+      {err && (
+        <div style={{ color: C.coral, fontSize: 13, marginBottom: 10 }}>
+          {err}
+        </div>
+      )}
 
-      <button className="lale-btn" onClick={handleSave} style={{ ...btnStyle(C.turquoise, "#04292A", false), width: "100%", marginTop: 6 }}>
+      <button
+        className="lale-btn"
+        onClick={handleSave}
+        style={{
+          ...btnStyle(C.turquoise, "#04292A", false),
+          width: "100%",
+          marginTop: 6,
+        }}
+      >
         <Plus size={16} style={{ marginRight: 6, verticalAlign: -3 }} />
         Add to garden
       </button>
@@ -694,30 +1039,14 @@ function AddWord({ words, updateWords, onAdded }) {
   );
 }
 
-function Field({ label, hint, children }) {
-  return (
-    <div style={{ marginBottom: 12 }}>
-      <label style={{ display: "flex", justifyContent: "space-between", fontSize: 12.5, color: C.inkSoft, marginBottom: 5, fontWeight: 600 }}>
-        <span>{label}</span>
-        {hint && <span style={{ color: C.turquoise, fontWeight: 500, fontStyle: "italic" }}>{hint}</span>}
-      </label>
-      {children}
-    </div>
-  );
-}
-
-const inputStyle = {
-  width: "100%",
-  padding: "10px 12px",
-  borderRadius: 8,
-  border: `1px solid ${C.line}`,
-  fontSize: 14.5,
-  outline: "none",
-  boxSizing: "border-box",
-  background: "#fff",
-};
-
-function Review({ words, queueWords, reviewMode, updateWords, registerPractice, onDone }) {
+function Review({
+  words,
+  queueWords,
+  reviewMode,
+  updateWords,
+  registerPractice,
+  onDone,
+}) {
   const [queue] = useState(() => shuffle(queueWords));
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
@@ -726,7 +1055,9 @@ function Review({ words, queueWords, reviewMode, updateWords, registerPractice, 
   const grade = (correct) => {
     const next = words.map((w) => {
       if (w.id !== current.id) return w;
-      const level = correct ? Math.min(5, w.level + 1) : Math.max(0, w.level - 1);
+      const level = correct
+        ? Math.min(5, w.level + 1)
+        : Math.max(0, w.level - 1);
       const days = INTERVAL_DAYS[level];
       return {
         ...w,
@@ -758,34 +1089,77 @@ function Review({ words, queueWords, reviewMode, updateWords, registerPractice, 
 
   if (!current) {
     const emptyText =
-      reviewMode === "mastered" ? "No mastered words yet — get a few to level 5 first."
-      : reviewMode === "all" ? "Nothing planted yet — add some words first."
-      : "Nothing due right now. Come back later, or plant more words.";
+      reviewMode === "mastered"
+        ? "No mastered words yet — get a few to level 5 first."
+        : reviewMode === "all"
+          ? "Nothing planted yet — add some words first."
+          : "Nothing due right now. Come back later, or plant more words.";
     return <EmptyNote text={emptyText} />;
   }
 
   return (
     <div style={{ maxWidth: 460, margin: "0 auto", textAlign: "center" }}>
-      <button onClick={onDone} className="lale-btn" style={{ ...btnStyle("transparent", C.inkSoft, false), padding: "4px 0", marginBottom: 4 }}>
+      <button
+        onClick={onDone}
+        className="lale-btn"
+        style={{
+          ...btnStyle("transparent", C.inkSoft, false),
+          padding: "4px 0",
+          marginBottom: 4,
+        }}
+      >
         <ChevronLeft size={15} style={{ verticalAlign: -2 }} /> Back
       </button>
       {reviewMode !== "due" && (
-        <div style={{ fontSize: 11.5, color: C.turquoise, fontWeight: 700, marginBottom: 6 }}>
-          {reviewMode === "mastered" ? "🌷 Revisiting mastered words" : "🌷 Practicing all words"}
+        <div
+          style={{
+            fontSize: 11.5,
+            color: C.turquoise,
+            fontWeight: 700,
+            marginBottom: 6,
+          }}
+        >
+          {reviewMode === "mastered"
+            ? "🌷 Revisiting mastered words"
+            : "🌷 Practicing all words"}
         </div>
       )}
 
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 10 }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 14,
+          marginBottom: 10,
+        }}
+      >
         <button
           onClick={goBack}
           disabled={idx === 0}
           className="lale-btn"
-          style={{ ...btnStyle("transparent", C.inkSoft, idx === 0), padding: "2px 4px", fontWeight: 600, fontSize: 13 }}
+          style={{
+            ...btnStyle("transparent", C.inkSoft, idx === 0),
+            padding: "2px 4px",
+            fontWeight: 600,
+            fontSize: 13,
+          }}
         >
           ← Previous
         </button>
-        <span style={{ fontSize: 12.5, color: C.inkSoft }}>{idx + 1} of {queue.length}</span>
-        <button onClick={skip} className="lale-btn" style={{ ...btnStyle("transparent", C.inkSoft, false), padding: "2px 4px", fontWeight: 600, fontSize: 13 }}>
+        <span style={{ fontSize: 12.5, color: C.inkSoft }}>
+          {idx + 1} of {queue.length}
+        </span>
+        <button
+          onClick={skip}
+          className="lale-btn"
+          style={{
+            ...btnStyle("transparent", C.inkSoft, false),
+            padding: "2px 4px",
+            fontWeight: 600,
+            fontSize: 13,
+          }}
+        >
           Skip →
         </button>
       </div>
@@ -809,77 +1183,155 @@ function Review({ words, queueWords, reviewMode, updateWords, registerPractice, 
         }}
       >
         <TulipGlyph level={current.level} size={40} />
-        {!flipped && current.emoji && <div style={{ fontSize: 40 }}>{current.emoji}</div>}
+        {!flipped && current.emoji && (
+          <div style={{ fontSize: 40 }}>{current.emoji}</div>
+        )}
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div className="lale-display" style={{ fontSize: 28, fontWeight: 600 }}>
+          <div
+            className="lale-display"
+            style={{ fontSize: 28, fontWeight: 600 }}
+          >
             {flipped ? current.en : current.tr}
           </div>
-          <SpeakButton text={flipped ? current.en : current.tr} lang={flipped ? "en-US" : "tr-TR"} size={19} />
+          <SpeakButton
+            text={flipped ? current.en : current.tr}
+            lang={flipped ? "en-US" : "tr-TR"}
+            size={19}
+          />
         </div>
-        {flipped && current.notes && <div style={{ fontSize: 13, color: C.inkSoft }}>{current.notes}</div>}
-        {!flipped && <div style={{ fontSize: 12.5, color: C.inkSoft }}>Tap to reveal meaning</div>}
+        {flipped && current.notes && (
+          <div style={{ fontSize: 13, color: C.inkSoft }}>{current.notes}</div>
+        )}
+        {!flipped && (
+          <div style={{ fontSize: 12.5, color: C.inkSoft }}>
+            Tap to reveal meaning
+          </div>
+        )}
       </div>
 
       {flipped ? (
         <div style={{ display: "flex", gap: 12, marginTop: 20 }}>
-          <button className="lale-btn" onClick={() => grade(false)} style={{ ...btnStyle("#F6E4DF", C.coral, false), flex: 1 }}>
-            <X size={16} style={{ marginRight: 6, verticalAlign: -3 }} /> Didn't know it
+          <button
+            className="lale-btn"
+            onClick={() => grade(false)}
+            style={{ ...btnStyle("#F6E4DF", C.coral, false), flex: 1 }}
+          >
+            <X size={16} style={{ marginRight: 6, verticalAlign: -3 }} /> Didn't
+            know it
           </button>
-          <button className="lale-btn" onClick={() => grade(true)} style={{ ...btnStyle(C.turquoise, "#04292A", false), flex: 1 }}>
-            <Check size={16} style={{ marginRight: 6, verticalAlign: -3 }} /> Knew it
+          <button
+            className="lale-btn"
+            onClick={() => grade(true)}
+            style={{ ...btnStyle(C.turquoise, "#04292A", false), flex: 1 }}
+          >
+            <Check size={16} style={{ marginRight: 6, verticalAlign: -3 }} />{" "}
+            Knew it
           </button>
         </div>
       ) : (
-        <div style={{ marginTop: 20, fontSize: 12.5, color: C.inkSoft }}>Be honest — it only helps your schedule.</div>
+        <div style={{ marginTop: 20, fontSize: 12.5, color: C.inkSoft }}>
+          Be honest — it only helps your schedule.
+        </div>
       )}
     </div>
   );
 }
 
-function shuffle(arr) {
-  const a = arr.slice();
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
 function LibraryView({ words, updateWords }) {
   const [q, setQ] = useState("");
   const filtered = words.filter(
-    (w) => w.tr.toLowerCase().includes(q.toLowerCase()) || w.en.toLowerCase().includes(q.toLowerCase())
+    (w) =>
+      w.tr.toLowerCase().includes(q.toLowerCase()) ||
+      w.en.toLowerCase().includes(q.toLowerCase()),
   );
 
   const remove = (id) => updateWords(words.filter((w) => w.id !== id));
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14, flexWrap: "wrap", gap: 10 }}>
-        <div className="lale-display" style={{ fontSize: 20, fontWeight: 600 }}>Library ({words.length})</div>
-        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search…" style={{ ...inputStyle, width: 200 }} />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: 14,
+          flexWrap: "wrap",
+          gap: 10,
+        }}
+      >
+        <div className="lale-display" style={{ fontSize: 20, fontWeight: 600 }}>
+          Library ({words.length})
+        </div>
+        <input
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+          placeholder="Search…"
+          style={{ ...inputStyle, width: 200 }}
+        />
       </div>
       {filtered.length === 0 ? (
-        <EmptyNote text={words.length === 0 ? "No words planted yet." : "No matches."} />
+        <EmptyNote
+          text={words.length === 0 ? "No words planted yet." : "No matches."}
+        />
       ) : (
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           {filtered
             .slice()
             .sort((a, b) => b.createdAt - a.createdAt)
             .map((w) => (
-              <div key={w.id} style={{ display: "flex", alignItems: "center", gap: 14, background: "#fff", border: `1px solid ${C.line}`, borderRadius: 10, padding: "10px 14px" }}>
+              <div
+                key={w.id}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 14,
+                  background: "#fff",
+                  border: `1px solid ${C.line}`,
+                  borderRadius: 10,
+                  padding: "10px 14px",
+                }}
+              >
                 <TulipGlyph level={w.level} size={34} />
                 {w.emoji && <span style={{ fontSize: 22 }}>{w.emoji}</span>}
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontWeight: 700, fontSize: 14.5, display: "flex", alignItems: "center", gap: 4 }}>
-                    {w.tr} <SpeakButton text={w.tr} size={14} /> <span style={{ color: C.inkSoft, fontWeight: 500 }}>→ {w.en}</span>
+                  <div
+                    style={{
+                      fontWeight: 700,
+                      fontSize: 14.5,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 4,
+                    }}
+                  >
+                    {w.tr} <SpeakButton text={w.tr} size={14} />{" "}
+                    <span style={{ color: C.inkSoft, fontWeight: 500 }}>
+                      → {w.en}
+                    </span>
                   </div>
-                  {w.notes && <div style={{ fontSize: 12, color: C.inkSoft }}>{w.notes}</div>}
+                  {w.notes && (
+                    <div style={{ fontSize: 12, color: C.inkSoft }}>
+                      {w.notes}
+                    </div>
+                  )}
                 </div>
-                <div style={{ fontSize: 11.5, color: C.inkSoft, whiteSpace: "nowrap" }}>
+                <div
+                  style={{
+                    fontSize: 11.5,
+                    color: C.inkSoft,
+                    whiteSpace: "nowrap",
+                  }}
+                >
                   {w.correct}✓ / {w.wrong}✗
                 </div>
-                <button className="lale-btn" onClick={() => remove(w.id)} title="Remove" style={{ ...btnStyle("transparent", C.coral, false), padding: 6 }}>
+                <button
+                  className="lale-btn"
+                  onClick={() => remove(w.id)}
+                  title="Remove"
+                  style={{
+                    ...btnStyle("transparent", C.coral, false),
+                    padding: 6,
+                  }}
+                >
                   <X size={15} />
                 </button>
               </div>
@@ -901,7 +1353,18 @@ function VocabularyView({ words, updateWords, registerPractice }) {
     if (inGarden(tr)) return;
     setJustAdded((prev) => new Set(prev).add(tr));
     updateWords([
-      { id: uid(), tr, en, notes: "", emoji: EMOJI[tr] || "", level: 0, nextReview: Date.now(), correct: 0, wrong: 0, createdAt: Date.now() },
+      {
+        id: uid(),
+        tr,
+        en,
+        notes: "",
+        emoji: EMOJI[tr] || "",
+        level: 0,
+        nextReview: Date.now(),
+        correct: 0,
+        wrong: 0,
+        createdAt: Date.now(),
+      },
       ...words,
     ]);
   };
@@ -923,16 +1386,53 @@ function VocabularyView({ words, updateWords, registerPractice }) {
     const meta = CATEGORY_META[category];
     return (
       <div>
-        <button onClick={() => { setView("grid"); setCategory(null); }} className="lale-btn" style={{ ...btnStyle("transparent", C.inkSoft, false), padding: "4px 0", marginBottom: 6 }}>
+        <button
+          onClick={() => {
+            setView("grid");
+            setCategory(null);
+          }}
+          className="lale-btn"
+          style={{
+            ...btnStyle("transparent", C.inkSoft, false),
+            padding: "4px 0",
+            marginBottom: 6,
+          }}
+        >
           <ChevronLeft size={15} style={{ verticalAlign: -2 }} /> Categories
         </button>
-        <div style={{ color: C.turquoise, fontSize: 12.5, fontWeight: 700, marginBottom: 10 }}>
-          🌷 {words.length} word{words.length === 1 ? "" : "s"} currently in your garden
+        <div
+          style={{
+            color: C.turquoise,
+            fontSize: 12.5,
+            fontWeight: 700,
+            marginBottom: 10,
+          }}
+        >
+          🌷 {words.length} word{words.length === 1 ? "" : "s"} currently in
+          your garden
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 16 }}>
-          <div className="lale-display" style={{ fontSize: 21, fontWeight: 600 }}>{meta.label} ({items.length})</div>
-          <button className="lale-btn" onClick={() => setView("practice")} style={btnStyle(C.turquoise, "#04292A", false)}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: 12,
+            marginBottom: 16,
+          }}
+        >
+          <div
+            className="lale-display"
+            style={{ fontSize: 21, fontWeight: 600 }}
+          >
+            {meta.label} ({items.length})
+          </div>
+          <button
+            className="lale-btn"
+            onClick={() => setView("practice")}
+            style={btnStyle(C.turquoise, "#04292A", false)}
+          >
             <BookOpen size={16} style={{ marginRight: 6, verticalAlign: -3 }} />
             Practice this category
           </button>
@@ -940,19 +1440,45 @@ function VocabularyView({ words, updateWords, registerPractice }) {
 
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           {items.map(([tr, en]) => (
-            <div key={tr} style={{ display: "flex", alignItems: "center", gap: 14, background: "#fff", border: `1px solid ${C.line}`, borderRadius: 10, padding: "10px 14px" }}>
+            <div
+              key={tr}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 14,
+                background: "#fff",
+                border: `1px solid ${C.line}`,
+                borderRadius: 10,
+                padding: "10px 14px",
+              }}
+            >
               {EMOJI[tr] && <span style={{ fontSize: 22 }}>{EMOJI[tr]}</span>}
-              <div style={{ flex: 1, minWidth: 0, display: "flex", alignItems: "center", gap: 4, flexWrap: "wrap" }}>
+              <div
+                style={{
+                  flex: 1,
+                  minWidth: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 4,
+                  flexWrap: "wrap",
+                }}
+              >
                 <span style={{ fontWeight: 700, fontSize: 14.5 }}>{tr}</span>
                 <SpeakButton text={tr} size={14} />
-                <span style={{ color: C.inkSoft, fontWeight: 500 }}>→ {en}</span>
+                <span style={{ color: C.inkSoft, fontWeight: 500 }}>
+                  → {en}
+                </span>
               </div>
               <button
                 className="lale-btn"
                 onClick={() => addToGarden(tr, en)}
                 disabled={inGarden(tr)}
                 style={{
-                  ...btnStyle(inGarden(tr) ? "#DCEFEC" : C.paperDeep, inGarden(tr) ? C.turquoise : C.cobalt, false),
+                  ...btnStyle(
+                    inGarden(tr) ? "#DCEFEC" : C.paperDeep,
+                    inGarden(tr) ? C.turquoise : C.cobalt,
+                    false,
+                  ),
                   fontSize: 12,
                   padding: "6px 10px",
                   cursor: inGarden(tr) ? "default" : "pointer",
@@ -970,14 +1496,33 @@ function VocabularyView({ words, updateWords, registerPractice }) {
 
   return (
     <div>
-      <div className="lale-display" style={{ fontSize: 22, fontWeight: 600, marginBottom: 4 }}>Vocabulary</div>
+      <div
+        className="lale-display"
+        style={{ fontSize: 22, fontWeight: 600, marginBottom: 4 }}
+      >
+        Vocabulary
+      </div>
       <div style={{ color: C.inkSoft, fontSize: 13.5, marginBottom: 6 }}>
         Browse words by category, then practice them as flashcards.
       </div>
-      <div style={{ color: C.turquoise, fontSize: 12.5, fontWeight: 700, marginBottom: 18 }}>
-        🌷 {words.length} word{words.length === 1 ? "" : "s"} currently in your garden
+      <div
+        style={{
+          color: C.turquoise,
+          fontSize: 12.5,
+          fontWeight: 700,
+          marginBottom: 18,
+        }}
+      >
+        🌷 {words.length} word{words.length === 1 ? "" : "s"} currently in your
+        garden
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(170px, 1fr))", gap: 12 }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(170px, 1fr))",
+          gap: 12,
+        }}
+      >
         {CATEGORY_ORDER.map((cat) => {
           const meta = CATEGORY_META[cat];
           const Icon = meta.icon;
@@ -985,7 +1530,10 @@ function VocabularyView({ words, updateWords, registerPractice }) {
             <button
               key={cat}
               className="lale-btn"
-              onClick={() => { setCategory(cat); setView("list"); }}
+              onClick={() => {
+                setCategory(cat);
+                setView("list");
+              }}
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -999,12 +1547,26 @@ function VocabularyView({ words, updateWords, registerPractice }) {
                 cursor: "pointer",
               }}
             >
-              <div style={{ width: 36, height: 36, borderRadius: 9, background: C.paperDeep, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div
+                style={{
+                  width: 36,
+                  height: 36,
+                  borderRadius: 9,
+                  background: C.paperDeep,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
                 <Icon size={18} color={C.cobalt} />
               </div>
               <div>
-                <div style={{ fontWeight: 700, fontSize: 14.5 }}>{meta.label}</div>
-                <div style={{ fontSize: 12, color: C.inkSoft }}>{CATEGORIES[cat].length} words</div>
+                <div style={{ fontWeight: 700, fontSize: 14.5 }}>
+                  {meta.label}
+                </div>
+                <div style={{ fontSize: 12, color: C.inkSoft }}>
+                  {CATEGORIES[cat].length} words
+                </div>
               </div>
             </button>
           );
@@ -1014,7 +1576,13 @@ function VocabularyView({ words, updateWords, registerPractice }) {
   );
 }
 
-function CategoryPractice({ category, words, updateWords, registerPractice, onExit }) {
+function CategoryPractice({
+  category,
+  words,
+  updateWords,
+  registerPractice,
+  onExit,
+}) {
   const meta = CATEGORY_META[category];
   const [deck] = useState(() => shuffle(CATEGORIES[category]));
   const [idx, setIdx] = useState(0);
@@ -1032,26 +1600,44 @@ function CategoryPractice({ category, words, updateWords, registerPractice, onEx
     const existing = words.find((w) => w.tr === wTr);
     let next;
     if (existing) {
-      const level = knew ? Math.min(5, existing.level + 1) : Math.max(0, existing.level - 1);
+      const level = knew
+        ? Math.min(5, existing.level + 1)
+        : Math.max(0, existing.level - 1);
       const days = INTERVAL_DAYS[level];
       next = words.map((w) =>
         w.id === existing.id
-          ? { ...w, level, nextReview: Date.now() + days * DAY_MS, correct: w.correct + (knew ? 1 : 0), wrong: w.wrong + (knew ? 0 : 1) }
-          : w
+          ? {
+              ...w,
+              level,
+              nextReview: Date.now() + days * DAY_MS,
+              correct: w.correct + (knew ? 1 : 0),
+              wrong: w.wrong + (knew ? 0 : 1),
+            }
+          : w,
       );
     } else {
       const level = knew ? 1 : 0;
       const days = INTERVAL_DAYS[level];
       const newWord = {
-        id: uid(), tr: wTr, en: wEn, notes: "", emoji: EMOJI[wTr] || "",
-        level, nextReview: Date.now() + days * DAY_MS,
-        correct: knew ? 1 : 0, wrong: knew ? 0 : 1, createdAt: Date.now(),
+        id: uid(),
+        tr: wTr,
+        en: wEn,
+        notes: "",
+        emoji: EMOJI[wTr] || "",
+        level,
+        nextReview: Date.now() + days * DAY_MS,
+        correct: knew ? 1 : 0,
+        wrong: knew ? 0 : 1,
+        createdAt: Date.now(),
       };
       next = [newWord, ...words];
     }
     updateWords(next);
     registerPractice();
-    setScore((s) => ({ known: s.known + (knew ? 1 : 0), unknown: s.unknown + (knew ? 0 : 1) }));
+    setScore((s) => ({
+      known: s.known + (knew ? 1 : 0),
+      unknown: s.unknown + (knew ? 0 : 1),
+    }));
     setFlipped(false);
     if (idx + 1 < deck.length) setIdx(idx + 1);
     else setFinished(true);
@@ -1082,7 +1668,10 @@ function CategoryPractice({ category, words, updateWords, registerPractice, onEx
     return (
       <div style={{ maxWidth: 420, margin: "0 auto", textAlign: "center" }}>
         <TulipGlyph level={score.known >= score.unknown ? 5 : 3} size={56} />
-        <div className="lale-display" style={{ fontSize: 24, fontWeight: 600, marginTop: 10 }}>
+        <div
+          className="lale-display"
+          style={{ fontSize: 24, fontWeight: 600, marginTop: 10 }}
+        >
           {meta.label} — done
         </div>
         <div style={{ color: C.inkSoft, marginTop: 6, fontSize: 14.5 }}>
@@ -1092,11 +1681,22 @@ function CategoryPractice({ category, words, updateWords, registerPractice, onEx
           Saved to your garden — check the Garden or Review tab.
         </div>
         <div style={{ display: "flex", gap: 12, marginTop: 22 }}>
-          <button className="lale-btn" onClick={restart} style={{ ...btnStyle(C.paperDeep, C.cobalt, false), flex: 1 }}>
-            <RotateCcw size={15} style={{ marginRight: 6, verticalAlign: -3 }} />
+          <button
+            className="lale-btn"
+            onClick={restart}
+            style={{ ...btnStyle(C.paperDeep, C.cobalt, false), flex: 1 }}
+          >
+            <RotateCcw
+              size={15}
+              style={{ marginRight: 6, verticalAlign: -3 }}
+            />
             Practice again
           </button>
-          <button className="lale-btn" onClick={onExit} style={{ ...btnStyle(C.turquoise, "#04292A", false), flex: 1 }}>
+          <button
+            className="lale-btn"
+            onClick={onExit}
+            style={{ ...btnStyle(C.turquoise, "#04292A", false), flex: 1 }}
+          >
             Back to list
           </button>
         </div>
@@ -1108,21 +1708,53 @@ function CategoryPractice({ category, words, updateWords, registerPractice, onEx
 
   return (
     <div style={{ maxWidth: 460, margin: "0 auto", textAlign: "center" }}>
-      <button onClick={onExit} className="lale-btn" style={{ ...btnStyle("transparent", C.inkSoft, false), padding: "4px 0", marginBottom: 10 }}>
+      <button
+        onClick={onExit}
+        className="lale-btn"
+        style={{
+          ...btnStyle("transparent", C.inkSoft, false),
+          padding: "4px 0",
+          marginBottom: 10,
+        }}
+      >
         <ChevronLeft size={15} style={{ verticalAlign: -2 }} /> {meta.label}
       </button>
 
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 10 }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 14,
+          marginBottom: 10,
+        }}
+      >
         <button
           onClick={goBack}
           disabled={idx === 0}
           className="lale-btn"
-          style={{ ...btnStyle("transparent", C.inkSoft, idx === 0), padding: "2px 4px", fontWeight: 600, fontSize: 13 }}
+          style={{
+            ...btnStyle("transparent", C.inkSoft, idx === 0),
+            padding: "2px 4px",
+            fontWeight: 600,
+            fontSize: 13,
+          }}
         >
           ← Previous
         </button>
-        <span style={{ fontSize: 12.5, color: C.inkSoft }}>{idx + 1} of {deck.length}</span>
-        <button onClick={skip} className="lale-btn" style={{ ...btnStyle("transparent", C.inkSoft, false), padding: "2px 4px", fontWeight: 600, fontSize: 13 }}>
+        <span style={{ fontSize: 12.5, color: C.inkSoft }}>
+          {idx + 1} of {deck.length}
+        </span>
+        <button
+          onClick={skip}
+          className="lale-btn"
+          style={{
+            ...btnStyle("transparent", C.inkSoft, false),
+            padding: "2px 4px",
+            fontWeight: 600,
+            fontSize: 13,
+          }}
+        >
           Skip →
         </button>
       </div>
@@ -1145,25 +1777,52 @@ function CategoryPractice({ category, words, updateWords, registerPractice, onEx
           boxShadow: "0 6px 20px rgba(19,42,51,0.06)",
         }}
       >
-        {!flipped && EMOJI[tr] && <div style={{ fontSize: 40 }}>{EMOJI[tr]}</div>}
+        {!flipped && EMOJI[tr] && (
+          <div style={{ fontSize: 40 }}>{EMOJI[tr]}</div>
+        )}
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div className="lale-display" style={{ fontSize: 28, fontWeight: 600 }}>{flipped ? en : tr}</div>
-          <SpeakButton text={flipped ? en : tr} lang={flipped ? "en-US" : "tr-TR"} size={19} />
+          <div
+            className="lale-display"
+            style={{ fontSize: 28, fontWeight: 600 }}
+          >
+            {flipped ? en : tr}
+          </div>
+          <SpeakButton
+            text={flipped ? en : tr}
+            lang={flipped ? "en-US" : "tr-TR"}
+            size={19}
+          />
         </div>
-        {!flipped && <div style={{ fontSize: 12.5, color: C.inkSoft }}>Tap to reveal meaning</div>}
+        {!flipped && (
+          <div style={{ fontSize: 12.5, color: C.inkSoft }}>
+            Tap to reveal meaning
+          </div>
+        )}
       </div>
 
       {flipped ? (
         <div style={{ display: "flex", gap: 12, marginTop: 20 }}>
-          <button className="lale-btn" onClick={() => grade(false)} style={{ ...btnStyle("#F6E4DF", C.coral, false), flex: 1 }}>
-            <X size={16} style={{ marginRight: 6, verticalAlign: -3 }} /> Didn't know it
+          <button
+            className="lale-btn"
+            onClick={() => grade(false)}
+            style={{ ...btnStyle("#F6E4DF", C.coral, false), flex: 1 }}
+          >
+            <X size={16} style={{ marginRight: 6, verticalAlign: -3 }} /> Didn't
+            know it
           </button>
-          <button className="lale-btn" onClick={() => grade(true)} style={{ ...btnStyle(C.turquoise, "#04292A", false), flex: 1 }}>
-            <Check size={16} style={{ marginRight: 6, verticalAlign: -3 }} /> Knew it
+          <button
+            className="lale-btn"
+            onClick={() => grade(true)}
+            style={{ ...btnStyle(C.turquoise, "#04292A", false), flex: 1 }}
+          >
+            <Check size={16} style={{ marginRight: 6, verticalAlign: -3 }} />{" "}
+            Knew it
           </button>
         </div>
       ) : (
-        <div style={{ marginTop: 20, fontSize: 12.5, color: C.inkSoft }}>Be honest — it's just for you.</div>
+        <div style={{ marginTop: 20, fontSize: 12.5, color: C.inkSoft }}>
+          Be honest — it's just for you.
+        </div>
       )}
     </div>
   );

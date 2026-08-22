@@ -41,3 +41,25 @@ npm run preview
   that list, it also tries a free online API
   ([MyMemory](https://mymemory.translated.net/)) as a bonus — this requires
   an internet connection and may occasionally be rate-limited.
+
+## Project structure
+
+The app is organized by responsibility:
+
+- `src/App.jsx` owns application state and composes the Garden, Vocabulary,
+  Review, Add Word, and Library screens.
+- `src/components/common.jsx` contains reusable visual primitives such as the
+  tulip mastery glyph, pronunciation button, empty state, and form field.
+- `src/services/storage.js` owns localStorage persistence for words and streak
+  metadata.
+- `src/services/speech.js` owns browser text-to-speech behavior.
+- `src/services/translation.js` owns dictionary lookup and the optional
+  MyMemory fallback.
+- `src/utils/flashcards.js` owns spaced-repetition intervals, date constants,
+  IDs, and deck shuffling.
+- `src/styles/theme.js` owns shared design tokens and common inline style
+  helpers.
+
+The next natural UI split, as the app grows, is to move the screen components
+from `App.jsx` into `src/components/screens/` and move the embedded catalog
+into `src/data/vocabulary.js`.
