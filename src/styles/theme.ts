@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 export const C = {
   paper: "#F2F6F5",
   paperDeep: "#E7EFEE",
@@ -11,7 +13,7 @@ export const C = {
   line: "#CFDBDA",
 };
 
-export const inputStyle = {
+export const inputStyle: CSSProperties = {
   width: "100%",
   padding: "10px 12px",
   borderRadius: 8,
@@ -22,7 +24,11 @@ export const inputStyle = {
   background: "#fff",
 };
 
-export function btnStyle(bg, fg, disabled) {
+export function btnStyle(
+  bg: string,
+  fg: string,
+  disabled: boolean,
+): CSSProperties {
   return {
     border: "none",
     cursor: disabled ? "not-allowed" : "pointer",

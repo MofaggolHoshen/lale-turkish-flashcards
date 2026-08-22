@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type ReactNode } from "react";
 import { Volume2 } from "lucide-react";
 import { C } from "../styles/theme";
 import { speak } from "../services/speech";
@@ -138,7 +138,15 @@ export function EmptyNote({ text }) {
   );
 }
 
-export function Field({ label, hint, children }) {
+export function Field({
+  label,
+  hint,
+  children,
+}: {
+  label: string;
+  hint?: string | null;
+  children: ReactNode;
+}) {
   return (
     <div style={{ marginBottom: 12 }}>
       <label

@@ -1,590 +1,16 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import {
-  Plus,
-  Check,
-  X,
-  Sparkles,
-  Flame,
-  ChevronLeft,
-  Library,
-  LayoutGrid,
-  RotateCcw,
-  MessageCircle,
-  UserRound,
-  HelpCircle,
-  Hash,
-  CalendarDays,
-  Clock,
-  Users,
-  Palette,
-  Utensils,
-  Home as HomeIcon,
-  Trees,
-  PawPrint,
-  Zap,
-  SlidersHorizontal,
-  BookOpen,
-  Volume2,
+  Plus, Check, X, Sparkles, Flame, ChevronLeft, Library, LayoutGrid, RotateCcw, BookOpen, Volume2,
 } from "lucide-react";
-import { C, btnStyle, inputStyle } from "./styles/theme";
-import {
-  SpeakButton,
-  TulipGlyph,
-  StatChip,
-  EmptyNote,
-  Field,
-} from "./components/common";
-import {
-  loadWords,
-  persistWords,
-  loadMeta,
-  persistMeta,
-} from "./services/storage";
-import { speak } from "./services/speech";
-import { translateWord as lookupTranslation } from "./services/translation";
-import { DAY_MS, INTERVAL_DAYS, uid, shuffle } from "./utils/flashcards";
+import { C, btnStyle, inputStyle } from "../styles/theme";
+import { SpeakButton, TulipGlyph, StatChip, EmptyNote, Field } from "./common";
+import { speak } from "../services/speech";
+import { translateWord as lookupTranslation } from "../services/translation";
+import { DAY_MS, INTERVAL_DAYS, uid, shuffle } from "../utils/flashcards";
+import { CATEGORY_META, CATEGORY_ORDER, CATEGORIES, EMOJI, EN_TR, TR_EN } from "../data/vocabulary";
+import type { Category, Meta, ReviewMode, Tab, Word } from "../types";
 
-// Shared UI, browser services, and flashcard rules live in their own modules.
-
-// ---------- Built-in mini dictionary, organized by category ----------
-// Works with no network call at all, so lookups and vocabulary browsing are
-// instant and don't depend on external APIs being reachable.
-const CATEGORY_ORDER = [
-  "greetings",
-  "pronouns",
-  "questions",
-  "numbers",
-  "days",
-  "time",
-  "family",
-  "colors",
-  "food",
-  "household",
-  "nature",
-  "animals",
-  "verbs",
-  "adjectives",
-];
-
-const CATEGORY_META = {
-  greetings: { label: "Greetings & Basics", icon: MessageCircle },
-  pronouns: { label: "Pronouns", icon: UserRound },
-  questions: { label: "Question Words", icon: HelpCircle },
-  numbers: { label: "Numbers", icon: Hash },
-  days: { label: "Days of the Week", icon: CalendarDays },
-  time: { label: "Time", icon: Clock },
-  family: { label: "Family", icon: Users },
-  colors: { label: "Colors", icon: Palette },
-  food: { label: "Food & Drink", icon: Utensils },
-  household: { label: "Household", icon: HomeIcon },
-  nature: { label: "Nature", icon: Trees },
-  animals: { label: "Animals", icon: PawPrint },
-  verbs: { label: "Common Verbs", icon: Zap },
-  adjectives: { label: "Adjectives", icon: SlidersHorizontal },
-};
-
-const CATEGORIES = {
-  greetings: [
-    ["merhaba", "hello"],
-    ["selam", "hi"],
-    ["günaydın", "good morning"],
-    ["iyi geceler", "good night"],
-    ["iyi akşamlar", "good evening"],
-    ["hoşça kal", "goodbye"],
-    ["güle güle", "goodbye"],
-    ["teşekkürler", "thank you"],
-    ["teşekkür ederim", "thank you"],
-    ["rica ederim", "you're welcome"],
-    ["lütfen", "please"],
-    ["evet", "yes"],
-    ["hayır", "no"],
-    ["tamam", "okay"],
-    ["affedersiniz", "excuse me"],
-    ["özür dilerim", "sorry"],
-    ["nasılsın", "how are you"],
-    ["iyiyim", "I'm fine"],
-    ["hoşgeldin", "welcome"],
-    ["hoşbulduk", "glad to be here"],
-  ],
-  pronouns: [
-    ["ben", "I"],
-    ["sen", "you"],
-    ["o", "he/she/it"],
-    ["biz", "we"],
-    ["siz", "you (formal)"],
-    ["onlar", "they"],
-  ],
-  questions: [
-    ["ne", "what"],
-    ["kim", "who"],
-    ["nerede", "where"],
-    ["ne zaman", "when"],
-    ["neden", "why"],
-    ["nasıl", "how"],
-    ["hangi", "which"],
-    ["kaç", "how many"],
-  ],
-  numbers: [
-    ["bir", "one"],
-    ["iki", "two"],
-    ["üç", "three"],
-    ["dört", "four"],
-    ["beş", "five"],
-    ["altı", "six"],
-    ["yedi", "seven"],
-    ["sekiz", "eight"],
-    ["dokuz", "nine"],
-    ["on", "ten"],
-    ["yirmi", "twenty"],
-    ["otuz", "thirty"],
-    ["yüz", "hundred"],
-    ["bin", "thousand"],
-  ],
-  days: [
-    ["pazartesi", "Monday"],
-    ["salı", "Tuesday"],
-    ["çarşamba", "Wednesday"],
-    ["perşembe", "Thursday"],
-    ["cuma", "Friday"],
-    ["cumartesi", "Saturday"],
-    ["pazar", "Sunday"],
-  ],
-  time: [
-    ["gün", "day"],
-    ["hafta", "week"],
-    ["ay", "month"],
-    ["yıl", "year"],
-    ["saat", "hour"],
-    ["dakika", "minute"],
-    ["bugün", "today"],
-    ["yarın", "tomorrow"],
-    ["dün", "yesterday"],
-    ["şimdi", "now"],
-    ["sonra", "later"],
-  ],
-  family: [
-    ["anne", "mother"],
-    ["baba", "father"],
-    ["kardeş", "sibling"],
-    ["abla", "older sister"],
-    ["ağabey", "older brother"],
-    ["kız", "girl"],
-    ["oğul", "son"],
-    ["çocuk", "child"],
-    ["aile", "family"],
-    ["arkadaş", "friend"],
-    ["eş", "spouse"],
-  ],
-  colors: [
-    ["kırmızı", "red"],
-    ["mavi", "blue"],
-    ["yeşil", "green"],
-    ["sarı", "yellow"],
-    ["siyah", "black"],
-    ["beyaz", "white"],
-    ["turuncu", "orange"],
-    ["mor", "purple"],
-    ["pembe", "pink"],
-    ["kahverengi", "brown"],
-    ["gri", "gray"],
-  ],
-  food: [
-    ["su", "water"],
-    ["ekmek", "bread"],
-    ["süt", "milk"],
-    ["çay", "tea"],
-    ["kahve", "coffee"],
-    ["et", "meat"],
-    ["tavuk", "chicken"],
-    ["peynir", "cheese"],
-    ["yumurta", "egg"],
-    ["elma", "apple"],
-    ["muz", "banana"],
-    ["portakal", "orange (fruit)"],
-    ["şeker", "sugar"],
-    ["tuz", "salt"],
-    ["yemek", "food"],
-    ["kahvaltı", "breakfast"],
-    ["akşam yemeği", "dinner"],
-  ],
-  household: [
-    ["ev", "house"],
-    ["oda", "room"],
-    ["mutfak", "kitchen"],
-    ["banyo", "bathroom"],
-    ["yatak", "bed"],
-    ["masa", "table"],
-    ["sandalye", "chair"],
-    ["kapı", "door"],
-    ["pencere", "window"],
-    ["dolap", "cabinet"],
-    ["buzdolabı", "refrigerator"],
-    ["fırın", "oven"],
-    ["lamba", "lamp"],
-    ["ayna", "mirror"],
-    ["halı", "carpet"],
-  ],
-  nature: [
-    ["güneş", "sun"],
-    ["yıldız", "star"],
-    ["gökyüzü", "sky"],
-    ["deniz", "sea"],
-    ["dağ", "mountain"],
-    ["ağaç", "tree"],
-    ["çiçek", "flower"],
-    ["lale", "tulip"],
-    ["yol", "road"],
-    ["şehir", "city"],
-    ["ülke", "country"],
-  ],
-  animals: [
-    ["köpek", "dog"],
-    ["kedi", "cat"],
-    ["kuş", "bird"],
-    ["balık", "fish"],
-  ],
-  verbs: [
-    ["gitmek", "to go"],
-    ["gelmek", "to come"],
-    ["içmek", "to drink"],
-    ["görmek", "to see"],
-    ["bilmek", "to know"],
-    ["istemek", "to want"],
-    ["sevmek", "to love"],
-    ["yapmak", "to do"],
-    ["almak", "to take"],
-    ["vermek", "to give"],
-    ["konuşmak", "to speak"],
-    ["anlamak", "to understand"],
-    ["okumak", "to read"],
-    ["yazmak", "to write"],
-    ["duymak", "to hear"],
-    ["uyumak", "to sleep"],
-    ["çalışmak", "to work"],
-    ["oynamak", "to play"],
-    ["düşünmek", "to think"],
-    ["beklemek", "to wait"],
-    ["başlamak", "to start"],
-    ["bitirmek", "to finish"],
-  ],
-  adjectives: [
-    ["büyük", "big"],
-    ["küçük", "small"],
-    ["iyi", "good"],
-    ["kötü", "bad"],
-    ["güzel", "beautiful"],
-    ["çirkin", "ugly"],
-    ["yeni", "new"],
-    ["eski", "old"],
-    ["sıcak", "hot"],
-    ["soğuk", "cold"],
-    ["hızlı", "fast"],
-    ["yavaş", "slow"],
-    ["mutlu", "happy"],
-    ["üzgün", "sad"],
-    ["yorgun", "tired"],
-    ["zengin", "rich"],
-    ["fakir", "poor"],
-    ["uzun", "long"],
-    ["kısa", "short"],
-    ["kolay", "easy"],
-    ["zor", "difficult"],
-  ],
-};
-
-const TR_EN = {};
-const EN_TR = {};
-CATEGORY_ORDER.forEach((cat) => {
-  CATEGORIES[cat].forEach(([t, e]) => {
-    TR_EN[t] = e;
-    const key = e.toLowerCase();
-    if (!EN_TR[key]) EN_TR[key] = t;
-  });
-});
-
-// A lightweight stand-in for "pictures": emoji for concrete, visual words.
-// Abstract words (pronouns, question words, most verbs/adjectives) are left
-// out on purpose — a picture wouldn't add much there.
-const EMOJI = {
-  merhaba: "👋",
-  selam: "👋",
-  günaydın: "🌅",
-  "iyi geceler": "🌙",
-  "iyi akşamlar": "🌆",
-  "hoşça kal": "👋",
-  "güle güle": "👋",
-  teşekkürler: "🙏",
-  "teşekkür ederim": "🙏",
-  evet: "✅",
-  hayır: "❌",
-  tamam: "👍",
-  hoşgeldin: "🎉",
-  hoşbulduk: "🎉",
-  bir: "1️⃣",
-  iki: "2️⃣",
-  üç: "3️⃣",
-  dört: "4️⃣",
-  beş: "5️⃣",
-  altı: "6️⃣",
-  yedi: "7️⃣",
-  sekiz: "8️⃣",
-  dokuz: "9️⃣",
-  on: "🔟",
-  yüz: "💯",
-  pazartesi: "📅",
-  salı: "📅",
-  çarşamba: "📅",
-  perşembe: "📅",
-  cuma: "📅",
-  cumartesi: "📅",
-  pazar: "📅",
-  gün: "☀️",
-  hafta: "🗓️",
-  ay: "🌙",
-  yıl: "📆",
-  saat: "⏰",
-  dakika: "⏱️",
-  bugün: "📍",
-  yarın: "➡️",
-  dün: "⬅️",
-  anne: "👩",
-  baba: "👨",
-  kardeş: "👫",
-  abla: "👧",
-  ağabey: "👦",
-  kız: "👧",
-  oğul: "👦",
-  çocuk: "🧒",
-  aile: "👪",
-  arkadaş: "🧑‍🤝‍🧑",
-  eş: "💑",
-  kırmızı: "🔴",
-  mavi: "🔵",
-  yeşil: "🟢",
-  sarı: "🟡",
-  siyah: "⚫",
-  beyaz: "⚪",
-  turuncu: "🟠",
-  mor: "🟣",
-  pembe: "🌸",
-  kahverengi: "🟤",
-  gri: "⬜",
-  su: "💧",
-  ekmek: "🍞",
-  süt: "🥛",
-  çay: "🍵",
-  kahve: "☕",
-  et: "🥩",
-  tavuk: "🍗",
-  peynir: "🧀",
-  yumurta: "🥚",
-  elma: "🍎",
-  muz: "🍌",
-  portakal: "🍊",
-  şeker: "🍬",
-  tuz: "🧂",
-  yemek: "🍽️",
-  kahvaltı: "🍳",
-  "akşam yemeği": "🍽️",
-  ev: "🏠",
-  oda: "🚪",
-  mutfak: "🍳",
-  banyo: "🛁",
-  yatak: "🛏️",
-  masa: "🍽️",
-  sandalye: "🪑",
-  kapı: "🚪",
-  pencere: "🪟",
-  dolap: "🗄️",
-  buzdolabı: "🧊",
-  fırın: "🔥",
-  lamba: "💡",
-  ayna: "🪞",
-  halı: "🟫",
-  güneş: "☀️",
-  yıldız: "⭐",
-  gökyüzü: "☁️",
-  deniz: "🌊",
-  dağ: "⛰️",
-  ağaç: "🌳",
-  çiçek: "🌸",
-  lale: "🌷",
-  yol: "🛣️",
-  şehir: "🏙️",
-  ülke: "🌍",
-  köpek: "🐶",
-  kedi: "🐱",
-  kuş: "🐦",
-  balık: "🐟",
-  büyük: "🐘",
-  küçük: "🐜",
-  iyi: "👍",
-  kötü: "👎",
-  güzel: "😍",
-  çirkin: "😬",
-  yeni: "🆕",
-  eski: "🕰️",
-  sıcak: "🔥",
-  soğuk: "❄️",
-  hızlı: "⚡",
-  yavaş: "🐌",
-  mutlu: "😊",
-  üzgün: "😢",
-  yorgun: "😴",
-  zengin: "💰",
-  kısa: "✂️",
-};
-
-const todayStr = () => new Date().toDateString();
-
-export default function App() {
-  const [words, setWords] = useState(null);
-  const [meta, setMeta] = useState(null);
-  const [tab, setTab] = useState("home");
-  const [loading, setLoading] = useState(true);
-  const [reviewMode, setReviewMode] = useState("due"); // 'due' | 'mastered' | 'all'
-
-  useEffect(() => {
-    (async () => {
-      const [w, m] = await Promise.all([loadWords(), loadMeta()]);
-      setWords(w);
-      setMeta(m);
-      setLoading(false);
-    })();
-  }, []);
-
-  const updateWords = useCallback((next) => {
-    setWords(next);
-    persistWords(next);
-  }, []);
-
-  const updateMeta = useCallback((next) => {
-    setMeta(next);
-    persistMeta(next);
-  }, []);
-
-  const registerPractice = useCallback(() => {
-    setMeta((prev) => {
-      const base = prev || { streak: 0, lastDay: null, best: 0 };
-      if (base.lastDay === todayStr()) return base;
-      const yesterday = new Date(Date.now() - DAY_MS).toDateString();
-      const streak = base.lastDay === yesterday ? base.streak + 1 : 1;
-      const next = {
-        streak,
-        lastDay: todayStr(),
-        best: Math.max(base.best, streak),
-      };
-      persistMeta(next);
-      return next;
-    });
-  }, []);
-
-  if (loading) {
-    return (
-      <div
-        style={{
-          minHeight: 480,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: C.paper,
-          fontFamily: "Inter, sans-serif",
-          color: C.inkSoft,
-        }}
-      >
-        Loading your garden…
-      </div>
-    );
-  }
-
-  const now = Date.now();
-  const due = words.filter((w) => w.nextReview <= now);
-  const masteredWords = words.filter((w) => w.level >= 5);
-  const mastered = masteredWords.length;
-  const queueWords =
-    reviewMode === "mastered"
-      ? masteredWords
-      : reviewMode === "all"
-        ? words
-        : due;
-  const goReview = (mode) => {
-    setReviewMode(mode);
-    setTab("review");
-  };
-
-  return (
-    <div
-      style={{
-        fontFamily: "'Inter', system-ui, sans-serif",
-        background: C.paper,
-        minHeight: 560,
-        color: C.ink,
-        borderRadius: 16,
-        overflow: "hidden",
-        border: `1px solid ${C.line}`,
-      }}
-    >
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap');
-        .lale-display { font-family: 'Spectral', serif; }
-        .lale-btn { transition: transform .12s ease, box-shadow .12s ease; }
-        .lale-btn:active { transform: scale(0.97); }
-        .lale-card { transition: transform .35s cubic-bezier(.2,.8,.2,1); transform-style: preserve-3d; }
-        .lale-nav-scroll { -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-        .lale-nav-scroll::-webkit-scrollbar { display: none; }
-        @media (max-width: 480px) {
-          .lale-content { padding: 16px 14px 24px !important; }
-        }
-      `}</style>
-
-      <Header tab={tab} setTab={setTab} dueCount={due.length} />
-
-      <div className="lale-content" style={{ padding: "24px 28px 32px" }}>
-        {tab === "home" && (
-          <Home
-            words={words}
-            due={due}
-            mastered={mastered}
-            meta={meta}
-            goReview={() => goReview("due")}
-            goReviewMastered={() => goReview("mastered")}
-            goReviewAll={() => goReview("all")}
-            goAdd={() => setTab("add")}
-          />
-        )}
-        {tab === "vocab" && (
-          <VocabularyView
-            words={words}
-            updateWords={updateWords}
-            registerPractice={registerPractice}
-          />
-        )}
-        {tab === "review" && (
-          <Review
-            words={words}
-            queueWords={queueWords}
-            reviewMode={reviewMode}
-            updateWords={updateWords}
-            registerPractice={registerPractice}
-            onDone={() => setTab("home")}
-          />
-        )}
-        {tab === "add" && (
-          <AddWord
-            words={words}
-            updateWords={updateWords}
-            onAdded={() => setTab("home")}
-          />
-        )}
-        {tab === "library" && (
-          <LibraryView words={words} updateWords={updateWords} />
-        )}
-      </div>
-    </div>
-  );
-}
-
-function Header({ tab, setTab, dueCount }) {
+export function Header({ tab, setTab, dueCount }) {
   const items = [
     { id: "home", label: "Garden" },
     { id: "vocab", label: "Vocabulary" },
@@ -656,7 +82,7 @@ function Header({ tab, setTab, dueCount }) {
   );
 }
 
-function Home({
+export function Home({
   words,
   due,
   mastered,
@@ -851,7 +277,7 @@ function Home({
   );
 }
 
-function AddWord({ words, updateWords, onAdded }) {
+export function AddWord({ words, updateWords, onAdded }) {
   const [tr, setTr] = useState("");
   const [en, setEn] = useState("");
   const [notes, setNotes] = useState("");
@@ -1039,7 +465,7 @@ function AddWord({ words, updateWords, onAdded }) {
   );
 }
 
-function Review({
+export function Review({
   words,
   queueWords,
   reviewMode,
@@ -1047,7 +473,7 @@ function Review({
   registerPractice,
   onDone,
 }) {
-  const [queue] = useState(() => shuffle(queueWords));
+  const [queue] = useState<Word[]>(() => shuffle(queueWords));
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const current = queue[idx];
@@ -1237,7 +663,7 @@ function Review({
   );
 }
 
-function LibraryView({ words, updateWords }) {
+export function LibraryView({ words, updateWords }) {
   const [q, setQ] = useState("");
   const filtered = words.filter(
     (w) =>
@@ -1343,7 +769,7 @@ function LibraryView({ words, updateWords }) {
 }
 
 // ---------- Vocabulary: browse categories, then practice with flashcards ----------
-function VocabularyView({ words, updateWords, registerPractice }) {
+export function VocabularyView({ words, updateWords, registerPractice }) {
   const [view, setView] = useState("grid"); // grid | list | practice
   const [category, setCategory] = useState(null);
   const [justAdded, setJustAdded] = useState(() => new Set()); // instant feedback, independent of prop refresh timing
@@ -1584,7 +1010,7 @@ function CategoryPractice({
   onExit,
 }) {
   const meta = CATEGORY_META[category];
-  const [deck] = useState(() => shuffle(CATEGORIES[category]));
+  const [deck] = useState<[string, string][]>(() => shuffle(CATEGORIES[category]));
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [score, setScore] = useState({ known: 0, unknown: 0 });
