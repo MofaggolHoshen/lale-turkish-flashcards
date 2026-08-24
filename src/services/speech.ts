@@ -1,4 +1,4 @@
-export function speak(text, lang = "tr-TR") {
+export function speak(text: string, lang = "tr-TR"): void {
   try {
     if (!("speechSynthesis" in window)) return;
     window.speechSynthesis.cancel();

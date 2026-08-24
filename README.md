@@ -36,6 +36,22 @@ npm run preview
 - **Pronunciation**: uses the browser's built-in text-to-speech
   (`speechSynthesis`) with a Turkish voice if your OS/browser has one
   installed. No API key or network call needed.
+- **Install a Turkish voice**:
+  - **Windows 10/11**: Go to **Settings → Time & Language → Language & region
+    → Add a language**, search for **Türkçe (Turkish)**, and install it. Make
+    sure to select **Speech** under the optional features so the TTS voice pack
+    downloads, not just the keyboard or display language.
+  - **macOS**: Go to **System Settings → Accessibility → Spoken Content →
+    System Voice → Manage Voices/Customize**, find a Turkish voice such as
+    **Yelda**, and download it. Chrome, Safari, and Edge will pick it up
+    automatically.
+  - **iPhone/iPad (iOS)**: Go to **Settings → Accessibility → Spoken Content
+    → Voices**, find Turkish in the language list, and download a voice.
+    Safari and other browsers on iOS will then have it available.
+  - **Android**: Go to **Settings → System** (or **General management**) →
+    **Languages & input → Text-to-speech output**, tap the gear next to your
+    engine (usually Google), choose **Install voice data**, then select and
+    download Turkish.
 - **Translation lookups**: the Add Word screen first checks a small
   built-in Turkish↔English dictionary (instant, offline). For words outside
   that list, it also tries a free online API
@@ -46,20 +62,14 @@ npm run preview
 
 The app is organized by responsibility:
 
-- `src/App.jsx` owns application state and composes the Garden, Vocabulary,
   Review, Add Word, and Library screens.
-- `src/components/common.jsx` contains reusable visual primitives such as the
   tulip mastery glyph, pronunciation button, empty state, and form field.
-- `src/services/storage.js` owns localStorage persistence for words and streak
   metadata.
-- `src/services/speech.js` owns browser text-to-speech behavior.
-- `src/services/translation.js` owns dictionary lookup and the optional
   MyMemory fallback.
-- `src/utils/flashcards.js` owns spaced-repetition intervals, date constants,
   IDs, and deck shuffling.
-- `src/styles/theme.js` owns shared design tokens and common inline style
   helpers.
 
 The next natural UI split, as the app grows, is to move the screen components
-from `App.jsx` into `src/components/screens/` and move the embedded catalog
-into `src/data/vocabulary.js`.
+from `App.tsx` into `src/components/screens/` and move the embedded catalog
+into `src/data/vocabulary.ts`.
+  IDs, and deck shuffling.
