@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { C } from "./styles/theme";
-import { loadWords, persistWords, loadMeta, persistMeta } from "./services/storage";
+import { loadWords, loadMeta } from "./services/dataReader";
+import { persistWords, persistMeta } from "./services/dataWriter";
 import { DAY_MS } from "./utils/flashcards";
 import { Header } from "./components/Header";
 import { Home } from "./components/Home";
