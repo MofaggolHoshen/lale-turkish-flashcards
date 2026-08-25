@@ -313,7 +313,17 @@ FakesAssemblies/
 
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
+
+# dependencies
 node_modules/
+
+# build output
+dist/
+
+# environment files
+.env
+.env.local
+.env.*.local
 
 # Visual Studio 6 build log
 *.plg
