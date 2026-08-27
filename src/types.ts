@@ -29,6 +29,7 @@ export type Category =
   | "family"
   | "colors"
   | "food"
+  | "vegetables"
   | "household"
   | "nature"
   | "animals"
