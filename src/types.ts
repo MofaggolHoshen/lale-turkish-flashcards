@@ -27,6 +27,7 @@ export type Category =
   | "days"
   | "time"
   | "family"
+  | "body"
   | "colors"
   | "food"
   | "vegetables"
