@@ -1,6 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
+  push:
+    branches:
+      - main
+      - Vegetable
   workflow_dispatch:
 
 permissions:
@@ -23,7 +27,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: npm run build -- --base=/lale-turkish-flashcards/
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
