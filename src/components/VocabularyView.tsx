@@ -250,15 +250,15 @@ function CategoryPractice({
 }) {
   const meta = CATEGORY_META[category];
   const [deck] = useState<[string, string][]>(() => shuffle(CATEGORIES[category]));
-  const [idx, setIdx] = useState(0);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [score, setScore] = useState({ known: 0, unknown: 0 });
   const [finished, setFinished] = useState(false);
 
-  const current = deck[idx];
+  const [currentTurkish, currentEnglish] = deck[currentCardIndex];
 
   const grade = (knew) => {
-    const [wTr, wEn] = current;
+    const [wTr, wEn] = [currentTurkish, currentEnglish];
     const existing = words.find((w) => w.tr === wTr);
     let next;
     if (existing) {
@@ -301,12 +301,12 @@ function CategoryPractice({
       unknown: s.unknown + (knew ? 0 : 1),
     }));
     setFlipped(false);
-    if (idx + 1 < deck.length) setIdx(idx + 1);
+    if (currentCardIndex + 1 < deck.length) setCurrentCardIndex(currentCardIndex + 1);
     else setFinished(true);
   };
 
   const restart = () => {
-    setIdx(0);
+    setCurrentCardIndex(0);
     setFlipped(false);
     setScore({ known: 0, unknown: 0 });
     setFinished(false);
@@ -314,14 +314,14 @@ function CategoryPractice({
 
   const next = () => {
     setFlipped(false);
-    if (idx + 1 < deck.length) setIdx(idx + 1);
+    if (currentCardIndex + 1 < deck.length) setCurrentCardIndex(currentCardIndex + 1);
     else setFinished(true);
   };
 
   const goBack = () => {
-    if (idx === 0) return;
+    if (currentCardIndex === 0) return;
     setFlipped(false);
-    setIdx(idx - 1);
+    setCurrentCardIndex(currentCardIndex - 1);
   };
 
   if (finished) {
@@ -364,7 +364,7 @@ function CategoryPractice({
     );
   }
 
-  const [tr, en] = current;
+  const [tr, en] = [currentTurkish, currentEnglish];
 
   return (
     <div style={{ maxWidth: 460, margin: "0 auto", textAlign: "center" }}>
@@ -391,10 +391,10 @@ function CategoryPractice({
       >
         <button
           onClick={goBack}
-          disabled={idx === 0}
+          disabled={currentCardIndex === 0}
           className="lale-btn"
           style={{
-            ...btnStyle("transparent", C.inkSoft, idx === 0),
+            ...btnStyle("transparent", C.inkSoft, currentCardIndex === 0),
             padding: "2px 4px",
             fontWeight: 600,
             fontSize: 13,
@@ -403,7 +403,7 @@ function CategoryPractice({
           ← Previous
         </button>
         <span style={{ fontSize: 12.5, color: C.inkSoft }}>
-          {idx + 1} of {deck.length}
+          {currentCardIndex + 1} of {deck.length}
         </span>
         <button
           onClick={next}
