@@ -22,9 +22,9 @@ export function Review({
   onDone: () => void;
 }) {
   const [queue] = useState<Word[]>(() => shuffle(queueWords));
-  const [idx, setIdx] = useState(0);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
-  const current = queue[idx];
+  const current = queue[currentCardIndex];
 
   const grade = (correct) => {
     const next = words.map((w) => {
@@ -44,20 +44,20 @@ export function Review({
     updateWords(next);
     registerPractice();
     setFlipped(false);
-    if (idx + 1 < queue.length) setIdx(idx + 1);
+    if (currentCardIndex + 1 < queue.length) setCurrentCardIndex(currentCardIndex + 1);
     else onDone();
   };
 
-  const next = () => {
+  const skip = () => {
     setFlipped(false);
-    if (idx + 1 < queue.length) setIdx(idx + 1);
+    if (currentCardIndex + 1 < queue.length) setCurrentCardIndex(currentCardIndex + 1);
     else onDone();
   };
 
   const goBack = () => {
-    if (idx === 0) return;
+    if (currentCardIndex === 0) return;
     setFlipped(false);
-    setIdx(idx - 1);
+    setCurrentCardIndex(currentCardIndex - 1);
   };
 
   if (!current) {
@@ -109,10 +109,10 @@ export function Review({
       >
         <button
           onClick={goBack}
-          disabled={idx === 0}
+          disabled={currentCardIndex === 0}
           className="lale-btn"
           style={{
-            ...btnStyle("transparent", C.inkSoft, idx === 0),
+            ...btnStyle("transparent", C.inkSoft, currentCardIndex === 0),
             padding: "2px 4px",
             fontWeight: 600,
             fontSize: 13,
@@ -121,10 +121,10 @@ export function Review({
           ← Previous
         </button>
         <span style={{ fontSize: 12.5, color: C.inkSoft }}>
-          {idx + 1} of {queue.length}
+          {currentCardIndex + 1} of {queue.length}
         </span>
         <button
-          onClick={next}
+          onClick={skip}
           className="lale-btn"
           style={{
             ...btnStyle("transparent", C.inkSoft, false),
@@ -145,7 +145,7 @@ export function Review({
         emoji={current.emoji}
         flipped={flipped}
         onToggle={() => setFlipped((f) => !f)}
-        onSwipeLeft={next}
+        onSwipeLeft={skip}
         onSwipeRight={goBack}
         hintText={flipped ? current.notes : "Tap to reveal meaning"}
         tulipLevel={current.level}
