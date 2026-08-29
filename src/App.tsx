@@ -156,6 +156,33 @@ export default function App() {
           <LibraryView words={words} updateWords={updateWords} />
         )}
       </div>
+
+      <footer
+        style={{
+          borderTop: `1px solid ${C.line}`,
+          background: "rgba(255,255,255,0.6)",
+          color: C.inkSoft,
+          fontSize: 12.5,
+          padding: "12px 20px",
+          textAlign: "center",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 8,
+          flexWrap: "wrap",
+        }}
+      >
+        <span>© 2026 Mofaggol Hoshen</span>
+        <span>•</span>
+        <a
+          href="https://github.com/MofaggolHoshen"
+          target="_blank"
+          rel="noreferrer"
+          style={{ color: C.cobalt, textDecoration: "none", fontWeight: 700 }}
+        >
+          github.com/MofaggolHoshen
+        </a>
+      </footer>
     </div>
   );
 }
