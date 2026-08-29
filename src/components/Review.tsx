@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Check, X, ChevronLeft } from "lucide-react";
 import { C, btnStyle } from "../styles/theme";
-import { SpeakButton } from "./SpeakButton";
-import { TulipGlyph } from "./TulipGlyph";
 import { EmptyNote } from "./EmptyNote";
+import { FlashcardShell } from "./FlashcardShell";
 import { DAY_MS, INTERVAL_DAYS, shuffle } from "../utils/flashcards";
 import type { Word } from "../types";
 
@@ -49,7 +48,7 @@ export function Review({
     else onDone();
   };
 
-  const skip = () => {
+  const next = () => {
     setFlipped(false);
     if (idx + 1 < queue.length) setIdx(idx + 1);
     else onDone();
@@ -125,7 +124,7 @@ export function Review({
           {idx + 1} of {queue.length}
         </span>
         <button
-          onClick={skip}
+          onClick={next}
           className="lale-btn"
           style={{
             ...btnStyle("transparent", C.inkSoft, false),
@@ -134,54 +133,23 @@ export function Review({
             fontSize: 13,
           }}
         >
-          Skip →
+          Next →
         </button>
       </div>
 
-      <div
-        className="lale-card"
-        onClick={() => setFlipped((f) => !f)}
-        style={{
-          cursor: "pointer",
-          background: "#fff",
-          border: `1px solid ${C.line}`,
-          borderRadius: 16,
-          padding: "48px 24px",
-          minHeight: 180,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 14,
-          boxShadow: "0 6px 20px rgba(19,42,51,0.06)",
-        }}
-      >
-        <TulipGlyph level={current.level} size={40} />
-        {!flipped && current.emoji && (
-          <div style={{ fontSize: 40 }}>{current.emoji}</div>
-        )}
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div
-            className="lale-display"
-            style={{ fontSize: 28, fontWeight: 600 }}
-          >
-            {flipped ? current.en : current.tr}
-          </div>
-          <SpeakButton
-            text={flipped ? current.en : current.tr}
-            lang={flipped ? "en-US" : "tr-TR"}
-            size={19}
-          />
-        </div>
-        {flipped && current.notes && (
-          <div style={{ fontSize: 13, color: C.inkSoft }}>{current.notes}</div>
-        )}
-        {!flipped && (
-          <div style={{ fontSize: 12.5, color: C.inkSoft }}>
-            Tap to reveal meaning
-          </div>
-        )}
-      </div>
+      <FlashcardShell
+        frontText={current.tr}
+        backText={current.en}
+        frontLang="tr-TR"
+        backLang="en-US"
+        emoji={current.emoji}
+        flipped={flipped}
+        onToggle={() => setFlipped((f) => !f)}
+        onSwipeLeft={next}
+        onSwipeRight={goBack}
+        hintText={flipped ? current.notes : "Tap to reveal meaning"}
+        tulipLevel={current.level}
+      />
 
       {flipped ? (
         <div style={{ display: "flex", gap: 12, marginTop: 20 }}>
