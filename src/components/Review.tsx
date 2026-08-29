@@ -138,16 +138,16 @@ export function Review({
       </div>
 
       <FlashcardShell
-        frontText={current.tr}
-        backText={current.en}
-        frontLang="tr-TR"
-        backLang="en-US"
+        frontText={current.en}
+        backText={current.tr}
+        frontLang="en-US"
+        backLang="tr-TR"
         emoji={current.emoji}
         flipped={flipped}
         onToggle={() => setFlipped((f) => !f)}
         onSwipeLeft={skip}
         onSwipeRight={goBack}
-        hintText={flipped ? current.notes : "Tap to reveal meaning"}
+        hintText={flipped ? current.notes : "Tap to reveal Turkish"}
         tulipLevel={current.level}
       />
 

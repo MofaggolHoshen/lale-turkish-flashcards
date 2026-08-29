@@ -420,16 +420,16 @@ function CategoryPractice({
       </div>
 
       <FlashcardShell
-        frontText={tr}
-        backText={en}
-        frontLang="tr-TR"
-        backLang="en-US"
+        frontText={en}
+        backText={tr}
+        frontLang="en-US"
+        backLang="tr-TR"
         emoji={EMOJI[tr]}
         flipped={flipped}
         onToggle={() => setFlipped((f) => !f)}
         onSwipeLeft={next}
         onSwipeRight={goBack}
-        hintText="Tap to reveal meaning"
+        hintText="Tap to reveal Turkish"
       />
 
       {flipped ? (

@@ -100,8 +100,8 @@ export function FlashcardShell({
     >
       {/* Mastery indicator: Tulip glyph showing card level */}
       {tulipLevel !== undefined && <TulipGlyph level={tulipLevel} size={40} />}
-      {/* Emoji shown only on English (back) side */}
-      {flipped && emoji && <div style={{ fontSize: 40 }}>{emoji}</div>}
+      {/* Emoji shown only on the English front side */}
+      {!flipped && emoji && <div style={{ fontSize: 40 }}>{emoji}</div>}
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
         <div className="lale-display" style={{ fontSize: 28, fontWeight: 600 }}>
           {flipped ? backText : frontText}
