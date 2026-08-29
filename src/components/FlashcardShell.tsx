@@ -64,7 +64,12 @@ export function FlashcardShell({
   return (
     <div
       className="lale-card"
-      onClick={() => {
+      onClick={(e) => {
+        // Ignore clicks on buttons and interactive elements
+        const target = e.target as HTMLElement;
+        if (target.tagName === "BUTTON" || target.closest("button")) {
+          return;
+        }
         // Only toggle flip if user clicked, not swiped
         if (!isActiveSwipe) onToggle();
       }}
