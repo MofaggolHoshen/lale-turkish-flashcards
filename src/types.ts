@@ -21,6 +21,7 @@ export type Tab = "home" | "vocab" | "review" | "add" | "library";
 export type ReviewMode = "due" | "mastered" | "all";
 export type Category =
   | "greetings"
+  | "daily_expressions"
   | "pronouns"
   | "questions"
   | "numbers"
