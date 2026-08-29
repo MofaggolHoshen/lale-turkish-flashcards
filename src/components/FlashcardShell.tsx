@@ -86,9 +86,11 @@ export function FlashcardShell({
         gap: 14,
         boxShadow: "0 6px 20px rgba(19,42,51,0.06)",
         userSelect: "none",
+        touchAction: "none", // Prevent default touch behaviors (scroll, zoom)
+        willChange: "transform", // GPU acceleration hint
         // Apply drag animation: horizontal translation + slight rotation
         transform: `translateX(${swipeDistance}px) rotate(${swipeDistance / 20}deg)`,
-        transition: pointerStartX.current === null ? "transform .25s ease" : "none",
+        transition: pointerStartX.current === null ? "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)" : "none",
       }}
     >
       {/* Mastery indicator: Tulip glyph showing card level */}
