@@ -1,11 +1,33 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { BookOpen, CheckCircle2, ChevronRight, Sparkles } from "lucide-react";
 import { C } from "../styles/theme";
 import { grammarLevels } from "../data/grammar";
 
+const STORAGE_KEY = "lale-grammar-progress-v1";
+
+type LessonProgress = {
+  completed: boolean;
+  score: number;
+  total: number;
+};
+
 export function GrammarView() {
   const [selectedLevel, setSelectedLevel] = useState("A");
   const [selectedLesson, setSelectedLesson] = useState("a1-unit-1");
+  const [progress, setProgress] = useState<Record<string, LessonProgress>>(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch {
+      return {};
+    }
+  });
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [submitted, setSubmitted] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  }, [progress]);
 
   const level = useMemo(
     () => grammarLevels.find((item) => item.id === selectedLevel) ?? grammarLevels[0],
@@ -15,6 +37,45 @@ export function GrammarView() {
   const lesson = useMemo(
     () => level.lessons.find((item) => item.id === selectedLesson) ?? level.lessons[0],
     [level, selectedLesson],
+  );
+
+  const lessonProgress = progress[lesson.id] ?? { completed: false, score: 0, total: lesson.quiz.length };
+
+  const correctCount = lesson.quiz.reduce((count, question, index) => {
+    const answer = answers[`${lesson.id}-${index}`];
+    return count + (answer && answer === question.answer ? 1 : 0);
+  }, 0);
+
+  const handleAnswer = (questionIndex: number, value: string) => {
+    setAnswers((prev) => ({ ...prev, [`${lesson.id}-${questionIndex}`]: value }));
+    setSubmitted((prev) => ({ ...prev, [`${lesson.id}-${questionIndex}`]: false }));
+  };
+
+  const handleSubmitQuiz = () => {
+    const nextScore = lesson.quiz.reduce((count, question, index) => {
+      const answer = answers[`${lesson.id}-${index}`];
+      return count + (answer && answer === question.answer ? 1 : 0);
+    }, 0);
+
+    setProgress((prev) => ({
+      ...prev,
+      [lesson.id]: {
+        completed: nextScore === lesson.quiz.length,
+        score: nextScore,
+        total: lesson.quiz.length,
+      },
+    }));
+
+    setSubmitted((prev) => ({
+      ...prev,
+      [lesson.id]: true,
+    }));
+  };
+
+  const progressPercent = Math.round(
+    ((lessonProgress.completed ? lessonProgress.total : Math.min(correctCount, lessonProgress.total)) /
+      Math.max(1, lessonProgress.total)) *
+      100,
   );
 
   return (
@@ -188,6 +249,46 @@ export function GrammarView() {
               {lesson.summary}
             </div>
 
+            <div
+              style={{
+                display: "flex",
+                gap: 12,
+                marginBottom: 18,
+                flexWrap: "wrap",
+              }}
+            >
+              <div
+                style={{
+                  background: C.paperDeep,
+                  border: `1px solid ${C.line}`,
+                  borderRadius: 10,
+                  padding: "10px 12px",
+                  minWidth: 150,
+                }}
+              >
+                <div style={{ fontSize: 11.5, color: C.inkSoft, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                  Progress
+                </div>
+                <div style={{ fontWeight: 800, fontSize: 18, color: C.cobalt }}>{progressPercent}%</div>
+              </div>
+              <div
+                style={{
+                  background: lessonProgress.completed ? "#EAF7EF" : C.paperDeep,
+                  border: `1px solid ${lessonProgress.completed ? "#82C89A" : C.line}`,
+                  borderRadius: 10,
+                  padding: "10px 12px",
+                  minWidth: 160,
+                }}
+              >
+                <div style={{ fontSize: 11.5, color: C.inkSoft, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                  Lesson status
+                </div>
+                <div style={{ fontWeight: 800, fontSize: 15, color: lessonProgress.completed ? "#1D7A4E" : C.ink }}>
+                  {lessonProgress.completed ? "Completed" : "In progress"}
+                </div>
+              </div>
+            </div>
+
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               {lesson.sections.map((section) => (
                 <section
@@ -254,6 +355,121 @@ export function GrammarView() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+            </div>
+
+            <div
+              style={{
+                marginTop: 22,
+                background: "#F3FAF9",
+                border: `1px solid ${C.line}`,
+                borderRadius: 12,
+                padding: 16,
+              }}
+            >
+              <div style={{ fontWeight: 800, fontSize: 14, marginBottom: 12 }}>Quick quiz</div>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                {lesson.quiz.map((question, index) => {
+                  const selected = answers[`${lesson.id}-${index}`];
+                  const isCorrect = selected === question.answer;
+                  const showResult = submitted[lesson.id] || selected;
+
+                  return (
+                    <div
+                      key={`${lesson.id}-${question.prompt}`}
+                      style={{
+                        background: "#fff",
+                        border: `1px solid ${C.line}`,
+                        borderRadius: 10,
+                        padding: 12,
+                      }}
+                    >
+                      <div style={{ fontWeight: 700, marginBottom: 8 }}>{index + 1}. {question.prompt}</div>
+                      <div style={{ display: "grid", gap: 8 }}>
+                        {question.options.map((option) => {
+                          const active = selected === option;
+                          const isAnswer = question.answer === option;
+                          const reveal = showResult && isAnswer;
+                          const wrong = showResult && active && !isAnswer;
+
+                          return (
+                            <button
+                              key={option}
+                              onClick={() => handleAnswer(index, option)}
+                              style={{
+                                textAlign: "left",
+                                borderRadius: 8,
+                                border: reveal
+                                  ? "1px solid #48A66B"
+                                  : wrong
+                                    ? "1px solid #D2492F"
+                                    : active
+                                      ? `1px solid ${C.cobalt}`
+                                      : `1px solid ${C.line}`,
+                                background: reveal
+                                  ? "#EAF7EF"
+                                  : wrong
+                                    ? "#FCEAE6"
+                                    : active
+                                      ? "#EAF5F4"
+                                      : "#fff",
+                                padding: "8px 10px",
+                                color: C.ink,
+                                fontWeight: 600,
+                                cursor: "pointer",
+                              }}
+                            >
+                              {option}
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      {showResult && (
+                        <div
+                          style={{
+                            marginTop: 8,
+                            fontSize: 12.5,
+                            color: isCorrect ? "#1D7A4E" : C.inkSoft,
+                            fontWeight: 600,
+                          }}
+                        >
+                          {isCorrect ? "Correct." : `Correct answer: ${question.answer}.`} {question.explanation}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: 10,
+                  marginTop: 16,
+                  flexWrap: "wrap",
+                }}
+              >
+                <div style={{ color: C.inkSoft, fontSize: 12.5, fontWeight: 600 }}>
+                  Score: {correctCount}/{lesson.quiz.length}
+                </div>
+                <button
+                  onClick={handleSubmitQuiz}
+                  style={{
+                    border: "none",
+                    background: C.cobalt,
+                    color: "#fff",
+                    padding: "9px 14px",
+                    borderRadius: 9,
+                    fontWeight: 700,
+                    cursor: "pointer",
+                  }}
+                >
+                  {lessonProgress.completed ? "Retake quiz" : "Check answers"}
+                </button>
+              </div>
             </div>
           </div>
         </div>

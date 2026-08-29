@@ -12,12 +12,20 @@ export interface GrammarSection {
   tips?: string[];
 }
 
+export interface GrammarQuizQuestion {
+  prompt: string;
+  options: string[];
+  answer: string;
+  explanation: string;
+}
+
 export interface GrammarLesson {
   id: string;
   title: string;
   summary: string;
   sections: GrammarSection[];
   practice: string[];
+  quiz: GrammarQuizQuestion[];
 }
 
 export interface GrammarLevel {
@@ -117,6 +125,45 @@ export const grammarLevels: GrammarLevel[] = [
           "O öğrenci mi?",
           "Bunlar defter mi?",
         ],
+        quiz: [
+          {
+            prompt: "Which word means 'this' in Turkish?",
+            options: ["Bu", "Şu", "O", "Burası"],
+            answer: "Bu",
+            explanation:
+              "Bu means 'this' and is used for something close to the speaker.",
+          },
+          {
+            prompt: "What does 'Burası neresi?' mean?",
+            options: [
+              "Who is this?",
+              "Where is this place?",
+              "What is that?",
+              "Is this a table?",
+            ],
+            answer: "Where is this place?",
+            explanation: "Neresi means 'where' and Burası means 'this place'.",
+          },
+          {
+            prompt:
+              "Which suffix is used for a yes/no question with a word ending in 'a'?",
+            options: ["mi", "mü", "mı", "mu"],
+            answer: "mı",
+            explanation:
+              "The question suffix follows the last vowel: a/ı → mı.",
+          },
+          {
+            prompt: "How do you say 'Those are books' in Turkish?",
+            options: [
+              "Onlar kitap.",
+              "Şunlar kitap.",
+              "Bu kitaplar.",
+              "O kitap.",
+            ],
+            answer: "Onlar kitap.",
+            explanation: "Onlar means 'those' for things farther away.",
+          },
+        ],
       },
     ],
   },
@@ -139,6 +186,15 @@ export const grammarLevels: GrammarLevel[] = [
           },
         ],
         practice: ["B level exercises will appear here."],
+        quiz: [
+          {
+            prompt: "This level is coming soon.",
+            options: ["True", "False"],
+            answer: "True",
+            explanation:
+              "Intermediate grammar content is planned for the next stage.",
+          },
+        ],
       },
     ],
   },
@@ -166,6 +222,15 @@ export const grammarLevels: GrammarLevel[] = [
           },
         ],
         practice: ["C level exercises will appear here."],
+        quiz: [
+          {
+            prompt: "This level is coming soon.",
+            options: ["True", "False"],
+            answer: "True",
+            explanation:
+              "Advanced grammar content is planned for a later stage.",
+          },
+        ],
       },
     ],
   },
