@@ -9,6 +9,7 @@ import { AddWord } from "./components/AddWord";
 import { Review } from "./components/Review";
 import { LibraryView } from "./components/LibraryView";
 import { VocabularyView } from "./components/VocabularyView";
+import { GrammarView } from "./components/GrammarView";
 import type { Meta, ReviewMode, Tab, Word } from "./types";
 
 const todayStr = () => new Date().toDateString();
@@ -135,6 +136,7 @@ export default function App() {
             registerPractice={registerPractice}
           />
         )}
+        {tab === "grammar" && <GrammarView />}
         {tab === "review" && (
           <Review
             words={words}

@@ -5,6 +5,7 @@ export function Header({ tab, setTab, dueCount }) {
   const items = [
     { id: "home", label: "Garden" },
     { id: "vocab", label: "Vocabulary" },
+    { id: "grammar", label: "Grammar" },
     { id: "review", label: `Review${dueCount ? ` (${dueCount})` : ""}` },
     { id: "add", label: "Add word" },
     { id: "library", label: "Library" },
