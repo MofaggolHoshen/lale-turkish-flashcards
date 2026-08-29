@@ -28,38 +28,45 @@ export function FlashcardShell({
   hintText?: string;
   tulipLevel?: number;
 }) {
-  const [dragX, setDragX] = useState(0);
-  const startX = useRef<number | null>(null);
+  // Swipe gesture tracking
+  const [swipeDistance, setSwipeDistance] = useState(0);
+  const pointerStartX = useRef<number | null>(null);
+  const SWIPE_THRESHOLD = 90; // pixels required to trigger swipe action
+  const SWIPE_INTENT_THRESHOLD = 10; // pixels to distinguish from click
 
-  const resetDrag = () => {
-    startX.current = null;
-    setDragX(0);
+  const resetSwipe = () => {
+    pointerStartX.current = null;
+    setSwipeDistance(0);
   };
 
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    startX.current = e.clientX;
+    pointerStartX.current = e.clientX;
     if (e.pointerType === "mouse" && e.button !== 0) return;
     e.currentTarget.setPointerCapture(e.pointerId);
   };
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (startX.current === null) return;
-    setDragX(e.clientX - startX.current);
+    if (pointerStartX.current === null) return;
+    setSwipeDistance(e.clientX - pointerStartX.current);
   };
 
   const handlePointerUp = () => {
-    if (dragX > 90 && onSwipeRight) onSwipeRight();
-    else if (dragX < -90 && onSwipeLeft) onSwipeLeft();
-    resetDrag();
+    // Swipe right (positive distance) goes to previous card
+    if (swipeDistance > SWIPE_THRESHOLD && onSwipeRight) onSwipeRight();
+    // Swipe left (negative distance) goes to next card
+    else if (swipeDistance < -SWIPE_THRESHOLD && onSwipeLeft) onSwipeLeft();
+    resetSwipe();
   };
 
-  const isSwipeMove = Math.abs(dragX) > 10;
+  // Detect if user is intentionally swiping vs. clicking
+  const isActiveSwipe = Math.abs(swipeDistance) > SWIPE_INTENT_THRESHOLD;
 
   return (
     <div
       className="lale-card"
       onClick={() => {
-        if (!isSwipeMove) onToggle();
+        // Only toggle flip if user clicked, not swiped
+        if (!isActiveSwipe) onToggle();
       }}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
@@ -79,12 +86,15 @@ export function FlashcardShell({
         gap: 14,
         boxShadow: "0 6px 20px rgba(19,42,51,0.06)",
         userSelect: "none",
-        transform: `translateX(${dragX}px) rotate(${dragX / 20}deg)`,
-        transition: startX.current === null ? "transform .25s ease" : "none",
+        // Apply drag animation: horizontal translation + slight rotation
+        transform: `translateX(${swipeDistance}px) rotate(${swipeDistance / 20}deg)`,
+        transition: pointerStartX.current === null ? "transform .25s ease" : "none",
       }}
     >
+      {/* Mastery indicator: Tulip glyph showing card level */}
       {tulipLevel !== undefined && <TulipGlyph level={tulipLevel} size={40} />}
-      {!flipped && emoji && <div style={{ fontSize: 40 }}>{emoji}</div>}
+      {/* Emoji shown only on English (back) side */}
+      {flipped && emoji && <div style={{ fontSize: 40 }}>{emoji}</div>}
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
         <div className="lale-display" style={{ fontSize: 28, fontWeight: 600 }}>
           {flipped ? backText : frontText}
@@ -95,9 +105,11 @@ export function FlashcardShell({
           size={19}
         />
       </div>
+      {/* Hint text on front side only */}
       {hintText && !flipped && (
         <div style={{ fontSize: 12.5, color: C.inkSoft }}>{hintText}</div>
       )}
+      {/* Swipe hint when no grading buttons available */}
       {flipped && !onSwipeRight && !onSwipeLeft && (
         <div style={{ fontSize: 12.5, color: C.inkSoft }}>
           Swipe left or right to answer
