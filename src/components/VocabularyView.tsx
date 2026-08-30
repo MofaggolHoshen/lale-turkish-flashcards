@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { BookOpen, ChevronLeft, RotateCcw, Check, X } from "lucide-react";
 import { C, btnStyle } from "../styles/theme";
-import { SpeakButton } from "./SpeakButton";
 import { TulipGlyph } from "./TulipGlyph";
 import { FlashcardShell } from "./FlashcardShell";
 import { uid, shuffle } from "../utils/flashcards";
 import { CATEGORY_META, CATEGORY_ORDER, CATEGORIES, EMOJI } from "../data/vocabulary";
 import { DAY_MS, INTERVAL_DAYS } from "../utils/flashcards";
+import { ActionButton } from "./common/ActionButton";
+import { FlashcardNav } from "./common/FlashcardNav";
+import { CategoryCardGrid } from "./vocabulary/CategoryCardGrid";
+import { CategoryWordList } from "./vocabulary/CategoryWordList";
 
 export function VocabularyView({ words, updateWords, registerPractice }) {
   const [view, setView] = useState("grid");
@@ -103,58 +106,12 @@ export function VocabularyView({ words, updateWords, registerPractice }) {
           </button>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          {items.map(([tr, en]) => (
-            <div
-              key={tr}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 14,
-                background: "#fff",
-                border: `1px solid ${C.line}`,
-                borderRadius: 10,
-                padding: "10px 14px",
-              }}
-            >
-              {EMOJI[tr] && <span style={{ fontSize: 22 }}>{EMOJI[tr]}</span>}
-              <div
-                style={{
-                  flex: 1,
-                  minWidth: 0,
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 4,
-                  flexWrap: "wrap",
-                }}
-              >
-                <span style={{ fontWeight: 700, fontSize: 14.5 }}>{tr}</span>
-                <SpeakButton text={tr} size={14} />
-                <span style={{ color: C.inkSoft, fontWeight: 500 }}>
-                  → {en}
-                </span>
-              </div>
-              <button
-                className="lale-btn"
-                onClick={() => addToGarden(tr, en)}
-                disabled={inGarden(tr)}
-                style={{
-                  ...btnStyle(
-                    inGarden(tr) ? "#DCEFEC" : C.paperDeep,
-                    inGarden(tr) ? C.turquoise : C.cobalt,
-                    false,
-                  ),
-                  fontSize: 12,
-                  padding: "6px 10px",
-                  cursor: inGarden(tr) ? "default" : "pointer",
-                  fontWeight: 800,
-                }}
-              >
-                {inGarden(tr) ? "✓ In garden" : "+ Add to garden"}
-              </button>
-            </div>
-          ))}
-        </div>
+        <CategoryWordList
+          items={items}
+          emojiMap={EMOJI}
+          inGarden={inGarden}
+          onAddToGarden={addToGarden}
+        />
       </div>
     );
   }
@@ -181,62 +138,18 @@ export function VocabularyView({ words, updateWords, registerPractice }) {
         🌷 {words.length} word{words.length === 1 ? "" : "s"} currently in your
         garden
       </div>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(170px, 1fr))",
-          gap: 12,
+      <CategoryCardGrid
+        categories={CATEGORY_ORDER.map((cat) => ({
+          key: cat,
+          label: CATEGORY_META[cat].label,
+          count: CATEGORIES[cat].length,
+          icon: CATEGORY_META[cat].icon,
+        }))}
+        onSelect={(cat) => {
+          setCategory(cat);
+          setView("list");
         }}
-      >
-        {CATEGORY_ORDER.map((cat) => {
-          const meta = CATEGORY_META[cat];
-          const Icon = meta.icon;
-          return (
-            <button
-              key={cat}
-              className="lale-btn"
-              onClick={() => {
-                setCategory(cat);
-                setView("list");
-              }}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: 10,
-                textAlign: "left",
-                background: "#fff",
-                border: `1px solid ${C.line}`,
-                borderRadius: 12,
-                padding: "16px 16px",
-                cursor: "pointer",
-              }}
-            >
-              <div
-                style={{
-                  width: 36,
-                  height: 36,
-                  borderRadius: 9,
-                  background: C.paperDeep,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Icon size={18} color={C.cobalt} />
-              </div>
-              <div>
-                <div style={{ fontWeight: 700, fontSize: 14.5 }}>
-                  {meta.label}
-                </div>
-                <div style={{ fontSize: 12, color: C.inkSoft }}>
-                  {CATEGORIES[cat].length} words
-                </div>
-              </div>
-            </button>
-          );
-        })}
-      </div>
+      />
     </div>
   );
 }
@@ -368,56 +281,14 @@ function CategoryPractice({
 
   return (
     <div style={{ maxWidth: 460, margin: "0 auto", textAlign: "center" }}>
-      <button
-        onClick={onExit}
-        className="lale-btn"
-        style={{
-          ...btnStyle("transparent", C.inkSoft, false),
-          padding: "4px 0",
-          marginBottom: 10,
-        }}
-      >
-        <ChevronLeft size={15} style={{ verticalAlign: -2 }} /> {meta.label}
-      </button>
-
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 14,
-          marginBottom: 10,
-        }}
-      >
-        <button
-          onClick={goBack}
-          disabled={currentCardIndex === 0}
-          className="lale-btn"
-          style={{
-            ...btnStyle("transparent", C.inkSoft, currentCardIndex === 0),
-            padding: "2px 4px",
-            fontWeight: 600,
-            fontSize: 13,
-          }}
-        >
-          ← Previous
-        </button>
-        <span style={{ fontSize: 12.5, color: C.inkSoft }}>
-          {currentCardIndex + 1} of {deck.length}
-        </span>
-        <button
-          onClick={next}
-          className="lale-btn"
-          style={{
-            ...btnStyle("transparent", C.inkSoft, false),
-            padding: "2px 4px",
-            fontWeight: 600,
-            fontSize: 13,
-          }}
-        >
-          Next →
-        </button>
-      </div>
+      <FlashcardNav
+        currentIndex={currentCardIndex}
+        total={deck.length}
+        onPrevious={goBack}
+        onNext={next}
+        onBack={() => onExit()}
+        backLabel={meta.label}
+      />
 
       <FlashcardShell
         frontText={en}

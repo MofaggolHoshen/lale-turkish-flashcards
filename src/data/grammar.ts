@@ -36,6 +36,32 @@ export interface GrammarLevel {
   lessons: GrammarLesson[];
 }
 
+export const GRAMMAR_QUESTION_BANK_SIZE = 100;
+
+export const buildQuestionDeck = (
+  questions: GrammarQuizQuestion[],
+  targetSize: number = GRAMMAR_QUESTION_BANK_SIZE,
+): GrammarQuizQuestion[] => {
+  if (questions.length === 0) {
+    return [];
+  }
+
+  const bank: GrammarQuizQuestion[] = [];
+  const questionCount = Math.max(1, questions.length);
+
+  while (bank.length < targetSize) {
+    const question = questions[bank.length % questionCount];
+    bank.push({ ...question });
+  }
+
+  return bank;
+};
+
+export const normalizeLessonQuestionDeck = (
+  lesson: Pick<GrammarLesson, "quiz">,
+  targetSize: number = GRAMMAR_QUESTION_BANK_SIZE,
+): GrammarQuizQuestion[] => buildQuestionDeck(lesson.quiz, targetSize);
+
 export const grammarLevels: GrammarLevel[] = [
   {
     id: "A",
@@ -165,6 +191,160 @@ export const grammarLevels: GrammarLevel[] = [
           },
         ],
       },
+      {
+        id: "a1-unit-2",
+        title: "Unit 2 – Pronouns and simple 'to be' patterns",
+        summary:
+          "Begin to say who you are, who someone is, and how to make basic personal sentences.",
+        sections: [
+          {
+            title: "1) Personal pronouns",
+            description:
+              "The basic pronouns in Turkish are Ben (I), Sen (you), and O (he/she/it).",
+            examples: [
+              { tr: "Ben öğretmenim.", en: "I am a teacher." },
+              { tr: "Sen öğrencisin.", en: "You are a student." },
+              { tr: "O doktor.", en: "He/She is a doctor." },
+              { tr: "Ben öğrenci değilim.", en: "I am not a student." },
+            ],
+            tips: [
+              "The ending -im / -sin / -dir is connected to the verb 'to be' idea.",
+              "For a quick beginner level, learn the pattern: noun + personal ending.",
+            ],
+          },
+          {
+            title: "2) Basic sentence patterns",
+            description:
+              "A simple Turkish sentence often follows a subject + noun + ending pattern.",
+            examples: [
+              { tr: "Ben evdeyim.", en: "I am at home." },
+              { tr: "O okulda.", en: "He/She is at school." },
+              { tr: "Sen nerdesin?", en: "Where are you?" },
+              { tr: "Ben iyiyim.", en: "I am fine." },
+            ],
+            tips: [
+              "Turkish often leaves out the 'to be' verb in simple statements.",
+              "This makes sentences sound short and direct.",
+            ],
+          },
+        ],
+        practice: [
+          "Ben öğretmenim.",
+          "O doktor mu?",
+          "Sen öğrencisin.",
+          "Ben iyiyim.",
+        ],
+        quiz: [
+          {
+            prompt: "How do you say 'I am a teacher' in Turkish?",
+            options: [
+              "Ben öğretmenim.",
+              "Ben öğretmen.",
+              "O öğretmenim.",
+              "Sen öğretmenim.",
+            ],
+            answer: "Ben öğretmenim.",
+            explanation:
+              "Ben = I and -im is the 'I am' ending used with nouns.",
+          },
+          {
+            prompt: "Which one means 'You are a student'?",
+            options: [
+              "Sen öğrencisin.",
+              "O öğrenci.",
+              "Ben öğrenci.",
+              "Bu öğrenci.",
+            ],
+            answer: "Sen öğrencisin.",
+            explanation: "Sen = you and -sin is the 'you are' ending.",
+          },
+          {
+            prompt: "What does 'Ben iyiyim.' mean?",
+            options: [
+              "I am fine.",
+              "You are fine.",
+              "He is fine.",
+              "This is fine.",
+            ],
+            answer: "I am fine.",
+            explanation: "Ben = I and iyiyim = I am well / fine.",
+          },
+        ],
+      },
+      {
+        id: "a1-unit-3",
+        title: "Unit 3 – Negation and simple place words",
+        summary:
+          "Learn how to say what is not true and how to talk about where you are.",
+        sections: [
+          {
+            title: "1) Negation with değil",
+            description:
+              "To say 'not', Turkish often uses değil. This is one of the most useful beginner structures.",
+            examples: [
+              { tr: "Ben doktor değilim.", en: "I am not a doctor." },
+              { tr: "Bu masa değil.", en: "This is not a table." },
+              { tr: "O öğrenci değil.", en: "He/She is not a student." },
+              { tr: "Bu ev değil.", en: "This is not a house." },
+            ],
+            tips: [
+              "değil means 'not' or 'is not'.",
+              "It is extremely common in everyday Turkish conversation.",
+            ],
+          },
+          {
+            title: "2) Saying where you are",
+            description:
+              "You can say where a person is by using a place word plus a location ending.",
+            examples: [
+              { tr: "Ben okuldayım.", en: "I am at school." },
+              { tr: "O evde.", en: "He/She is at home." },
+              { tr: "Sen nerdesin?", en: "Where are you?" },
+              { tr: "Ben marketteyim.", en: "I am at the market." },
+            ],
+            tips: [
+              "-da / -de / -ta / -te is a location ending.",
+              "Use the sound harmony to match the word.",
+            ],
+          },
+        ],
+        practice: [
+          "Ben doktor değilim.",
+          "Bu ev değil.",
+          "Ben okuldayım.",
+          "Sen nerdesin?",
+        ],
+        quiz: [
+          {
+            prompt: "How do you say 'I am not a doctor' in Turkish?",
+            options: [
+              "Ben doktor değilim.",
+              "O doktor değil.",
+              "Ben doktorum.",
+              "Bu doktor değil.",
+            ],
+            answer: "Ben doktor değilim.",
+            explanation: "Ben = I and değilim = I am not.",
+          },
+          {
+            prompt: "Which phrase means 'I am at school'?",
+            options: ["Ben okuldayım.", "Ben okulum.", "O okulda.", "Bu okul."],
+            answer: "Ben okuldayım.",
+            explanation: "Okul + -dayım means 'I am at school'.",
+          },
+          {
+            prompt: "What does 'Bu ev değil.' mean?",
+            options: [
+              "This is not a house.",
+              "This is a house.",
+              "Where is this house?",
+              "You are at home.",
+            ],
+            answer: "This is not a house.",
+            explanation: "Bu = this and değil = not.",
+          },
+        ],
+      },
     ],
   },
   {
@@ -235,3 +415,9 @@ export const grammarLevels: GrammarLevel[] = [
     ],
   },
 ];
+
+grammarLevels.forEach((level) => {
+  level.lessons.forEach((lesson) => {
+    lesson.quiz = normalizeLessonQuestionDeck(lesson);
+  });
+});

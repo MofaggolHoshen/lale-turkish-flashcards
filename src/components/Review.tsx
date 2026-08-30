@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Check, X, ChevronLeft } from "lucide-react";
+import { Check, X } from "lucide-react";
 import { C, btnStyle } from "../styles/theme";
 import { EmptyNote } from "./EmptyNote";
 import { FlashcardShell } from "./FlashcardShell";
 import { DAY_MS, INTERVAL_DAYS, shuffle } from "../utils/flashcards";
 import type { Word } from "../types";
+import { FlashcardNav } from "./common/FlashcardNav";
 
 export function Review({
   words,
@@ -72,17 +73,14 @@ export function Review({
 
   return (
     <div style={{ maxWidth: 460, margin: "0 auto", textAlign: "center" }}>
-      <button
-        onClick={onDone}
-        className="lale-btn"
-        style={{
-          ...btnStyle("transparent", C.inkSoft, false),
-          padding: "4px 0",
-          marginBottom: 4,
-        }}
-      >
-        <ChevronLeft size={15} style={{ verticalAlign: -2 }} /> Back
-      </button>
+      <FlashcardNav
+        currentIndex={currentCardIndex}
+        total={queue.length}
+        onPrevious={goBack}
+        onNext={skip}
+        onBack={onDone}
+        backLabel="Back"
+      />
       {reviewMode !== "due" && (
         <div
           style={{
@@ -97,45 +95,6 @@ export function Review({
             : "🌷 Practicing all words"}
         </div>
       )}
-
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 14,
-          marginBottom: 10,
-        }}
-      >
-        <button
-          onClick={goBack}
-          disabled={currentCardIndex === 0}
-          className="lale-btn"
-          style={{
-            ...btnStyle("transparent", C.inkSoft, currentCardIndex === 0),
-            padding: "2px 4px",
-            fontWeight: 600,
-            fontSize: 13,
-          }}
-        >
-          ← Previous
-        </button>
-        <span style={{ fontSize: 12.5, color: C.inkSoft }}>
-          {currentCardIndex + 1} of {queue.length}
-        </span>
-        <button
-          onClick={skip}
-          className="lale-btn"
-          style={{
-            ...btnStyle("transparent", C.inkSoft, false),
-            padding: "2px 4px",
-            fontWeight: 600,
-            fontSize: 13,
-          }}
-        >
-          Next →
-        </button>
-      </div>
 
       <FlashcardShell
         frontText={current.en}
