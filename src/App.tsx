@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { C } from "./styles/theme";
-import { loadWords, loadMeta } from "./services/dataReader";
-import { persistWords, persistMeta } from "./services/dataWriter";
+import { getRepository } from "./repositories";
 import { DAY_MS } from "./utils/flashcards";
 import { Header } from "./components/Header";
 import { Home } from "./components/Home";
@@ -9,6 +8,7 @@ import { AddWord } from "./components/AddWord";
 import { Review } from "./components/Review";
 import { LibraryView } from "./components/LibraryView";
 import { VocabularyView } from "./components/VocabularyView";
+import { GrammarView } from "./components/GrammarView";
 import type { Meta, ReviewMode, Tab, Word } from "./types";
 
 const todayStr = () => new Date().toDateString();
@@ -22,7 +22,11 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
-      const [w, m] = await Promise.all([loadWords(), loadMeta()]);
+      const repo = getRepository();
+      const [w, m] = await Promise.all([
+        repo.words.getAll(),
+        repo.meta.get(),
+      ]);
       setWords(w);
       setMeta(m);
       setLoading(false);
@@ -31,12 +35,14 @@ export default function App() {
 
   const updateWords = useCallback((next: Word[]) => {
     setWords(next);
-    persistWords(next);
+    const repo = getRepository();
+    repo.words.save(next);
   }, []);
 
   const updateMeta = useCallback((next: Meta) => {
     setMeta(next);
-    persistMeta(next);
+    const repo = getRepository();
+    repo.meta.update(next);
   }, []);
 
   const registerPractice = useCallback(() => {
@@ -50,7 +56,8 @@ export default function App() {
         lastDay: todayStr(),
         best: Math.max(base.best, streak),
       };
-      persistMeta(next);
+      const repo = getRepository();
+      repo.meta.update(next);
       return next;
     });
   }, []);
@@ -135,6 +142,7 @@ export default function App() {
             registerPractice={registerPractice}
           />
         )}
+        {tab === "grammar" && <GrammarView />}
         {tab === "review" && (
           <Review
             words={words}

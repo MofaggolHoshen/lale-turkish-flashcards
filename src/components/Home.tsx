@@ -1,8 +1,8 @@
 import { Plus, Check, RotateCcw, LayoutGrid, Sparkles, Flame, Library } from "lucide-react";
-import { C, btnStyle } from "../styles/theme";
-import { TulipGlyph } from "./TulipGlyph";
+import { C } from "../styles/theme";
 import { StatChip } from "./StatChip";
-import { EmptyNote } from "./EmptyNote";
+import { ActionButton } from "./common/ActionButton";
+import { GardenGrid } from "./home/GardenGrid";
 
 export function Home({
   words,
@@ -43,69 +43,44 @@ export function Home({
           </div>
         </div>
         <div style={{ display: "flex", gap: 10 }}>
-          <button
-            className="lale-btn"
-            onClick={goReview}
-            disabled={due.length === 0}
-            style={btnStyle(C.turquoise, "#04292A", due.length === 0)}
-          >
+          <ActionButton onClick={goReview} variant="primary" disabled={due.length === 0}>
             <Check size={16} style={{ marginRight: 6, verticalAlign: -3 }} />
             Review now
-          </button>
-          <button
-            className="lale-btn"
-            onClick={goAdd}
-            style={btnStyle("#fff", C.cobalt, false)}
-          >
+          </ActionButton>
+          <ActionButton onClick={goAdd} variant="secondary">
             <Plus size={16} style={{ marginRight: 6, verticalAlign: -3 }} />
             Plant a word
-          </button>
+          </ActionButton>
         </div>
       </div>
 
       <div
         style={{ display: "flex", gap: 10, marginTop: 14, flexWrap: "wrap" }}
       >
-        <button
-          className="lale-btn"
+        <ActionButton
           onClick={goReviewMastered}
+          variant="secondary"
           disabled={mastered === 0}
           style={{
-            display: "flex",
-            alignItems: "center",
-            fontSize: 13,
-            fontWeight: 700,
-            padding: "9px 14px",
-            borderRadius: 9,
-            background: "#fff",
             border: `1.5px solid ${mastered === 0 ? C.line : C.cobalt}`,
             color: mastered === 0 ? C.inkSoft : C.cobalt,
-            cursor: mastered === 0 ? "not-allowed" : "pointer",
           }}
         >
           <RotateCcw size={14} style={{ marginRight: 6 }} />
           Revisit mastered ({mastered})
-        </button>
-        <button
-          className="lale-btn"
+        </ActionButton>
+        <ActionButton
           onClick={goReviewAll}
+          variant="secondary"
           disabled={words.length === 0}
           style={{
-            display: "flex",
-            alignItems: "center",
-            fontSize: 13,
-            fontWeight: 700,
-            padding: "9px 14px",
-            borderRadius: 9,
-            background: "#fff",
             border: `1.5px solid ${words.length === 0 ? C.line : C.cobalt}`,
             color: words.length === 0 ? C.inkSoft : C.cobalt,
-            cursor: words.length === 0 ? "not-allowed" : "pointer",
           }}
         >
           <LayoutGrid size={14} style={{ marginRight: 6 }} />
           Practice all words ({words.length})
-        </button>
+        </ActionButton>
       </div>
       <div style={{ fontSize: 11.5, color: C.inkSoft, marginTop: 6 }}>
         These are on-demand — anytime you like, regardless of the schedule
@@ -133,67 +108,7 @@ export function Home({
       </div>
 
       <div style={{ marginTop: 26 }}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            marginBottom: 10,
-          }}
-        >
-          <LayoutGrid size={16} color={C.inkSoft} />
-          <span
-            className="lale-display"
-            style={{ fontSize: 17, fontWeight: 600 }}
-          >
-            Your garden
-          </span>
-        </div>
-        {words.length === 0 ? (
-          <EmptyNote text="Plant your first word and it'll bloom here as you review it." />
-        ) : (
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(58px, 1fr))",
-              gap: 10,
-              background: "#fff",
-              border: `1px solid ${C.line}`,
-              borderRadius: 12,
-              padding: 16,
-            }}
-          >
-            {words
-              .slice()
-              .sort((a, b) => b.level - a.level)
-              .map((w) => (
-                <div
-                  key={w.id}
-                  title={`${w.tr} — level ${w.level}/5`}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: 4,
-                  }}
-                >
-                  <TulipGlyph level={w.level} size={40} />
-                  <span
-                    style={{
-                      fontSize: 10.5,
-                      color: C.inkSoft,
-                      maxWidth: 56,
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    {w.tr}
-                  </span>
-                </div>
-              ))}
-          </div>
-        )}
+        <GardenGrid words={words} />
       </div>
     </div>
   );
