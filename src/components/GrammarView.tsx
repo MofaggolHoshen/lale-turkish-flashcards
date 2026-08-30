@@ -7,8 +7,8 @@ import { GrammarLevelSelector } from "./grammar/GrammarLevelSelector";
 import { GrammarQuizGame } from "./grammar/GrammarQuizGame";
 import { grammarLevels, type GrammarQuizQuestion } from "../data/grammar";
 import { C } from "../styles/theme";
+import { getRepository } from "../repositories";
 
-const STORAGE_KEY = "lale-grammar-complete-v1";
 const ROUND_QUESTION_SIZE = 10;
 
 const getQuestionKey = (lessonId: string, prompt: string) => `${lessonId}-${prompt}`;
@@ -20,17 +20,33 @@ export function GrammarView() {
   const [questionIndex, setQuestionIndex] = useState<Record<string, number>>({});
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [revealed, setRevealed] = useState<Record<string, boolean>>({});
-  const [completedLessons, setCompletedLessons] = useState<Record<string, boolean>>(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : {};
-    } catch {
-      return {};
-    }
-  });
+  const [completedLessons, setCompletedLessons] = useState<Record<string, boolean>>({});
 
+  // Load completed lessons from repository on mount
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(completedLessons));
+    (async () => {
+      const repo = getRepository();
+      const completed = await repo.grammar.getCompleted();
+      setCompletedLessons(completed);
+    })();
+  }, []);
+
+  // Save completed lessons to repository when they change
+  useEffect(() => {
+    const syncToRepository = async (lessonId: string, isComplete: boolean) => {
+      const repo = getRepository();
+      if (isComplete) {
+        await repo.grammar.markLessonComplete(lessonId);
+      } else {
+        await repo.grammar.markLessonIncomplete(lessonId);
+      }
+    };
+
+    Object.entries(completedLessons).forEach(([lessonId, isComplete]) => {
+      if (isComplete) {
+        syncToRepository(lessonId, true);
+      }
+    });
   }, [completedLessons]);
 
   const level = useMemo(
