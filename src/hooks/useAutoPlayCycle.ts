@@ -88,7 +88,7 @@ export function useAutoPlayCycle(
     }
   };
 
-  const play = async () => {
+  const play = () => {
     if (playingRef.current || wordPairs.length === 0) return;
 
     playingRef.current = true;
@@ -96,8 +96,8 @@ export function useAutoPlayCycle(
     currentIndexRef.current = 0;
     setCurrentIndex(0);
 
-    // Request wake lock to keep screen on
-    await requestWakeLock();
+    // Request wake lock in background (don't await - non-blocking)
+    requestWakeLock();
 
     // Setup media session for lock screen controls
     setupMediaSession();
