@@ -24,7 +24,6 @@ export function useAutoPlayCycle(
     null,
   );
   const wakeLockRef = useRef<any>(null); // WakeLockSentinel type
-  const wasPlayingRef = useRef(false); // Track if was playing before background
 
   const releaseWakeLock = async () => {
     if (wakeLockRef.current) {
@@ -72,7 +71,6 @@ export function useAutoPlayCycle(
 
   const stop = () => {
     playingRef.current = false;
-    wasPlayingRef.current = false;
     setIsPlaying(false);
     if (sequenceIntervalRef.current) {
       clearTimeout(sequenceIntervalRef.current);
@@ -94,7 +92,6 @@ export function useAutoPlayCycle(
     if (playingRef.current || wordPairs.length === 0) return;
 
     playingRef.current = true;
-    wasPlayingRef.current = true;
     setIsPlaying(true);
     currentIndexRef.current = 0;
     setCurrentIndex(0);
@@ -138,22 +135,14 @@ export function useAutoPlayCycle(
   };
 
   // Handle visibility change (screen lock/app background)
+  // Don't pause/resume - let playback continue continuously
   useEffect(() => {
     const handleVisibilityChange = () => {
-      if (document.hidden) {
-        // App is backgrounded/screen locked
-        wasPlayingRef.current = playingRef.current;
-        // Don't stop playback, just pause speech synthesis
-        if ("speechSynthesis" in window) {
-          window.speechSynthesis.pause();
-        }
-      } else {
-        // App is visible again
-        if (wasPlayingRef.current && playingRef.current) {
-          // Resume speech synthesis
-          if ("speechSynthesis" in window) {
-            window.speechSynthesis.resume();
-          }
+      if (!document.hidden && playingRef.current) {
+        // App is visible again and was playing
+        // Ensure media session state is correct
+        if ("mediaSession" in navigator) {
+          navigator.mediaSession.playbackState = "playing";
         }
       }
     };
