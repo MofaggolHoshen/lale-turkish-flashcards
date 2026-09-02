@@ -20,8 +20,11 @@ export function useAutoPlayCycle(
   const [currentIndex, setCurrentIndex] = useState(0);
   const playingRef = useRef(false);
   const currentIndexRef = useRef(0); // Track index for closure
-  const sequenceIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const sequenceIntervalRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
   const wakeLockRef = useRef<any>(null); // WakeLockSentinel type
+  const wasPlayingRef = useRef(false); // Track if was playing before background
 
   const releaseWakeLock = async () => {
     if (wakeLockRef.current) {
@@ -69,6 +72,7 @@ export function useAutoPlayCycle(
 
   const stop = () => {
     playingRef.current = false;
+    wasPlayingRef.current = false;
     setIsPlaying(false);
     if (sequenceIntervalRef.current) {
       clearTimeout(sequenceIntervalRef.current);
@@ -90,6 +94,7 @@ export function useAutoPlayCycle(
     if (playingRef.current || wordPairs.length === 0) return;
 
     playingRef.current = true;
+    wasPlayingRef.current = true;
     setIsPlaying(true);
     currentIndexRef.current = 0;
     setCurrentIndex(0);
@@ -131,6 +136,33 @@ export function useAutoPlayCycle(
 
     playSequence();
   };
+
+  // Handle visibility change (screen lock/app background)
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // App is backgrounded/screen locked
+        wasPlayingRef.current = playingRef.current;
+        // Don't stop playback, just pause speech synthesis
+        if ("speechSynthesis" in window) {
+          window.speechSynthesis.pause();
+        }
+      } else {
+        // App is visible again
+        if (wasPlayingRef.current && playingRef.current) {
+          // Resume speech synthesis
+          if ("speechSynthesis" in window) {
+            window.speechSynthesis.resume();
+          }
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
 
   // Cleanup on unmount
   useEffect(() => {
