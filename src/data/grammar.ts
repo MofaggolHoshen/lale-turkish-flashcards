@@ -71,14 +71,33 @@ export const grammarLevels: GrammarLevel[] = [
     lessons: [
       {
         id: "a1-unit-1",
-        title: "Unit 1 – Demonstratives, plurals, and yes/no questions",
+        title: "Unit 1 – Greetings, the alphabet, and demonstratives",
         summary:
-          "Learn how to point to things, ask who/what, explain places, and form simple questions.",
+          "Build the first Turkish grammar patterns: the alphabet, nationality, formal identification, bu-şu-o, kim/ne, plurals, yes/no questions, and place questions.",
         sections: [
           {
-            title: "1) Demonstrative words: Bu, Şu, O",
+            title: "1) The Turkish alphabet",
             description:
-              "These words help you point to something or someone. Bu is close to me, Şu is closer to you, and O is farther away.",
+              "Turkish has 29 letters: 8 vowels and 21 consonants. Vowels are grouped as back vowels (a, ı, o, u) and front vowels (e, i, ö, ü).",
+            examples: [
+              { tr: "A a, B b, C c, Ç ç", en: "A, B, C, Ç" },
+              { tr: "I ı, İ i", en: "Two different Turkish vowels" },
+              {
+                tr: "Ö ö, Ş ş, Ü ü",
+                en: "Letters that are special to Turkish",
+              },
+              { tr: "a, ı, o, u", en: "Back vowels" },
+              { tr: "e, i, ö, ü", en: "Front vowels" },
+            ],
+            tips: [
+              "I (ı) and İ (i) are different letters and have different sounds.",
+              "Ğ is called yumuşak ge (soft g) and does not behave like an English g.",
+            ],
+          },
+          {
+            title: "2) Demonstrative words: Bu, Şu, O",
+            description:
+              "These words point to people and things. Bu is near the speaker, Şu points to something at a distance, and O points to something farther away.",
             examples: [
               { tr: "Bu masa.", en: "This is a table." },
               { tr: "Bu kalem.", en: "This is a pen." },
@@ -95,7 +114,7 @@ export const grammarLevels: GrammarLevel[] = [
             ],
           },
           {
-            title: "2) Location words: Burası, Şurası, Orası",
+            title: "3) Location words: Burası, Şurası, Orası",
             description:
               "These words point to places and are used just like 'this place' and 'that place' in English.",
             examples: [
@@ -112,7 +131,7 @@ export const grammarLevels: GrammarLevel[] = [
             ],
           },
           {
-            title: "3) Plural suffix: -lar / -ler",
+            title: "4) Plural suffix: -lar / -ler",
             description:
               "Turkish uses vowel harmony to choose the plural suffix. If the last vowel is a, ı, o, u, use -lar. If it is e, i, ö, ü, use -ler.",
             examples: [
@@ -129,7 +148,7 @@ export const grammarLevels: GrammarLevel[] = [
             ],
           },
           {
-            title: "4) Question suffix: mı / mi / mu / mü",
+            title: "5) Question suffix: mı / mi / mu / mü",
             description:
               "This suffix turns a statement into a yes/no question. It follows the last vowel of the word, not the last letter.",
             examples: [
@@ -142,6 +161,47 @@ export const grammarLevels: GrammarLevel[] = [
             ],
             tips: ["a / ı → mı", "e / i → mi", "o / u → mu", "ö / ü → mü"],
           },
+          {
+            title: "6) Saying where you are from: -lı / -li / -lu / -lü",
+            description:
+              "Add -lı, -li, -lu, or -lü to a country or place name to describe nationality or origin. For 'I am from ...', use the matching personal ending: -lıyım, -liyim, -luyum, or -lüyüm.",
+            examples: [
+              { tr: "Nerelisin?", en: "Where are you from?" },
+              {
+                tr: "Ben Bangladeşliyim.",
+                en: "I am Bangladeshi / from Bangladesh.",
+              },
+              { tr: "Ben Mısırlıyım.", en: "I am Egyptian / from Egypt." },
+              { tr: "Ben Nijeryalıyım.", en: "I am Nigerian / from Nigeria." },
+              { tr: "Ben Türkiyeliyim.", en: "I am Turkish / from Türkiye." },
+            ],
+            tips: [
+              "Look at the last vowel: a/ı → -lı, e/i → -li, o/u → -lu, ö/ü → -lü.",
+              "The personal ending makes the sentence 'I am from ...': Bangladeş-li-yim, Mısır-lı-yım.",
+            ],
+          },
+          {
+            title: "7) Formal identification: -dır / -dir / -dur / -dür",
+            description:
+              "The formal copula makes an identification more explicit or certain. Choose D or T by the final consonant, then choose the vowel by vowel harmony. In everyday speech, the ending is often omitted.",
+            examples: [
+              {
+                tr: "Bu nedir? Bu dolaptır.",
+                en: "What is this? This is a cupboard.",
+              },
+              {
+                tr: "Bu kimdir? Bu öğretmendir.",
+                en: "Who is this? This is a teacher.",
+              },
+              { tr: "Bu kitaptır.", en: "This is a book." },
+              { tr: "Bu öğrencidir.", en: "This is a student." },
+              { tr: "Bu otobüstür.", en: "This is a bus." },
+            ],
+            tips: [
+              "After f, s, t, k, ç, ş, h, p (Fıstıkçı Şahap), use T: kitap → kitaptır.",
+              "Use D after other final consonants: öğretmen → öğretmendir. Vowel harmony: a/ı, e/i, o/u, ö/ü.",
+            ],
+          },
         ],
         practice: [
           "Bu ne?",
@@ -150,6 +210,8 @@ export const grammarLevels: GrammarLevel[] = [
           "Bu masa mı?",
           "O öğrenci mi?",
           "Bunlar defter mi?",
+          "Nerelisin? Ben Bangladeşliyim.",
+          "Bu nedir? Bu kitaptır.",
         ],
         quiz: [
           {
@@ -189,85 +251,174 @@ export const grammarLevels: GrammarLevel[] = [
             answer: "Onlar kitap.",
             explanation: "Onlar means 'those' for things farther away.",
           },
+          {
+            prompt: "Which sentence means 'I am from Bangladesh'?",
+            options: [
+              "Ben Bangladeşliyim.",
+              "Ben Bangladeşluyum.",
+              "Ben Bangladeşlıyım.",
+              "Ben Bangladeşlüyüm.",
+            ],
+            answer: "Ben Bangladeşliyim.",
+            explanation: "The last vowel in Bangladeş is e, so use -liyim.",
+          },
+          {
+            prompt: "Which formal form is correct for kitap?",
+            options: ["kitapdır", "kitaptır", "kitabdır", "kitaptir"],
+            answer: "kitaptır",
+            explanation:
+              "Kitap ends in p, one of the Fıstıkçı Şahap consonants, so use T; a gives -tır.",
+          },
         ],
       },
       {
         id: "a1-unit-2",
-        title: "Unit 2 – Pronouns and simple 'to be' patterns",
+        title: "Unit 2 – Location, numbers, and nominal sentences",
         summary:
-          "Begin to say who you are, who someone is, and how to make basic personal sentences.",
+          "Say where people and things are, use var and yok, ask about quantities and floors, and build positive, negative, and question sentences.",
         sections: [
           {
-            title: "1) Personal pronouns",
+            title: "1) Locative case: -DA",
             description:
-              "The basic pronouns in Turkish are Ben (I), Sen (you), and O (he/she/it).",
+              "The locative ending tells where someone or something is. Choose -da/-de by vowel harmony, and -ta/-te after voiceless consonants such as ç, f, h, k, p, s, ş, and t.",
+            examples: [
+              {
+                tr: "Öğrenciler sınıfta.",
+                en: "The students are in the classroom.",
+              },
+              { tr: "Bilgisayar masada.", en: "The computer is on the table." },
+              { tr: "Çanta Ahmet'te.", en: "The bag is with Ahmet." },
+              { tr: "Taksim İstanbul'da.", en: "Taksim is in Istanbul." },
+            ],
+            tips: [
+              "Use Nerede? for a place and Kimde? for the person who has something.",
+              "Examples: okulda, evde, sınıfta, markette.",
+            ],
+          },
+          {
+            title: "2) Var and yok",
+            description:
+              "Var means there is/are or have; yok means there is/are not or do not have. Both commonly follow a location phrase.",
+            examples: [
+              {
+                tr: "Evde bilgisayar var.",
+                en: "There is a computer at home.",
+              },
+              {
+                tr: "Ofiste sekreter yok.",
+                en: "There is no secretary in the office.",
+              },
+              { tr: "Sınıfta kimler var?", en: "Who is in the classroom?" },
+              {
+                tr: "Masada kitap var mı?",
+                en: "Is there a book on the table?",
+              },
+            ],
+            tips: [
+              "Use var mı? and yok for yes/no questions and negative answers.",
+              "With a person, Kimde? asks who has something: Kalem kimde?",
+            ],
+          },
+          {
+            title: "3) Numbers and ordinals",
+            description:
+              "Use numbers for quantities, ages, prices, dates, and phone numbers. Add -(I)ncI to make an ordinal such as first, second, or eighth.",
+            examples: [
+              {
+                tr: "Sınıfta on beş öğrenci var.",
+                en: "There are fifteen students in the classroom.",
+              },
+              {
+                tr: "Yirmi dört yaşındayım.",
+                en: "I am twenty-four years old.",
+              },
+              { tr: "Bir çay bir lira.", en: "A tea is one lira." },
+              {
+                tr: "Evim birinci katta.",
+                en: "My home is on the first floor.",
+              },
+              {
+                tr: "Okul sekizinci sokakta.",
+                en: "The school is on the eighth street.",
+              },
+            ],
+            tips: [
+              "After a number, the noun stays singular: üç çocuk, iki kalem.",
+              "Common ordinal forms include birinci, ikinci, üçüncü, and sekizinci.",
+            ],
+          },
+          {
+            title: "4) Nominal sentences",
+            description:
+              "Turkish nominal sentences use personal endings in the present tense. The negative uses değil plus the personal ending, and the question particle follows the noun or adjective.",
             examples: [
               { tr: "Ben öğretmenim.", en: "I am a teacher." },
               { tr: "Sen öğrencisin.", en: "You are a student." },
               { tr: "O doktor.", en: "He/She is a doctor." },
-              { tr: "Ben öğrenci değilim.", en: "I am not a student." },
+              { tr: "Biz yorgunuz.", en: "We are tired." },
+              { tr: "Siz öğretmen misiniz?", en: "Are you a teacher?" },
+              { tr: "Ben doktor değilim.", en: "I am not a doctor." },
             ],
             tips: [
-              "The ending -im / -sin / -dir is connected to the verb 'to be' idea.",
-              "For a quick beginner level, learn the pattern: noun + personal ending.",
-            ],
-          },
-          {
-            title: "2) Basic sentence patterns",
-            description:
-              "A simple Turkish sentence often follows a subject + noun + ending pattern.",
-            examples: [
-              { tr: "Ben evdeyim.", en: "I am at home." },
-              { tr: "O okulda.", en: "He/She is at school." },
-              { tr: "Sen nerdesin?", en: "Where are you?" },
-              { tr: "Ben iyiyim.", en: "I am fine." },
-            ],
-            tips: [
-              "Turkish often leaves out the 'to be' verb in simple statements.",
-              "This makes sentences sound short and direct.",
+              "Present-tense personal endings: -im, -sin, no ending, -iz, -siniz.",
+              "For third-person plural, use onlar öğretmen or onlar öğretmenler; the plural ending is optional when the subject is clear.",
             ],
           },
         ],
         practice: [
-          "Ben öğretmenim.",
-          "O doktor mu?",
-          "Sen öğrencisin.",
-          "Ben iyiyim.",
+          "Sınıfta kimler var?",
+          "Kitap masada mı?",
+          "Evde bilgisayar var mı?",
+          "Telefon numaran kaç?",
+          "Evin kaçıncı katta?",
+          "Ben öğrenci değilim.",
         ],
         quiz: [
           {
-            prompt: "How do you say 'I am a teacher' in Turkish?",
+            prompt: "Which sentence means 'The computer is on the table'?",
             options: [
-              "Ben öğretmenim.",
-              "Ben öğretmen.",
-              "O öğretmenim.",
-              "Sen öğretmenim.",
+              "Bilgisayar masada.",
+              "Bilgisayar masaya.",
+              "Bilgisayar masadan.",
+              "Bilgisayar masa.",
             ],
-            answer: "Ben öğretmenim.",
+            answer: "Bilgisayar masada.",
+            explanation: "The locative ending -da means 'in/on/at' a place.",
+          },
+          {
+            prompt:
+              "Which sentence says that there is no secretary in the office?",
+            options: [
+              "Ofiste sekreter var.",
+              "Ofiste sekreter yok.",
+              "Sekreter ofise.",
+              "Sekreter ofisten.",
+            ],
+            answer: "Ofiste sekreter yok.",
+            explanation: "Yok means there is not or there are not.",
+          },
+          {
+            prompt: "Which sentence uses the ordinal 'first' correctly?",
+            options: [
+              "Evim bir katta.",
+              "Evim birinci katta.",
+              "Evim birler katta.",
+              "Evim birde katta.",
+            ],
+            answer: "Evim birinci katta.",
+            explanation: "Birinci means first and katta means on the floor.",
+          },
+          {
+            prompt: "How do you say 'Are you a teacher?' in Turkish?",
+            options: [
+              "Siz öğretmensiniz?",
+              "Siz öğretmen misiniz?",
+              "Siz öğretmen değil misiniz.",
+              "Siz öğretmenim mi?",
+            ],
+            answer: "Siz öğretmen misiniz?",
             explanation:
-              "Ben = I and -im is the 'I am' ending used with nouns.",
-          },
-          {
-            prompt: "Which one means 'You are a student'?",
-            options: [
-              "Sen öğrencisin.",
-              "O öğrenci.",
-              "Ben öğrenci.",
-              "Bu öğrenci.",
-            ],
-            answer: "Sen öğrencisin.",
-            explanation: "Sen = you and -sin is the 'you are' ending.",
-          },
-          {
-            prompt: "What does 'Ben iyiyim.' mean?",
-            options: [
-              "I am fine.",
-              "You are fine.",
-              "He is fine.",
-              "This is fine.",
-            ],
-            answer: "I am fine.",
-            explanation: "Ben = I and iyiyim = I am well / fine.",
+              "For a nominal yes/no question, add mı/mi/mu/mü after the noun and use the personal ending.",
           },
         ],
       },
