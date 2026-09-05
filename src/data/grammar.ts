@@ -167,8 +167,9 @@ export const grammarLevels: GrammarLevel[] = [
             tips: [
               "Numbers and quantity words usually do not take the plural suffix.",
               "Correct: Üç çocuk. / İki kalem.",
-              "Special note: Bunlar, Şunlar, and Onlar already show plurality. The noun after them usually stays singular: Bunlar köpek, Şunlar öğrenci, Onlar kitap.",
+              "Bunlar, Şunlar, and Onlar already show plurality. The noun after them usually stays singular: Bunlar köpek, Şunlar öğrenci, Onlar kitap.",
               "Bunlar means 'these' near the speaker, Şunlar means 'those' a little farther away, and Onlar means 'those/they' farther away or people.",
+              "Foreign words that ends with a,o,u usually take -ler, e.g Rol → Roller, saat → saatler.",
             ],
           },
           {
