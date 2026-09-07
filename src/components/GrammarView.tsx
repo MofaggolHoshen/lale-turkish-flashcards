@@ -9,7 +9,7 @@ import { grammarLevels, type GrammarQuizQuestion } from "../data/grammar";
 import { C } from "../styles/theme";
 import { getRepository } from "../repositories";
 
-const ROUND_QUESTION_SIZE = 10;
+const ROUND_QUESTION_SIZE = 4;
 
 const getQuestionKey = (lessonId: string, prompt: string) => `${lessonId}-${prompt}`;
 
