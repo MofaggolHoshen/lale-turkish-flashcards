@@ -17,7 +17,14 @@ export interface Meta {
   best: number;
 }
 
-export type Tab = "home" | "vocab" | "review" | "add" | "library" | "grammar";
+export type Tab =
+  | "home"
+  | "vocab"
+  | "review"
+  | "add"
+  | "library"
+  | "grammar"
+  | "story";
 export type ReviewMode = "due" | "mastered" | "all";
 export type Category =
   | "greetings"
