@@ -319,21 +319,27 @@ export const grammarLevels: GrammarLevel[] = [
           "Say where people and things are, use var and yok, ask about quantities and floors, and build positive, negative, and question sentences.",
         sections: [
           {
-            title: "1) Locative case: -DA",
+            title: "1) Locative case: -DA / -DE / -TA / -TE",
             description:
               "The locative ending tells where someone or something is. Choose -da/-de by vowel harmony, and -ta/-te after voiceless consonants such as ç, f, h, k, p, s, ş, and t.",
             examples: [
-              {
-                tr: "Öğrenciler sınıfta.",
-                en: "The students are in the classroom.",
-              },
+              { tr: "Evdeyim.", en: "I am at home." },
+              { tr: "Okulda ders var.", en: "There is a lesson at school." },
               { tr: "Bilgisayar masada.", en: "The computer is on the table." },
-              { tr: "Çanta Ahmet'te.", en: "The bag is with Ahmet." },
+              {
+                tr: "Sınıfta öğrenci yok.",
+                en: "There is no student in the classroom.",
+              },
+              {
+                tr: "Masa üzerinde kalem var.",
+                en: "There is a pen on the table.",
+              },
               { tr: "Taksim İstanbul'da.", en: "Taksim is in Istanbul." },
             ],
             tips: [
               "Use Nerede? for a place and Kimde? for the person who has something.",
-              "Examples: okulda, evde, sınıfta, markette.",
+              "Examples: okulda, evde, sınıfta, markette, masada.",
+              "If the last vowel is a/ı/o/u, use -da/-ta; if it is e/i/ö/ü, use -de/-te.",
             ],
           },
           {
@@ -354,47 +360,92 @@ export const grammarLevels: GrammarLevel[] = [
                 tr: "Masada kitap var mı?",
                 en: "Is there a book on the table?",
               },
+              { tr: "Cebimde para var.", en: "I have money in my pocket." },
+              { tr: "Benim telefonum yok.", en: "I do not have a phone." },
             ],
             tips: [
-              "Use var mı? and yok for yes/no questions and negative answers.",
+              "Use var mı? and yok to ask and answer in the negative.",
               "With a person, Kimde? asks who has something: Kalem kimde?",
+              "Yok is used for absence, while değil is used for a negative identity or description.",
             ],
           },
           {
-            title: "3) Numbers and ordinals",
+            title: "3) Hayır, değil, and yok",
             description:
-              "Use numbers for quantities, ages, prices, dates, and phone numbers. Add -(I)ncI to make an ordinal such as first, second, or eighth.",
+              "Hayır is a direct 'no'; değil means 'not' or 'is not'; yok means 'there is no' or 'there are none'. These three are closely related but used in different situations.",
+            examples: [
+              { tr: "Öğrenci misin?", en: "Are you a student?" },
+              { tr: "Hayır, öğrenci değilim.", en: "No, I am not a student." },
+              { tr: "Bu kalem kırmızı değil.", en: "This pen is not red." },
+              { tr: "Evde ekmek yok.", en: "There is no bread at home." },
+              {
+                tr: "Sizde kırmızı kalem var mı?",
+                en: "Do you have a red pen?",
+              },
+              { tr: "Hayır, kalem yok.", en: "No, there is no pen." },
+            ],
+            tips: [
+              "Hayır is for direct negative answers.",
+              "Değil is used for describing someone or something as not being a certain thing.",
+              "Yok is used for absence or non-existence.",
+            ],
+          },
+          {
+            title: "4) Numbers and quantity questions",
+            description:
+              "Use numbers for quantities, ages, prices, dates, and phone numbers. Ask Kaç? or Kaç tane? to ask how many or how much.",
             examples: [
               {
-                tr: "Sınıfta on beş öğrenci var.",
-                en: "There are fifteen students in the classroom.",
+                tr: "Bir, iki, üç, dört, beş.",
+                en: "One, two, three, four, five.",
               },
+              { tr: "On beş öğrenci var.", en: "There are fifteen students." },
+              { tr: "Kaç kitap var?", en: "How many books are there?" },
+              {
+                tr: "Kaç tane ekmek var?",
+                en: "How many loaves of bread are there?",
+              },
+              { tr: "Kaç lira?", en: "How much money?" },
               {
                 tr: "Yirmi dört yaşındayım.",
                 en: "I am twenty-four years old.",
               },
-              { tr: "Bir çay bir lira.", en: "A tea is one lira." },
-              {
-                tr: "Evim birinci katta.",
-                en: "My home is on the first floor.",
-              },
-              {
-                tr: "Okul sekizinci sokakta.",
-                en: "The school is on the eighth street.",
-              },
             ],
             tips: [
-              "After a number, the noun stays singular: üç çocuk, iki kalem.",
-              "Common ordinal forms include birinci, ikinci, üçüncü, and sekizinci.",
+              "After a number, the noun usually stays singular: üç çocuk, iki kalem.",
+              "Common numbers: on, yirmi, otuz, kırk, elli, altmış, yetmiş, seksen, doksan, yüz.",
             ],
           },
           {
-            title: "4) Nominal sentences",
+            title: "5) Kaçıncı? and ordinal numbers",
             description:
-              "Turkish nominal sentences use personal endings in the present tense. The negative uses değil plus the personal ending, and the question particle follows the noun or adjective.",
+              "Kaçıncı? asks which in order. Ordinals like birinci, ikinci, and üçüncü are used for floors, positions, and rankings.",
             examples: [
-              { tr: "Ben öğretmenim.", en: "I am a teacher." },
-              { tr: "Sen öğrencisin.", en: "You are a student." },
+              { tr: "Bu kaçıncı katta?", en: "Which floor is this on?" },
+              {
+                tr: "Evim ikinci katta.",
+                en: "My home is on the second floor.",
+              },
+              { tr: "Ben üçüncü sıradayım.", en: "I am in third place." },
+              { tr: "Sen kaçıncı sınıftasın?", en: "What grade are you in?" },
+              { tr: "Bu dördüncü kitap.", en: "This is the fourth book." },
+              {
+                tr: "O sekizinci sokakta.",
+                en: "He/She is on the eighth street.",
+              },
+            ],
+            tips: [
+              "Kaçıncı? = which one / what position?",
+              "Common ordinals: birinci, ikinci, üçüncü, dördüncü, beşinci, altıncı, yedinci, sekizinci.",
+            ],
+          },
+          {
+            title: "6) Nominal sentences",
+            description:
+              "Turkish nominal sentences often omit the verb 'to be' in the present tense. Use personal endings to match the subject, and add değil for negative statements.",
+            examples: [
+              { tr: "Ben öğrenciyim.", en: "I am a student." },
+              { tr: "Sen öğretmensin.", en: "You are a teacher." },
               { tr: "O doktor.", en: "He/She is a doctor." },
               { tr: "Biz yorgunuz.", en: "We are tired." },
               { tr: "Siz öğretmen misiniz?", en: "Are you a teacher?" },
@@ -402,6 +453,7 @@ export const grammarLevels: GrammarLevel[] = [
             ],
             tips: [
               "Present-tense personal endings: -im, -sin, no ending, -iz, -siniz.",
+              "A sentence like O evde is common in beginner Turkish: 'He/She is at home.'",
               "For third-person plural, use onlar öğretmen or onlar öğretmenler; the plural ending is optional when the subject is clear.",
             ],
           },
@@ -413,6 +465,8 @@ export const grammarLevels: GrammarLevel[] = [
           "Telefon numaran kaç?",
           "Evin kaçıncı katta?",
           "Ben öğrenci değilim.",
+          "Bu kahve ne kadar?",
+          "Nerede oturuyorsun?",
         ],
         quiz: [
           {
@@ -460,6 +514,30 @@ export const grammarLevels: GrammarLevel[] = [
             answer: "Siz öğretmen misiniz?",
             explanation:
               "For a nominal yes/no question, add mı/mi/mu/mü after the noun and use the personal ending.",
+          },
+          {
+            prompt: "Which phrase means 'No, I am not a student'?",
+            options: [
+              "Hayır, öğrenci değilim.",
+              "Evet, öğrenci değilim.",
+              "Hayır, öğrenci var.",
+              "Öğrenci değilim mi?",
+            ],
+            answer: "Hayır, öğrenci değilim.",
+            explanation:
+              "Hayır answers the question negatively, and değilim means 'I am not'.",
+          },
+          {
+            prompt: "What does Kaçıncı? mean?",
+            options: [
+              "Where is it?",
+              "How much?",
+              "Which one / what position?",
+              "Who is there?",
+            ],
+            answer: "Which one / what position?",
+            explanation:
+              "Kaçıncı? asks which one in order, such as first, second, or third.",
           },
         ],
       },
