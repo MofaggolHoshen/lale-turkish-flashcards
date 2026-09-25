@@ -40,6 +40,7 @@ export type Category =
   | "food"
   | "vegetables"
   | "household"
+  | "places"
   | "nature"
   | "animals"
   | "verbs"
