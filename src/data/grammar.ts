@@ -391,7 +391,34 @@ export const grammarLevels: GrammarLevel[] = [
             ],
           },
           {
-            title: "4) Numbers and quantity questions",
+            title: "4) Question patterns with location and possession",
+            description:
+              "The locative case and possession patterns often appear in questions. Use mı / mi / mu / mü for yes/no questions, and use apostrophes in names and place nouns before a vowel-starting suffix: İstanbul'da, Cenk'te.",
+            examples: [
+              {
+                tr: "Bilgisayar masada mı?",
+                en: "Is the computer on the table?",
+              },
+              { tr: "Evde misin?", en: "Are you at home?" },
+              { tr: "İstanbul'da mısın?", en: "Are you in Istanbul?" },
+              { tr: "Kırmızı kalem var mı?", en: "Do you have a red pen?" },
+              {
+                tr: "Hayır, masada değil.",
+                en: "No, it is not on the table.",
+              },
+              {
+                tr: "Cenk'te mi?",
+                en: "Is it at Cenk's place?",
+              },
+            ],
+            tips: [
+              "Use vowel harmony to choose the question suffix: a/ı/o/u → mı / mu, e/i/ö/ü → mi / mü.",
+              "Apostrophes appear before suffixes beginning with a vowel after a final consonant: Cenk'te, İstanbul'da.",
+              "Negatives can be answered with either Hayır + değil or Hayır + yok, depending on whether you mean 'not X' or 'there is none'.",
+            ],
+          },
+          {
+            title: "5) Numbers and quantity questions",
             description:
               "Use numbers for quantities, ages, prices, dates, and phone numbers. Ask Kaç? or Kaç tane? to ask how many or how much.",
             examples: [
@@ -417,7 +444,7 @@ export const grammarLevels: GrammarLevel[] = [
             ],
           },
           {
-            title: "5) Kaçıncı? and ordinal numbers",
+            title: "6) Kaçıncı? and ordinal numbers",
             description:
               "Kaçıncı? asks which in order. Ordinals like birinci, ikinci, and üçüncü are used for floors, positions, and rankings.",
             examples: [
@@ -440,7 +467,7 @@ export const grammarLevels: GrammarLevel[] = [
             ],
           },
           {
-            title: "6) Nominal sentences",
+            title: "7) Nominal sentences",
             description:
               "Turkish nominal sentences often omit the verb 'to be' in the present tense. Use personal endings to match the subject, and add değil for negative statements.",
             examples: [
@@ -538,6 +565,18 @@ export const grammarLevels: GrammarLevel[] = [
             answer: "Which one / what position?",
             explanation:
               "Kaçıncı? asks which one in order, such as first, second, or third.",
+          },
+          {
+            prompt: "Which sentence means 'There is no bread at home'?",
+            options: [
+              "Evde ekmek yok.",
+              "Evde ekmek var.",
+              "Ekmek evde mi?",
+              "Hayır, ekmek var.",
+            ],
+            answer: "Evde ekmek yok.",
+            explanation:
+              "Yok means the thing is absent or there is none, so it fits a negative statement about existence.",
           },
         ],
       },
