@@ -12,7 +12,7 @@ describe("Common Verbs vocabulary", () => {
         ["demek", "to say"],
         ["kullanmak", "to use"],
         ["bulmak", "to find"],
-        ["oturmak", "to sit"],
+        ["oturmak", "to sit / to live"],
       ]),
     );
   });
