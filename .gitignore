@@ -319,7 +319,6 @@ node_modules/
 
 # build output
 dist/
-docs/
 
 # environment files
 .env
