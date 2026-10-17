@@ -99,4 +99,124 @@
 | **Siz** | biliyorsunuz | bilmiyorsunuz | biliyor musunuz? | bilmiyor musunuz? |
 | **Onlar** | biliyorlar | bilmiyorlar | biliyorlar mı? | bilmiyorlar mı? |
 
+## 10. binmek — উঠতে / চড়তে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | biniyorum | binmiyorum | biniyor muyum? | binmiyor muyum? |
+| **Sen** | biniyorsun | binmiyorsun | biniyor musun? | binmiyor musun? |
+| **O** | biniyor | binmiyor | biniyor mu? | binmiyor mu? |
+| **Biz** | biniyoruz | binmiyoruz | biniyor muyuz? | binmiyor muyuz? |
+| **Siz** | biniyorsunuz | binmiyorsunuz | biniyor musunuz? | binmiyor musunuz? |
+| **Onlar** | biniyorlar | binmiyorlar | biniyorlar mı? | binmiyorlar mı? |
+
+## 11. biriktirmek — জমা করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | biriktiriyorum | biriktirmiyorum | biriktiriyor muyum? | biriktirmiyor muyum? |
+| **Sen** | biriktiriyorsun | biriktirmiyorsun | biriktiriyor musun? | biriktirmiyor musun? |
+| **O** | biriktiriyor | biriktirmiyor | biriktiriyor mu? | biriktirmiyor mu? |
+| **Biz** | biriktiriyoruz | biriktirmiyoruz | biriktiriyor muyuz? | biriktirmiyor muyuz? |
+| **Siz** | biriktiriyorsunuz | biriktirmiyorsunuz | biriktiriyor musunuz? | biriktirmiyor musunuz? |
+| **Onlar** | biriktiriyorlar | biriktirmiyorlar | biriktiriyorlar mı? | biriktirmiyorlar mı? |
+
+## 12. bitmek — শেষ হওয়া
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | bitiyorum | bitmiyorum | bitiyor muyum? | bitmiyor muyum? |
+| **Sen** | bitiyorsun | bitmiyorsun | bitiyor musun? | bitmiyor musun? |
+| **O** | bitiyor | bitmiyor | bitiyor mu? | bitmiyor mu? |
+| **Biz** | bitiyoruz | bitmiyoruz | bitiyor muyuz? | bitmiyor muyuz? |
+| **Siz** | bitiyorsunuz | bitmiyorsunuz | bitiyor musunuz? | bitmiyor musunuz? |
+| **Onlar** | bitiyorlar | bitmiyorlar | bitiyorlar mı? | bitmiyorlar mı? |
+
+## 13. buluşmak — দেখা করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | buluşuyorum | buluşmuyorum | buluşuyor muyum? | buluşmuyor muyum? |
+| **Sen** | buluşuyorsun | buluşmuyorsun | buluşuyor musun? | buluşmuyor musun? |
+| **O** | buluşuyor | buluşmuyor | buluşuyor mu? | buluşmuyor mu? |
+| **Biz** | buluşuyoruz | buluşmuyoruz | buluşuyor muyuz? | buluşmuyor muyuz? |
+| **Siz** | buluşuyorsunuz | buluşmuyorsunuz | buluşuyor musunuz? | buluşmuyor musunuz? |
+| **Onlar** | buluşuyorlar | buluşmuyorlar | buluşuyorlar mı? | buluşmuyorlar mı? |
+
+## 14. çalışmak — কাজ করতে / পড়াশোনা করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | çalışıyorum | çalışmıyorum | çalışıyor muyum? | çalışmıyor muyum? |
+| **Sen** | çalışıyorsun | çalışmıyorsun | çalışıyor musun? | çalışmıyor musun? |
+| **O** | çalışıyor | çalışmıyor | çalışıyor mu? | çalışmıyor mu? |
+| **Biz** | çalışıyoruz | çalışmıyoruz | çalışıyor muyuz? | çalışmıyor muyuz? |
+| **Siz** | çalışıyorsunuz | çalışmıyorsunuz | çalışıyor musunuz? | çalışmıyor musunuz? |
+| **Onlar** | çalışıyorlar | çalışmıyorlar | çalışıyorlar mı? | çalışmıyorlar mı? |
+
+## 15. çıkmak — বের হওয়া / ওপরে উঠা
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | çıkıyorum | çıkmıyorum | çıkıyor muyum? | çıkmıyor muyum? |
+| **Sen** | çıkıyorsun | çıkmıyorsun | çıkıyor musun? | çıkmıyor musun? |
+| **O** | çıkıyor | çıkmıyor | çıkıyor mu? | çıkmıyor mu? |
+| **Biz** | çıkıyoruz | çıkmıyoruz | çıkıyor muyuz? | çıkmıyor muyuz? |
+| **Siz** | çıkıyorsunuz | çıkmıyorsunuz | çıkıyor musunuz? | çıkmıyor musunuz? |
+| **Onlar** | çıkıyorlar | çıkmıyorlar | çıkıyorlar mı? | çıkmıyorlar mı? |
+
+## 16. demek — বলতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | diyorum | demiyorum | diyor muyum? | demiyor muyum? |
+| **Sen** | diyorsun | demiyorsun | diyor musun? | demiyor musun? |
+| **O** | diyor | demiyor | diyor mu? | demiyor mu? |
+| **Biz** | diyoruz | demiyoruz | diyor muyuz? | demiyor muyuz? |
+| **Siz** | diyorsunuz | demiyorsunuz | diyor musunuz? | demiyor musunuz? |
+| **Onlar** | diyorlar | demiyorlar | diyorlar mı? | demiyorlar mı? |
+
+## 17. dinlemek — শুনতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | dinliyorum | dinlemiyorum | dinliyor muyum? | dinlemiyor muyum? |
+| **Sen** | dinliyorsun | dinlemiyorsun | dinliyor musun? | dinlemiyor musun? |
+| **O** | dinliyor | dinlemiyor | dinliyor mu? | dinlemiyor mu? |
+| **Biz** | dinliyoruz | dinlemiyoruz | dinliyor muyuz? | dinlemiyor muyuz? |
+| **Siz** | dinliyorsunuz | dinlemiyorsunuz | dinliyor musunuz? | dinlemiyor musunuz? |
+| **Onlar** | dinliyorlar | dinlemiyorlar | dinliyorlar mı? | dinlemiyorlar mı? |
+
+## 18. dinlenmek — বিশ্রাম নিতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | dinleniyorum | dinlenmiyorum | dinleniyor muyum? | dinlenmiyor muyum? |
+| **Sen** | dinleniyorsun | dinlenmiyorsun | dinleniyor musun? | dinlenmiyor musun? |
+| **O** | dinleniyor | dinlenmiyor | dinleniyor mu? | dinlenmiyor mu? |
+| **Biz** | dinleniyoruz | dinlenmiyoruz | dinleniyor muyuz? | dinlenmiyor muyuz? |
+| **Siz** | dinleniyorsunuz | dinlenmiyorsunuz | dinleniyor musunuz? | dinlenmiyor musunuz? |
+| **Onlar** | dinleniyorlar | dinlenmiyorlar | dinleniyorlar mı? | dinlenmiyorlar mı? |
+
+## 19. dolaşmak — ঘুরতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | dolaşıyorum | dolaşmıyorum | dolaşıyor muyum? | dolaşmıyor muyum? |
+| **Sen** | dolaşıyorsun | dolaşmıyorsun | dolaşıyor musun? | dolaşmıyor musun? |
+| **O** | dolaşıyor | dolaşmıyor | dolaşıyor mu? | dolaşmıyor mu? |
+| **Biz** | dolaşıyoruz | dolaşmıyoruz | dolaşıyor muyuz? | dolaşmıyor muyuz? |
+| **Siz** | dolaşıyorsunuz | dolaşmıyorsunuz | dolaşıyor musunuz? | dolaşmıyor musunuz? |
+| **Onlar** | dolaşıyorlar | dolaşmıyorlar | dolaşıyorlar mı? | dolaşmıyorlar mı? |
+
+## 20. dönmek — ফিরে আসা
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | dönüyorum | dönmüyorum | dönüyor muyum? | dönmüyor muyum? |
+| **Sen** | dönüyorsun | dönmüyorsun | dönüyor musun? | dönmüyor musun? |
+| **O** | dönüyor | dönmüyor | dönüyor mu? | dönmüyor mu? |
+| **Biz** | dönüyoruz | dönmüyoruz | dönüyor muyuz? | dönmüyor muyuz? |
+| **Siz** | dönüyorsunuz | dönmüyorsunuz | dönüyor musunuz? | dönmüyor musunuz? |
+| **Onlar** | dönüyorlar | dönmüyorlar | dönüyorlar mı? | dönmüyorlar mı? |
 
