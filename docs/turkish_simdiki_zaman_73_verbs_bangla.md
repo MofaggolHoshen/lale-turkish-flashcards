@@ -220,3 +220,323 @@
 | **Siz** | dönüyorsunuz | dönmüyorsunuz | dönüyor musunuz? | dönmüyor musunuz? |
 | **Onlar** | dönüyorlar | dönmüyorlar | dönüyorlar mı? | dönmüyorlar mı? |
 
+## 21. durmak — থামতে / দাঁড়াতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | duruyorum | durmuyorum | duruyor muyum? | durmuyor muyum? |
+| **Sen** | duruyorsun | durmuyorsun | duruyor musun? | durmuyor musun? |
+| **O** | duruyor | durmuyor | duruyor mu? | durmuyor mu? |
+| **Biz** | duruyoruz | durmuyoruz | duruyor muyuz? | durmuyor muyuz? |
+| **Siz** | duruyorsunuz | durmuyorsunuz | duruyor musunuz? | durmuyor musunuz? |
+| **Onlar** | duruyorlar | durmuyorlar | duruyorlar mı? | durmuyorlar mı? |
+
+## 22. duş almak — গোসল করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | duş alıyorum | duş almıyorum | duş alıyor muyum? | duş almıyor muyum? |
+| **Sen** | duş alıyorsun | duş almıyorsun | duş alıyor musun? | duş almıyor musun? |
+| **O** | duş alıyor | duş almıyor | duş alıyor mu? | duş almıyor mu? |
+| **Biz** | duş alıyoruz | duş almıyoruz | duş alıyor muyuz? | duş almıyor muyuz? |
+| **Siz** | duş alıyorsunuz | duş almıyorsunuz | duş alıyor musunuz? | duş almıyor musunuz? |
+| **Onlar** | duş alıyorlar | duş almıyorlar | duş alıyorlar mı? | duş almıyorlar mı? |
+
+## 23. fotoğraf çekmek — ছবি তুলতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | fotoğraf çekiyorum | fotoğraf çekmiyorum | fotoğraf çekiyor muyum? | fotoğraf çekmiyor muyum? |
+| **Sen** | fotoğraf çekiyorsun | fotoğraf çekmiyorsun | fotoğraf çekiyor musun? | fotoğraf çekmiyor musun? |
+| **O** | fotoğraf çekiyor | fotoğraf çekmiyor | fotoğraf çekiyor mu? | fotoğraf çekmiyor mu? |
+| **Biz** | fotoğraf çekiyoruz | fotoğraf çekmiyoruz | fotoğraf çekiyor muyuz? | fotoğraf çekmiyor muyuz? |
+| **Siz** | fotoğraf çekiyorsunuz | fotoğraf çekmiyorsunuz | fotoğraf çekiyor musunuz? | fotoğraf çekmiyor musunuz? |
+| **Onlar** | fotoğraf çekiyorlar | fotoğraf çekmiyorlar | fotoğraf çekiyorlar mı? | fotoğraf çekmiyorlar mı? |
+
+## 24. geçmek — অতিক্রম করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | geçiyorum | geçmiyorum | geçiyor muyum? | geçmiyor muyum? |
+| **Sen** | geçiyorsun | geçmiyorsun | geçiyor musun? | geçmiyor musun? |
+| **O** | geçiyor | geçmiyor | geçiyor mu? | geçmiyor mu? |
+| **Biz** | geçiyoruz | geçmiyoruz | geçiyor muyuz? | geçmiyor muyuz? |
+| **Siz** | geçiyorsunuz | geçmiyorsunuz | geçiyor musunuz? | geçmiyor musunuz? |
+| **Onlar** | geçiyorlar | geçmiyorlar | geçiyorlar mı? | geçmiyorlar mı? |
+
+## 25. gezmek — ভ্রমণ করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | geziyorum | gezmiyorum | geziyor muyum? | gezmiyor muyum? |
+| **Sen** | geziyorsun | gezmiyorsun | geziyor musun? | gezmiyor musun? |
+| **O** | geziyor | gezmiyor | geziyor mu? | gezmiyor mu? |
+| **Biz** | geziyoruz | gezmiyoruz | geziyor muyuz? | gezmiyor muyuz? |
+| **Siz** | geziyorsunuz | gezmiyorsunuz | geziyor musunuz? | gezmiyor musunuz? |
+| **Onlar** | geziyorlar | gezmiyorlar | geziyorlar mı? | gezmiyorlar mı? |
+
+## 26. girmek — ঢুকতে / অনলাইনে যেতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | giriyorum | girmiyorum | giriyor muyum? | girmiyor muyum? |
+| **Sen** | giriyorsun | girmiyorsun | giriyor musun? | girmiyor musun? |
+| **O** | giriyor | girmiyor | giriyor mu? | girmiyor mu? |
+| **Biz** | giriyoruz | girmiyoruz | giriyor muyuz? | girmiyor muyuz? |
+| **Siz** | giriyorsunuz | girmiyorsunuz | giriyor musunuz? | girmiyor musunuz? |
+| **Onlar** | giriyorlar | girmiyorlar | giriyorlar mı? | girmiyorlar mı? |
+
+## 27. gitmek — যেতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | gidiyorum | gitmiyorum | gidiyor muyum? | gitmiyor muyum? |
+| **Sen** | gidiyorsun | gitmiyorsun | gidiyor musun? | gitmiyor musun? |
+| **O** | gidiyor | gitmiyor | gidiyor mu? | gitmiyor mu? |
+| **Biz** | gidiyoruz | gitmiyoruz | gidiyor muyuz? | gitmiyor muyuz? |
+| **Siz** | gidiyorsunuz | gitmiyorsunuz | gidiyor musunuz? | gitmiyor musunuz? |
+| **Onlar** | gidiyorlar | gitmiyorlar | gidiyorlar mı? | gitmiyorlar mı? |
+
+## 28. hazırlamak — প্রস্তুত করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | hazırlıyorum | hazırlamıyorum | hazırlıyor muyum? | hazırlamıyor muyum? |
+| **Sen** | hazırlıyorsun | hazırlamıyorsun | hazırlıyor musun? | hazırlamıyor musun? |
+| **O** | hazırlıyor | hazırlamıyor | hazırlıyor mu? | hazırlamıyor mu? |
+| **Biz** | hazırlıyoruz | hazırlamıyoruz | hazırlıyor muyuz? | hazırlamıyor muyuz? |
+| **Siz** | hazırlıyorsunuz | hazırlamıyorsunuz | hazırlıyor musunuz? | hazırlamıyor musunuz? |
+| **Onlar** | hazırlıyorlar | hazırlamıyorlar | hazırlıyorlar mı? | hazırlamıyorlar mı? |
+
+## 29. hazırlanmak — প্রস্তুত হওয়া
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | hazırlanıyorum | hazırlanmıyorum | hazırlanıyor muyum? | hazırlanmıyor muyum? |
+| **Sen** | hazırlanıyorsun | hazırlanmıyorsun | hazırlanıyor musun? | hazırlanmıyor musun? |
+| **O** | hazırlanıyor | hazırlanmıyor | hazırlanıyor mu? | hazırlanmıyor mu? |
+| **Biz** | hazırlanıyoruz | hazırlanmıyoruz | hazırlanıyor muyuz? | hazırlanmıyor muyuz? |
+| **Siz** | hazırlanıyorsunuz | hazırlanmıyorsunuz | hazırlanıyor musunuz? | hazırlanmıyor musunuz? |
+| **Onlar** | hazırlanıyorlar | hazırlanmıyorlar | hazırlanıyorlar mı? | hazırlanmıyorlar mı? |
+
+## 30. hoşlanmak — পছন্দ করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | hoşlanıyorum | hoşlanmıyorum | hoşlanıyor muyum? | hoşlanmıyor muyum? |
+| **Sen** | hoşlanıyorsun | hoşlanmıyorsun | hoşlanıyor musun? | hoşlanmıyor musun? |
+| **O** | hoşlanıyor | hoşlanmıyor | hoşlanıyor mu? | hoşlanmıyor mu? |
+| **Biz** | hoşlanıyoruz | hoşlanmıyoruz | hoşlanıyor muyuz? | hoşlanmıyor muyuz? |
+| **Siz** | hoşlanıyorsunuz | hoşlanmıyorsunuz | hoşlanıyor musunuz? | hoşlanmıyor musunuz? |
+| **Onlar** | hoşlanıyorlar | hoşlanmıyorlar | hoşlanıyorlar mı? | hoşlanmıyorlar mı? |
+
+## 31. izlemek — দেখাশোনা করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | izliyorum | izlemiyorum | izliyor muyum? | izlemiyor muyum? |
+| **Sen** | izliyorsun | izlemiyorsun | izliyor musun? | izlemiyor musun? |
+| **O** | izliyor | izlemiyor | izliyor mu? | izlemiyor mu? |
+| **Biz** | izliyoruz | izlemiyoruz | izliyor muyuz? | izlemiyor muyuz? |
+| **Siz** | izliyorsunuz | izlemiyorsunuz | izliyor musunuz? | izlemiyor musunuz? |
+| **Onlar** | izliyorlar | izlemiyorlar | izliyorlar mı? | izlemiyorlar mı? |
+
+## 32. kahvaltı etmek — নাস্তা করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | kahvaltı ediyorum | kahvaltı etmiyorum | kahvaltı ediyor muyum? | kahvaltı etmiyor muyum? |
+| **Sen** | kahvaltı ediyorsun | kahvaltı etmiyorsun | kahvaltı ediyor musun? | kahvaltı etmiyor musun? |
+| **O** | kahvaltı ediyor | kahvaltı etmiyor | kahvaltı ediyor mu? | kahvaltı etmiyor mu? |
+| **Biz** | kahvaltı ediyoruz | kahvaltı etmiyoruz | kahvaltı ediyor muyuz? | kahvaltı etmiyor muyuz? |
+| **Siz** | kahvaltı ediyorsunuz | kahvaltı etmiyorsunuz | kahvaltı ediyor musunuz? | kahvaltı etmiyor musunuz? |
+| **Onlar** | kahvaltı ediyorlar | kahvaltı etmiyorlar | kahvaltı ediyorlar mı? | kahvaltı etmiyorlar mı? |
+
+## 33. kalkmak — উঠতে / বের হতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | kalkıyorum | kalkmıyorum | kalkıyor muyum? | kalkmıyor muyum? |
+| **Sen** | kalkıyorsun | kalkmıyorsun | kalkıyor musun? | kalkmıyor musun? |
+| **O** | kalkıyor | kalkmıyor | kalkıyor mu? | kalkmıyor mu? |
+| **Biz** | kalkıyoruz | kalkmıyoruz | kalkıyor muyuz? | kalkmıyor muyuz? |
+| **Siz** | kalkıyorsunuz | kalkmıyorsunuz | kalkıyor musunuz? | kalkmıyor musunuz? |
+| **Onlar** | kalkıyorlar | kalkmıyorlar | kalkıyorlar mı? | kalkmıyorlar mı? |
+
+## 34. kalmak — থাকতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | kalıyorum | kalmıyorum | kalıyor muyum? | kalmıyor muyum? |
+| **Sen** | kalıyorsun | kalmıyorsun | kalıyor musun? | kalmıyor musun? |
+| **O** | kalıyor | kalmıyor | kalıyor mu? | kalmıyor mu? |
+| **Biz** | kalıyoruz | kalmıyoruz | kalıyor muyuz? | kalmıyor muyuz? |
+| **Siz** | kalıyorsunuz | kalmıyorsunuz | kalıyor musunuz? | kalmıyor musunuz? |
+| **Onlar** | kalıyorlar | kalmıyorlar | kalıyorlar mı? | kalmıyorlar mı? |
+
+## 35. kontrol etmek — পরীক্ষা করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | kontrol ediyorum | kontrol etmiyorum | kontrol ediyor muyum? | kontrol etmiyor muyum? |
+| **Sen** | kontrol ediyorsun | kontrol etmiyorsun | kontrol ediyor musun? | kontrol etmiyor musun? |
+| **O** | kontrol ediyor | kontrol etmiyor | kontrol ediyor mu? | kontrol etmiyor mu? |
+| **Biz** | kontrol ediyoruz | kontrol etmiyoruz | kontrol ediyor muyuz? | kontrol etmiyor muyuz? |
+| **Siz** | kontrol ediyorsunuz | kontrol etmiyorsunuz | kontrol ediyor musunuz? | kontrol etmiyor musunuz? |
+| **Onlar** | kontrol ediyorlar | kontrol etmiyorlar | kontrol ediyorlar mı? | kontrol etmiyorlar mı? |
+
+## 36. konuşmak — কথা বলতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | konuşuyorum | konuşmuyorum | konuşuyor muyum? | konuşmuyor muyum? |
+| **Sen** | konuşuyorsun | konuşmuyorsun | konuşuyor musun? | konuşmuyor musun? |
+| **O** | konuşuyor | konuşmuyor | konuşuyor mu? | konuşmuyor mu? |
+| **Biz** | konuşuyoruz | konuşmuyoruz | konuşuyor muyuz? | konuşmuyor muyuz? |
+| **Siz** | konuşuyorsunuz | konuşmuyorsunuz | konuşuyor musunuz? | konuşmuyor musunuz? |
+| **Onlar** | konuşuyorlar | konuşmuyorlar | konuşuyorlar mı? | konuşmuyorlar mı? |
+
+## 37. korkmak — ভয় পাওয়া
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | korkuyorum | korkmuyorum | korkuyor muyum? | korkmuyor muyum? |
+| **Sen** | korkuyorsun | korkmuyorsun | korkuyor musun? | korkmuyor musun? |
+| **O** | korkuyor | korkmuyor | korkuyor mu? | korkmuyor mu? |
+| **Biz** | korkuyoruz | korkmuyoruz | korkuyor muyuz? | korkmuyor muyuz? |
+| **Siz** | korkuyorsunuz | korkmuyorsunuz | korkuyor musunuz? | korkmuyor musunuz? |
+| **Onlar** | korkuyorlar | korkmuyorlar | korkuyorlar mı? | korkmuyorlar mı? |
+
+## 38. koşmak — দৌড়াতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | koşuyorum | koşmuyorum | koşuyor muyum? | koşmuyor muyum? |
+| **Sen** | koşuyorsun | koşmuyorsun | koşuyor musun? | koşmuyor musun? |
+| **O** | koşuyor | koşmuyor | koşuyor mu? | koşmuyor mu? |
+| **Biz** | koşuyoruz | koşmuyoruz | koşuyor muyuz? | koşmuyor muyuz? |
+| **Siz** | koşuyorsunuz | koşmuyorsunuz | koşuyor musunuz? | koşmuyor musunuz? |
+| **Onlar** | koşuyorlar | koşmuyorlar | koşuyorlar mı? | koşmuyorlar mı? |
+
+## 39. koymak — রাখতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | koyuyorum | koymuyorum | koyuyor muyum? | koymuyor muyum? |
+| **Sen** | koyuyorsun | koymuyorsun | koyuyor musun? | koymuyor musun? |
+| **O** | koyuyor | koymuyor | koyuyor mu? | koymuyor mu? |
+| **Biz** | koyuyoruz | koymuyoruz | koyuyor muyuz? | koymuyor muyuz? |
+| **Siz** | koyuyorsunuz | koymuyorsunuz | koyuyor musunuz? | koymuyor musunuz? |
+| **Onlar** | koyuyorlar | koymuyorlar | koyuyorlar mı? | koymuyorlar mı? |
+
+## 40. kullanmak — ব্যবহার করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | kullanıyorum | kullanmıyorum | kullanıyor muyum? | kullanmıyor muyum? |
+| **Sen** | kullanıyorsun | kullanmıyorsun | kullanıyor musun? | kullanmıyor musun? |
+| **O** | kullanıyor | kullanmıyor | kullanıyor mu? | kullanmıyor mu? |
+| **Biz** | kullanıyoruz | kullanmıyoruz | kullanıyor muyuz? | kullanmıyor muyuz? |
+| **Siz** | kullanıyorsunuz | kullanmıyorsunuz | kullanıyor musunuz? | kullanmıyor musunuz? |
+| **Onlar** | kullanıyorlar | kullanmıyorlar | kullanıyorlar mı? | kullanmıyorlar mı? |
+
+## 41. nefret etmek — ঘৃণা করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | nefret ediyorum | nefret etmiyorum | nefret ediyor muyum? | nefret etmiyor muyum? |
+| **Sen** | nefret ediyorsun | nefret etmiyorsun | nefret ediyor musun? | nefret etmiyor musun? |
+| **O** | nefret ediyor | nefret etmiyor | nefret ediyor mu? | nefret etmiyor mu? |
+| **Biz** | nefret ediyoruz | nefret etmiyoruz | nefret ediyor muyuz? | nefret etmiyor muyuz? |
+| **Siz** | nefret ediyorsunuz | nefret etmiyorsunuz | nefret ediyor musunuz? | nefret etmiyor musunuz? |
+| **Onlar** | nefret ediyorlar | nefret etmiyorlar | nefret ediyorlar mı? | nefret etmiyorlar mı? |
+
+## 42. okumak — পড়তে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | okuyorum | okumuyorum | okuyor muyum? | okumuyor muyum? |
+| **Sen** | okuyorsun | okumuyorsun | okuyor musun? | okumuyor musun? |
+| **O** | okuyor | okumuyor | okuyor mu? | okumuyor mu? |
+| **Biz** | okuyoruz | okumuyoruz | okuyor muyuz? | okumuyor muyuz? |
+| **Siz** | okuyorsunuz | okumuyorsunuz | okuyor musunuz? | okumuyor musunuz? |
+| **Onlar** | okuyorlar | okumuyorlar | okuyorlar mı? | okumuyorlar mı? |
+
+## 43. oturmak — বসতে / বসবাস করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | oturuyorum | oturmuyorum | oturuyor muyum? | oturmuyor muyum? |
+| **Sen** | oturuyorsun | oturmuyorsun | oturuyor musun? | oturmuyor musun? |
+| **O** | oturuyor | oturmuyor | oturuyor mu? | oturmuyor mu? |
+| **Biz** | oturuyoruz | oturmuyoruz | oturuyor muyuz? | oturmuyor muyuz? |
+| **Siz** | oturuyorsunuz | oturmuyorsunuz | oturuyor musunuz? | oturmuyor musunuz? |
+| **Onlar** | oturuyorlar | oturmuyorlar | oturuyorlar mı? | oturmuyorlar mı? |
+
+## 44. oynamak — খেলতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | oynuyorum | oynamıyorum | oynuyor muyum? | oynamıyor muyum? |
+| **Sen** | oynuyorsun | oynamıyorsun | oynuyor musun? | oynamıyor musun? |
+| **O** | oynuyor | oynamıyor | oynuyor mu? | oynamıyor mu? |
+| **Biz** | oynuyoruz | oynamıyoruz | oynuyor muyuz? | oynamıyor muyuz? |
+| **Siz** | oynuyorsunuz | oynamıyorsunuz | oynuyor musunuz? | oynamıyor musunuz? |
+| **Onlar** | oynuyorlar | oynamıyorlar | oynuyorlar mı? | oynamıyorlar mı? |
+
+## 45. öğrenmek — শিখতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | öğreniyorum | öğrenmiyorum | öğreniyor muyum? | öğrenmiyor muyum? |
+| **Sen** | öğreniyorsun | öğrenmiyorsun | öğreniyor musun? | öğrenmiyor musun? |
+| **O** | öğreniyor | öğrenmiyor | öğreniyor mu? | öğrenmiyor mu? |
+| **Biz** | öğreniyoruz | öğrenmiyoruz | öğreniyor muyuz? | öğrenmiyor muyuz? |
+| **Siz** | öğreniyorsunuz | öğrenmiyorsunuz | öğreniyor musunuz? | öğrenmiyor musunuz? |
+| **Onlar** | öğreniyorlar | öğrenmiyorlar | öğreniyorlar mı? | öğrenmiyorlar mı? |
+
+## 46. özlemek — মিস করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | özlüyorum | özlemiyorum | özlüyor muyum? | özlemiyor muyum? |
+| **Sen** | özlüyorsun | özlemiyorsun | özlüyor musun? | özlemiyor musun? |
+| **O** | özlüyor | özlemiyor | özlüyor mu? | özlemiyor mu? |
+| **Biz** | özlüyoruz | özlemiyoruz | özlüyor muyuz? | özlemiyor muyuz? |
+| **Siz** | özlüyorsunuz | özlemiyorsunuz | özlüyor musunuz? | özlemiyor musunuz? |
+| **Onlar** | özlüyorlar | özlemiyorlar | özlüyorlar mı? | özlemiyorlar mı? |
+
+## 47. para çekmek — টাকা তুলতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | para çekiyorum | para çekmiyorum | para çekiyor muyum? | para çekmiyor muyum? |
+| **Sen** | para çekiyorsun | para çekmiyorsun | para çekiyor musun? | para çekmiyor musun? |
+| **O** | para çekiyor | para çekmiyor | para çekiyor mu? | para çekmiyor mu? |
+| **Biz** | para çekiyoruz | para çekmiyoruz | para çekiyor muyuz? | para çekmiyor muyuz? |
+| **Siz** | para çekiyorsunuz | para çekmiyorsunuz | para çekiyor musunuz? | para çekmiyor musunuz? |
+| **Onlar** | para çekiyorlar | para çekmiyorlar | para çekiyorlar mı? | para çekmiyorlar mı? |
+
+## 48. pişirmek — রান্না করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | pişiriyorum | pişirmiyorum | pişiriyor muyum? | pişirmiyor muyum? |
+| **Sen** | pişiriyorsun | pişirmiyorsun | pişiriyor musun? | pişirmiyor musun? |
+| **O** | pişiriyor | pişirmiyor | pişiriyor mu? | pişirmiyor mu? |
+| **Biz** | pişiriyoruz | pişirmiyoruz | pişiriyor muyuz? | pişirmiyor muyuz? |
+| **Siz** | pişiriyorsunuz | pişirmiyorsunuz | pişiriyor musunuz? | pişirmiyor musunuz? |
+| **Onlar** | pişiriyorlar | pişirmiyorlar | pişiriyorlar mı? | pişirmiyorlar mı? |
+
+## 49. sanmak — ভেব/ধারণা করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | sanıyorum | sanmıyorum | sanıyor muyum? | sanmıyor muyum? |
+| **Sen** | sanıyorsun | sanmıyorsun | sanıyor musun? | sanmıyor musun? |
+| **O** | sanıyor | sanmıyor | sanıyor mu? | sanmıyor mu? |
+| **Biz** | sanıyoruz | sanmıyoruz | sanıyor muyuz? | sanmıyor muyuz? |
+| **Siz** | sanıyorsunuz | sanmıyorsunuz | sanıyor musunuz? | sanmıyor musunuz? |
+| **Onlar** | sanıyorlar | sanmıyorlar | sanıyorlar mı? | sanmıyorlar mı? |
+
+
