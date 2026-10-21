@@ -3,7 +3,7 @@
 ## 1. açmak — খুলতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | açıyorum | açmıyorum | açıyor muyum? | açmıyor muyum? |
 | **Sen** | açıyorsun | açmıyorsun | açıyor musun? | açmıyor musun? |
 | **O** | açıyor | açmıyor | açıyor mu? | açmıyor mu? |
@@ -14,7 +14,7 @@
 ## 2. anlamak — বুঝতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | anlıyorum | anlamıyorum | anlıyor muyum? | anlamıyor muyum? |
 | **Sen** | anlıyorsun | anlamıyorsun | anlıyor musun? | anlamıyor musun? |
 | **O** | anlıyor | anlamıyor | anlıyor mu? | anlamıyor mu? |
@@ -25,7 +25,7 @@
 ## 3. aramak — খুঁজতে / ডাকতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | arıyorum | aramıyorum | arıyor muyum? | aramıyor muyum? |
 | **Sen** | arıyorsun | aramıyorsun | arıyor musun? | aramıyor musun? |
 | **O** | arıyor | aramıyor | arıyor mu? | aramıyor mu? |
@@ -36,7 +36,7 @@
 ## 4. bakmak — দেখতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | bakıyorum | bakmıyorum | bakıyor muyum? | bakmıyor muyum? |
 | **Sen** | bakıyorsun | bakmıyorsun | bakıyor musun? | bakmıyor musun? |
 | **O** | bakıyor | bakmıyor | bakıyor mu? | bakmıyor mu? |
@@ -47,7 +47,7 @@
 ## 5. banyo yapmak — স্নান করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | banyo yapıyorum | banyo yapmıyorum | banyo yapıyor muyum? | banyo yapmıyor muyum? |
 | **Sen** | banyo yapıyorsun | banyo yapmıyorsun | banyo yapıyor musun? | banyo yapmıyor musun? |
 | **O** | banyo yapıyor | banyo yapmıyor | banyo yapıyor mu? | banyo yapmıyor mu? |
@@ -58,7 +58,7 @@
 ## 6. başlamak — শুরু করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | başlıyorum | başlamıyorum | başlıyor muyum? | başlamıyor muyum? |
 | **Sen** | başlıyorsun | başlamıyorsun | başlıyor musun? | başlamıyor musun? |
 | **O** | başlıyor | başlamıyor | başlıyor mu? | başlamıyor mu? |
@@ -69,7 +69,7 @@
 ## 7. bayılmak — অজ্ঞান হওয়া / খুব ভালোবাসা
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | bayılıyorum | bayılmıyorum | bayılıyor muyum? | bayılmıyor muyum? |
 | **Sen** | bayılıyorsun | bayılmıyorsun | bayılıyor musun? | bayılmıyor musun? |
 | **O** | bayılıyor | bayılmıyor | bayılıyor mu? | bayılmıyor mu? |
@@ -80,7 +80,7 @@
 ## 8. beslenmek — nourishment / খাওয়ানো
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | besleniyorum | beslenmiyorum | besleniyor muyum? | beslenmiyor muyum? |
 | **Sen** | besleniyorsun | beslenmiyorsun | besleniyor musun? | beslenmiyor musun? |
 | **O** | besleniyor | beslenmiyor | besleniyor mu? | beslenmiyor mu? |
@@ -91,7 +91,7 @@
 ## 9. bilmek — জানতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | biliyorum | bilmiyorum | biliyor muyum? | bilmiyor muyum? |
 | **Sen** | biliyorsun | bilmiyorsun | biliyor musun? | bilmiyor musun? |
 | **O** | biliyor | bilmiyor | biliyor mu? | bilmiyor mu? |
@@ -102,7 +102,7 @@
 ## 10. binmek — উঠতে / চড়তে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | biniyorum | binmiyorum | biniyor muyum? | binmiyor muyum? |
 | **Sen** | biniyorsun | binmiyorsun | biniyor musun? | binmiyor musun? |
 | **O** | biniyor | binmiyor | biniyor mu? | binmiyor mu? |
@@ -113,7 +113,7 @@
 ## 11. biriktirmek — জমা করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | biriktiriyorum | biriktirmiyorum | biriktiriyor muyum? | biriktirmiyor muyum? |
 | **Sen** | biriktiriyorsun | biriktirmiyorsun | biriktiriyor musun? | biriktirmiyor musun? |
 | **O** | biriktiriyor | biriktirmiyor | biriktiriyor mu? | biriktirmiyor mu? |
@@ -124,7 +124,7 @@
 ## 12. bitmek — শেষ হওয়া
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | bitiyorum | bitmiyorum | bitiyor muyum? | bitmiyor muyum? |
 | **Sen** | bitiyorsun | bitmiyorsun | bitiyor musun? | bitmiyor musun? |
 | **O** | bitiyor | bitmiyor | bitiyor mu? | bitmiyor mu? |
@@ -135,7 +135,7 @@
 ## 13. buluşmak — দেখা করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | buluşuyorum | buluşmuyorum | buluşuyor muyum? | buluşmuyor muyum? |
 | **Sen** | buluşuyorsun | buluşmuyorsun | buluşuyor musun? | buluşmuyor musun? |
 | **O** | buluşuyor | buluşmuyor | buluşuyor mu? | buluşmuyor mu? |
@@ -146,7 +146,7 @@
 ## 14. çalışmak — কাজ করতে / পড়াশোনা করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | çalışıyorum | çalışmıyorum | çalışıyor muyum? | çalışmıyor muyum? |
 | **Sen** | çalışıyorsun | çalışmıyorsun | çalışıyor musun? | çalışmıyor musun? |
 | **O** | çalışıyor | çalışmıyor | çalışıyor mu? | çalışmıyor mu? |
@@ -157,7 +157,7 @@
 ## 15. çıkmak — বের হওয়া / ওপরে উঠা
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | çıkıyorum | çıkmıyorum | çıkıyor muyum? | çıkmıyor muyum? |
 | **Sen** | çıkıyorsun | çıkmıyorsun | çıkıyor musun? | çıkmıyor musun? |
 | **O** | çıkıyor | çıkmıyor | çıkıyor mu? | çıkmıyor mu? |
@@ -168,7 +168,7 @@
 ## 16. demek — বলতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | diyorum | demiyorum | diyor muyum? | demiyor muyum? |
 | **Sen** | diyorsun | demiyorsun | diyor musun? | demiyor musun? |
 | **O** | diyor | demiyor | diyor mu? | demiyor mu? |
@@ -179,7 +179,7 @@
 ## 17. dinlemek — শুনতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | dinliyorum | dinlemiyorum | dinliyor muyum? | dinlemiyor muyum? |
 | **Sen** | dinliyorsun | dinlemiyorsun | dinliyor musun? | dinlemiyor musun? |
 | **O** | dinliyor | dinlemiyor | dinliyor mu? | dinlemiyor mu? |
@@ -190,7 +190,7 @@
 ## 18. dinlenmek — বিশ্রাম নিতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | dinleniyorum | dinlenmiyorum | dinleniyor muyum? | dinlenmiyor muyum? |
 | **Sen** | dinleniyorsun | dinlenmiyorsun | dinleniyor musun? | dinlenmiyor musun? |
 | **O** | dinleniyor | dinlenmiyor | dinleniyor mu? | dinlenmiyor mu? |
@@ -201,7 +201,7 @@
 ## 19. dolaşmak — ঘুরতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | dolaşıyorum | dolaşmıyorum | dolaşıyor muyum? | dolaşmıyor muyum? |
 | **Sen** | dolaşıyorsun | dolaşmıyorsun | dolaşıyor musun? | dolaşmıyor musun? |
 | **O** | dolaşıyor | dolaşmıyor | dolaşıyor mu? | dolaşmıyor mu? |
@@ -212,7 +212,7 @@
 ## 20. dönmek — ফিরে আসা
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | dönüyorum | dönmüyorum | dönüyor muyum? | dönmüyor muyum? |
 | **Sen** | dönüyorsun | dönmüyorsun | dönüyor musun? | dönmüyor musun? |
 | **O** | dönüyor | dönmüyor | dönüyor mu? | dönmüyor mu? |
@@ -223,7 +223,7 @@
 ## 21. durmak — থামতে / দাঁড়াতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | duruyorum | durmuyorum | duruyor muyum? | durmuyor muyum? |
 | **Sen** | duruyorsun | durmuyorsun | duruyor musun? | durmuyor musun? |
 | **O** | duruyor | durmuyor | duruyor mu? | durmuyor mu? |
@@ -234,7 +234,7 @@
 ## 22. duş almak — গোসল করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | duş alıyorum | duş almıyorum | duş alıyor muyum? | duş almıyor muyum? |
 | **Sen** | duş alıyorsun | duş almıyorsun | duş alıyor musun? | duş almıyor musun? |
 | **O** | duş alıyor | duş almıyor | duş alıyor mu? | duş almıyor mu? |
@@ -245,7 +245,7 @@
 ## 23. fotoğraf çekmek — ছবি তুলতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | fotoğraf çekiyorum | fotoğraf çekmiyorum | fotoğraf çekiyor muyum? | fotoğraf çekmiyor muyum? |
 | **Sen** | fotoğraf çekiyorsun | fotoğraf çekmiyorsun | fotoğraf çekiyor musun? | fotoğraf çekmiyor musun? |
 | **O** | fotoğraf çekiyor | fotoğraf çekmiyor | fotoğraf çekiyor mu? | fotoğraf çekmiyor mu? |
@@ -256,7 +256,7 @@
 ## 24. geçmek — অতিক্রম করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | geçiyorum | geçmiyorum | geçiyor muyum? | geçmiyor muyum? |
 | **Sen** | geçiyorsun | geçmiyorsun | geçiyor musun? | geçmiyor musun? |
 | **O** | geçiyor | geçmiyor | geçiyor mu? | geçmiyor mu? |
@@ -267,7 +267,7 @@
 ## 25. gezmek — ভ্রমণ করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | geziyorum | gezmiyorum | geziyor muyum? | gezmiyor muyum? |
 | **Sen** | geziyorsun | gezmiyorsun | geziyor musun? | gezmiyor musun? |
 | **O** | geziyor | gezmiyor | geziyor mu? | gezmiyor mu? |
@@ -278,7 +278,7 @@
 ## 26. girmek — ঢুকতে / অনলাইনে যেতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | giriyorum | girmiyorum | giriyor muyum? | girmiyor muyum? |
 | **Sen** | giriyorsun | girmiyorsun | giriyor musun? | girmiyor musun? |
 | **O** | giriyor | girmiyor | giriyor mu? | girmiyor mu? |
@@ -289,7 +289,7 @@
 ## 27. gitmek — যেতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | gidiyorum | gitmiyorum | gidiyor muyum? | gitmiyor muyum? |
 | **Sen** | gidiyorsun | gitmiyorsun | gidiyor musun? | gitmiyor musun? |
 | **O** | gidiyor | gitmiyor | gidiyor mu? | gitmiyor mu? |
@@ -300,7 +300,7 @@
 ## 28. hazırlamak — প্রস্তুত করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | hazırlıyorum | hazırlamıyorum | hazırlıyor muyum? | hazırlamıyor muyum? |
 | **Sen** | hazırlıyorsun | hazırlamıyorsun | hazırlıyor musun? | hazırlamıyor musun? |
 | **O** | hazırlıyor | hazırlamıyor | hazırlıyor mu? | hazırlamıyor mu? |
@@ -311,7 +311,7 @@
 ## 29. hazırlanmak — প্রস্তুত হওয়া
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | hazırlanıyorum | hazırlanmıyorum | hazırlanıyor muyum? | hazırlanmıyor muyum? |
 | **Sen** | hazırlanıyorsun | hazırlanmıyorsun | hazırlanıyor musun? | hazırlanmıyor musun? |
 | **O** | hazırlanıyor | hazırlanmıyor | hazırlanıyor mu? | hazırlanmıyor mu? |
@@ -322,7 +322,7 @@
 ## 30. hoşlanmak — পছন্দ করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | hoşlanıyorum | hoşlanmıyorum | hoşlanıyor muyum? | hoşlanmıyor muyum? |
 | **Sen** | hoşlanıyorsun | hoşlanmıyorsun | hoşlanıyor musun? | hoşlanmıyor musun? |
 | **O** | hoşlanıyor | hoşlanmıyor | hoşlanıyor mu? | hoşlanmıyor mu? |
@@ -333,7 +333,7 @@
 ## 31. izlemek — দেখাশোনা করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | izliyorum | izlemiyorum | izliyor muyum? | izlemiyor muyum? |
 | **Sen** | izliyorsun | izlemiyorsun | izliyor musun? | izlemiyor musun? |
 | **O** | izliyor | izlemiyor | izliyor mu? | izlemiyor mu? |
@@ -344,7 +344,7 @@
 ## 32. kahvaltı etmek — নাস্তা করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | kahvaltı ediyorum | kahvaltı etmiyorum | kahvaltı ediyor muyum? | kahvaltı etmiyor muyum? |
 | **Sen** | kahvaltı ediyorsun | kahvaltı etmiyorsun | kahvaltı ediyor musun? | kahvaltı etmiyor musun? |
 | **O** | kahvaltı ediyor | kahvaltı etmiyor | kahvaltı ediyor mu? | kahvaltı etmiyor mu? |
@@ -355,7 +355,7 @@
 ## 33. kalkmak — উঠতে / বের হতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | kalkıyorum | kalkmıyorum | kalkıyor muyum? | kalkmıyor muyum? |
 | **Sen** | kalkıyorsun | kalkmıyorsun | kalkıyor musun? | kalkmıyor musun? |
 | **O** | kalkıyor | kalkmıyor | kalkıyor mu? | kalkmıyor mu? |
@@ -366,7 +366,7 @@
 ## 34. kalmak — থাকতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | kalıyorum | kalmıyorum | kalıyor muyum? | kalmıyor muyum? |
 | **Sen** | kalıyorsun | kalmıyorsun | kalıyor musun? | kalmıyor musun? |
 | **O** | kalıyor | kalmıyor | kalıyor mu? | kalmıyor mu? |
@@ -377,7 +377,7 @@
 ## 35. kontrol etmek — পরীক্ষা করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | kontrol ediyorum | kontrol etmiyorum | kontrol ediyor muyum? | kontrol etmiyor muyum? |
 | **Sen** | kontrol ediyorsun | kontrol etmiyorsun | kontrol ediyor musun? | kontrol etmiyor musun? |
 | **O** | kontrol ediyor | kontrol etmiyor | kontrol ediyor mu? | kontrol etmiyor mu? |
@@ -388,7 +388,7 @@
 ## 36. konuşmak — কথা বলতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | konuşuyorum | konuşmuyorum | konuşuyor muyum? | konuşmuyor muyum? |
 | **Sen** | konuşuyorsun | konuşmuyorsun | konuşuyor musun? | konuşmuyor musun? |
 | **O** | konuşuyor | konuşmuyor | konuşuyor mu? | konuşmuyor mu? |
@@ -399,7 +399,7 @@
 ## 37. korkmak — ভয় পাওয়া
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | korkuyorum | korkmuyorum | korkuyor muyum? | korkmuyor muyum? |
 | **Sen** | korkuyorsun | korkmuyorsun | korkuyor musun? | korkmuyor musun? |
 | **O** | korkuyor | korkmuyor | korkuyor mu? | korkmuyor mu? |
@@ -410,7 +410,7 @@
 ## 38. koşmak — দৌড়াতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | koşuyorum | koşmuyorum | koşuyor muyum? | koşmuyor muyum? |
 | **Sen** | koşuyorsun | koşmuyorsun | koşuyor musun? | koşmuyor musun? |
 | **O** | koşuyor | koşmuyor | koşuyor mu? | koşmuyor mu? |
@@ -421,7 +421,7 @@
 ## 39. koymak — রাখতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | koyuyorum | koymuyorum | koyuyor muyum? | koymuyor muyum? |
 | **Sen** | koyuyorsun | koymuyorsun | koyuyor musun? | koymuyor musun? |
 | **O** | koyuyor | koymuyor | koyuyor mu? | koymuyor mu? |
@@ -432,7 +432,7 @@
 ## 40. kullanmak — ব্যবহার করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | kullanıyorum | kullanmıyorum | kullanıyor muyum? | kullanmıyor muyum? |
 | **Sen** | kullanıyorsun | kullanmıyorsun | kullanıyor musun? | kullanmıyor musun? |
 | **O** | kullanıyor | kullanmıyor | kullanıyor mu? | kullanmıyor mu? |
@@ -443,7 +443,7 @@
 ## 41. nefret etmek — ঘৃণা করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | nefret ediyorum | nefret etmiyorum | nefret ediyor muyum? | nefret etmiyor muyum? |
 | **Sen** | nefret ediyorsun | nefret etmiyorsun | nefret ediyor musun? | nefret etmiyor musun? |
 | **O** | nefret ediyor | nefret etmiyor | nefret ediyor mu? | nefret etmiyor mu? |
@@ -454,7 +454,7 @@
 ## 42. okumak — পড়তে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | okuyorum | okumuyorum | okuyor muyum? | okumuyor muyum? |
 | **Sen** | okuyorsun | okumuyorsun | okuyor musun? | okumuyor musun? |
 | **O** | okuyor | okumuyor | okuyor mu? | okumuyor mu? |
@@ -465,7 +465,7 @@
 ## 43. oturmak — বসতে / বসবাস করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | oturuyorum | oturmuyorum | oturuyor muyum? | oturmuyor muyum? |
 | **Sen** | oturuyorsun | oturmuyorsun | oturuyor musun? | oturmuyor musun? |
 | **O** | oturuyor | oturmuyor | oturuyor mu? | oturmuyor mu? |
@@ -476,7 +476,7 @@
 ## 44. oynamak — খেলতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | oynuyorum | oynamıyorum | oynuyor muyum? | oynamıyor muyum? |
 | **Sen** | oynuyorsun | oynamıyorsun | oynuyor musun? | oynamıyor musun? |
 | **O** | oynuyor | oynamıyor | oynuyor mu? | oynamıyor mu? |
@@ -487,7 +487,7 @@
 ## 45. öğrenmek — শিখতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | öğreniyorum | öğrenmiyorum | öğreniyor muyum? | öğrenmiyor muyum? |
 | **Sen** | öğreniyorsun | öğrenmiyorsun | öğreniyor musun? | öğrenmiyor musun? |
 | **O** | öğreniyor | öğrenmiyor | öğreniyor mu? | öğrenmiyor mu? |
@@ -498,7 +498,7 @@
 ## 46. özlemek — মিস করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | özlüyorum | özlemiyorum | özlüyor muyum? | özlemiyor muyum? |
 | **Sen** | özlüyorsun | özlemiyorsun | özlüyor musun? | özlemiyor musun? |
 | **O** | özlüyor | özlemiyor | özlüyor mu? | özlemiyor mu? |
@@ -509,7 +509,7 @@
 ## 47. para çekmek — টাকা তুলতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | para çekiyorum | para çekmiyorum | para çekiyor muyum? | para çekmiyor muyum? |
 | **Sen** | para çekiyorsun | para çekmiyorsun | para çekiyor musun? | para çekmiyor musun? |
 | **O** | para çekiyor | para çekmiyor | para çekiyor mu? | para çekmiyor mu? |
@@ -520,7 +520,7 @@
 ## 48. pişirmek — রান্না করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | pişiriyorum | pişirmiyorum | pişiriyor muyum? | pişirmiyor muyum? |
 | **Sen** | pişiriyorsun | pişirmiyorsun | pişiriyor musun? | pişirmiyor musun? |
 | **O** | pişiriyor | pişirmiyor | pişiriyor mu? | pişirmiyor mu? |
@@ -531,7 +531,7 @@
 ## 49. sanmak — ভেব/ধারণা করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | sanıyorum | sanmıyorum | sanıyor muyum? | sanmıyor muyum? |
 | **Sen** | sanıyorsun | sanmıyorsun | sanıyor musun? | sanmıyor musun? |
 | **O** | sanıyor | sanmıyor | sanıyor mu? | sanmıyor mu? |
@@ -542,7 +542,7 @@
 ## 50. sevmek — ভালোবাসতে / পছন্দ করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | seviyorum | sevmiyorum | seviyor muyum? | sevmiyor muyum? |
 | **Sen** | seviyorsun | sevmiyorsun | seviyor musun? | sevmiyor musun? |
 | **O** | seviyor | sevmiyor | seviyor mu? | sevmiyor mu? |
@@ -553,7 +553,7 @@
 ## 51. sıkılmak — বিরক্ত হতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | sıkılıyorum | sıkılmıyorum | sıkılıyor muyum? | sıkılmıyor muyum? |
 | **Sen** | sıkılıyorsun | sıkılmıyorsun | sıkılıyor musun? | sıkılmıyor musun? |
 | **O** | sıkılıyor | sıkılmıyor | sıkılıyor mu? | sıkılmıyor mu? |
@@ -564,7 +564,7 @@
 ## 52. sohbet etmek — আলাপ করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | sohbet ediyorum | sohbet etmiyorum | sohbet ediyor muyum? | sohbet etmiyor muyum? |
 | **Sen** | sohbet ediyorsun | sohbet etmiyorsun | sohbet ediyor musun? | sohbet etmiyor musun? |
 | **O** | sohbet ediyor | sohbet etmiyor | sohbet ediyor mu? | sohbet etmiyor mu? |
@@ -575,7 +575,7 @@
 ## 53. sormak — জিজ্ঞেস করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | soruyorum | sormuyorum | soruyor muyum? | sormuyor muyum? |
 | **Sen** | soruyorsun | sormuyorsun | soruyor musun? | sormuyor musun? |
 | **O** | soruyor | sormuyor | soruyor mu? | sormuyor mu? |
@@ -586,7 +586,7 @@
 ## 54. söylemek — বলতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | söylüyorum | söylemiyorum | söylüyor muyum? | söylemiyor muyum? |
 | **Sen** | söylüyorsun | söylemiyorsun | söylüyor musun? | söylemiyor musun? |
 | **O** | söylüyor | söylemiyor | söylüyor mu? | söylemiyor mu? |
@@ -597,7 +597,7 @@
 ## 55. spor yapmak — ব্যায়াম করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | spor yapıyorum | spor yapmıyorum | spor yapıyor muyum? | spor yapmıyor muyum? |
 | **Sen** | spor yapıyorsun | spor yapmıyorsun | spor yapıyor musun? | spor yapmıyor musun? |
 | **O** | spor yapıyor | spor yapmıyor | spor yapıyor mu? | spor yapmıyor mu? |
@@ -608,7 +608,7 @@
 ## 56. stres atmak — স্ট্রেস কমাতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | stres atıyorum | stres atmıyorum | stres atıyor muyum? | stres atmıyor muyum? |
 | **Sen** | stres atıyorsun | stres atmıyorsun | stres atıyor musun? | stres atmıyor musun? |
 | **O** | stres atıyor | stres atmıyor | stres atıyor mu? | stres atmıyor mu? |
@@ -619,7 +619,7 @@
 ## 57. tanımak — চিনতে / জানতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | tanıyorum | tanımıyorum | tanıyor muyum? | tanımıyor muyum? |
 | **Sen** | tanıyorsun | tanımıyorsun | tanıyor musun? | tanımıyor musun? |
 | **O** | tanıyor | tanımıyor | tanıyor mu? | tanımıyor mu? |
@@ -630,7 +630,7 @@
 ## 58. tanışmak — পরিচিত হওয়া
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | tanışıyorum | tanışmıyorum | tanışıyor muyum? | tanışmıyor muyum? |
 | **Sen** | tanışıyorsun | tanışmıyorsun | tanışıyor musun? | tanışmıyor musun? |
 | **O** | tanışıyor | tanışmıyor | tanışıyor mu? | tanışmıyor mu? |
@@ -641,7 +641,7 @@
 ## 59. tekrar etmek — আবার করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | tekrar ediyorum | tekrar etmiyorum | tekrar ediyor muyum? | tekrar etmiyor muyum? |
 | **Sen** | tekrar ediyorsun | tekrar etmiyorsun | tekrar ediyor musun? | tekrar etmiyor musun? |
 | **O** | tekrar ediyor | tekrar etmiyor | tekrar ediyor mu? | tekrar etmiyor mu? |
@@ -652,10 +652,166 @@
 ## 60. temizlemek — পরিষ্কার করতে
 
 | Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | **Ben** | temizliyorum | temizlemiyorum | temizliyor muyum? | temizlemiyor muyum? |
 | **Sen** | temizliyorsun | temizlemiyorsun | temizliyor musun? | temizlemiyor musun? |
 | **O** | temizliyor | temizlemiyor | temizliyor mu? | temizlemiyor mu? |
 | **Biz** | temizliyoruz | temizlemiyoruz | temizliyor muyuz? | temizlemiyor muyuz? |
 | **Siz** | temizliyorsunuz | temizlemiyorsunuz | temizliyor musunuz? | temizlemiyor musunuz? |
 | **Onlar** | temizliyorlar | temizlemiyorlar | temizliyorlar mı? | temizlemiyorlar mı? |
+
+## 61. tırmanmak — উঠতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | tırmanıyorum | tırmanmıyorum | tırmanıyor muyum? | tırmanmıyor muyum? |
+| **Sen** | tırmanıyorsun | tırmanmıyorsun | tırmanıyor musun? | tırmanmıyor musun? |
+| **O** | tırmanıyor | tırmanmıyor | tırmanıyor mu? | tırmanmıyor mu? |
+| **Biz** | tırmanıyoruz | tırmanmıyoruz | tırmanıyor muyuz? | tırmanmıyor muyuz? |
+| **Siz** | tırmanıyorsunuz | tırmanmıyorsunuz | tırmanıyor musunuz? | tırmanmıyor musunuz? |
+| **Onlar** | tırmanıyorlar | tırmanmıyorlar | tırmanıyorlar mı? | tırmanmıyorlar mı? |
+
+## 62. uyumak — ঘুমাতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | uyuyorum | uyumuyorum | uyuyor muyum? | uyumuyor muyum? |
+| **Sen** | uyuyorsun | uyumuyorsun | uyuyor musun? | uyumuyor musun? |
+| **O** | uyuyor | uyumuyor | uyuyor mu? | uyumuyor mu? |
+| **Biz** | uyuyoruz | uyumuyoruz | uyuyor muyuz? | uyumuyor muyuz? |
+| **Siz** | uyuyorsunuz | uyumuyorsunuz | uyuyor musunuz? | uyumuyor musunuz? |
+| **Onlar** | uyuyorlar | uyumuyorlar | uyuyorlar mı? | uyumuyorlar mı? |
+
+## 63. uzanmak — শুয়ে পড়া / হাত বাড়ানো
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | uzanıyorum | uzanmıyorum | uzanıyor muyum? | uzanmıyor muyum? |
+| **Sen** | uzanıyorsun | uzanmıyorsun | uzanıyor musun? | uzanmıyor musun? |
+| **O** | uzanıyor | uzanmıyor | uzanıyor mu? | uzanmıyor mu? |
+| **Biz** | uzanıyoruz | uzanmıyoruz | uzanıyor muyuz? | uzanmıyor muyuz? |
+| **Siz** | uzanıyorsunuz | uzanmıyorsunuz | uzanıyor musunuz? | uzanmıyor musunuz? |
+| **Onlar** | uzanıyorlar | uzanmıyorlar | uzanıyorlar mı? | uzanmıyorlar mı? |
+
+## 64. varmak — পৌঁছাতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | varıyorum | varmıyorum | varıyor muyum? | varmıyor muyum? |
+| **Sen** | varıyorsun | varmıyorsun | varıyor musun? | varmıyor musun? |
+| **O** | varıyor | varmıyor | varıyor mu? | varmıyor mu? |
+| **Biz** | varıyoruz | varmıyoruz | varıyor muyuz? | varmıyor muyuz? |
+| **Siz** | varıyorsunuz | varmıyorsunuz | varıyor musunuz? | varmıyor musunuz? |
+| **Onlar** | varıyorlar | varmıyorlar | varıyorlar mı? | varmıyorlar mı? |
+
+## 65. vermek — দিতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | veriyorum | vermiyorum | veriyor muyum? | vermiyor muyum? |
+| **Sen** | veriyorsun | vermiyorsun | veriyor musun? | vermiyor musun? |
+| **O** | veriyor | vermiyor | veriyor mu? | vermiyor mu? |
+| **Biz** | veriyoruz | vermiyoruz | veriyor muyuz? | vermiyor muyuz? |
+| **Siz** | veriyorsunuz | vermiyorsunuz | veriyor musunuz? | vermiyor musunuz? |
+| **Onlar** | veriyorlar | vermiyorlar | veriyorlar mı? | vermiyorlar mı? |
+
+## 66. yapmak — করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | yapıyorum | yapmıyorum | yapıyor muyum? | yapmıyor muyum? |
+| **Sen** | yapıyorsun | yapmıyorsun | yapıyor musun? | yapmıyor musun? |
+| **O** | yapıyor | yapmıyor | yapıyor mu? | yapmıyor mu? |
+| **Biz** | yapıyoruz | yapmıyoruz | yapıyor muyuz? | yapmıyor muyuz? |
+| **Siz** | yapıyorsunuz | yapmıyorsunuz | yapıyor musunuz? | yapmıyor musunuz? |
+| **Onlar** | yapıyorlar | yapmıyorlar | yapıyorlar mı? | yapmıyorlar mı? |
+
+## 67. yardım istemek — সাহায্য চাওয়া
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | yardım istiyorum | yardım istemiyorum | yardım istiyor muyum? | yardım istemiyor muyum? |
+| **Sen** | yardım istiyorsun | yardım istemiyorsun | yardım istiyor musun? | yardım istemiyor musun? |
+| **O** | yardım istiyor | yardım istemiyor | yardım istiyor mu? | yardım istemiyor mu? |
+| **Biz** | yardım istiyoruz | yardım istemiyoruz | yardım istiyor muyuz? | yardım istemiyor muyuz? |
+| **Siz** | yardım istiyorsunuz | yardım istemiyorsunuz | yardım istiyor musunuz? | yardım istemiyor musunuz? |
+| **Onlar** | yardım istiyorlar | yardım istemiyorlar | yardım istiyorlar mı? | yardım istemiyorlar mı? |
+
+## 68. yaşamak — বাঁচতে / বসবাস করতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | yaşıyorum | yaşamıyorum | yaşıyor muyum? | yaşamıyor muyum? |
+| **Sen** | yaşıyorsun | yaşamıyorsun | yaşıyor musun? | yaşamıyor musun? |
+| **O** | yaşıyor | yaşamıyor | yaşıyor mu? | yaşamıyor mu? |
+| **Biz** | yaşıyoruz | yaşamıyoruz | yaşıyor muyuz? | yaşamıyor muyuz? |
+| **Siz** | yaşıyorsunuz | yaşamıyorsunuz | yaşıyor musunuz? | yaşamıyor musunuz? |
+| **Onlar** | yaşıyorlar | yaşamıyorlar | yaşıyorlar mı? | yaşamıyorlar mı? |
+
+## 69. yatmak — শুতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | yatıyorum | yatmıyorum | yatıyor muyum? | yatmıyor muyum? |
+| **Sen** | yatıyorsun | yatmıyorsun | yatıyor musun? | yatmıyor musun? |
+| **O** | yatıyor | yatmıyor | yatıyor mu? | yatmıyor mu? |
+| **Biz** | yatıyoruz | yatmıyoruz | yatıyor muyuz? | yatmıyor muyuz? |
+| **Siz** | yatıyorsunuz | yatmıyorsunuz | yatıyor musunuz? | yatmıyor musunuz? |
+| **Onlar** | yatıyorlar | yatmıyorlar | yatıyorlar mı? | yatmıyorlar mı? |
+
+## 70. yazmak — লিখতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | yazıyorum | yazmıyorum | yazıyor muyum? | yazmıyor muyum? |
+| **Sen** | yazıyorsun | yazmıyorsun | yazıyor musun? | yazmıyor musun? |
+| **O** | yazıyor | yazmıyor | yazıyor mu? | yazmıyor mu? |
+| **Biz** | yazıyoruz | yazmıyoruz | yazıyor muyuz? | yazmıyor muyuz? |
+| **Siz** | yazıyorsunuz | yazmıyorsunuz | yazıyor musunuz? | yazmıyor musunuz? |
+| **Onlar** | yazıyorlar | yazmıyorlar | yazıyorlar mı? | yazmıyorlar mı? |
+
+## 71. yemek — খেতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | yiyorum | yemiyorum | yiyor muyum? | yemiyor muyum? |
+| **Sen** | yiyorsun | yemiyorsun | yiyor musun? | yemiyor musun? |
+| **O** | yiyor | yemiyor | yiyor mu? | yemiyor mu? |
+| **Biz** | yiyoruz | yemiyoruz | yiyor muyuz? | yemiyor muyuz? |
+| **Siz** | yiyorsunuz | yemiyorsunuz | yiyor musunuz? | yemiyor musunuz? |
+| **Onlar** | yiyorlar | yemiyorlar | yiyorlar mı? | yemiyorlar mı? |
+
+## 72. yorulmak — ক্লান্ত হওয়া
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | yoruluyorum | yorulmuyorum | yoruluyor muyum? | yorulmuyor muyum? |
+| **Sen** | yoruluyorsun | yorulmuyorsun | yoruluyor musun? | yorulmuyor musun? |
+| **O** | yoruluyor | yorulmuyor | yoruluyor mu? | yorulmuyor mu? |
+| **Biz** | yoruluyoruz | yorulmuyoruz | yoruluyor muyuz? | yorulmuyor muyuz? |
+| **Siz** | yoruluyorsunuz | yorulmuyorsunuz | yoruluyor musunuz? | yorulmuyor musunuz? |
+| **Onlar** | yoruluyorlar | yorulmuyorlar | yoruluyorlar mı? | yorulmuyorlar mı? |
+
+## 73. yürümek — হাঁটতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | yürüyorum | yürümüyorum | yürüyor muyum? | yürümüyor muyum? |
+| **Sen** | yürüyorsun | yürümüyorsun | yürüyor musun? | yürümüyor musun? |
+| **O** | yürüyor | yürümüyor | yürüyor mu? | yürümüyor mu? |
+| **Biz** | yürüyoruz | yürümüyoruz | yürüyor muyuz? | yürümüyor muyuz? |
+| **Siz** | yürüyorsunuz | yürümüyorsunuz | yürüyor musunuz? | yürümüyor musunuz? |
+| **Onlar** | yürüyorlar | yürümüyorlar | yürüyorlar mı? | yürümüyorlar mı? |
+
+## 74. yüzmek — সাঁতার কাটতে
+
+| Person | ✅ Positive | ❌ Negative | ❓ Question | ❌❓ Negative Question |
+|---|---|---|---|---|
+| **Ben** | yüzüyorum | yüzmüyorum | yüzüyor muyum? | yüzmüyor muyum? |
+| **Sen** | yüzüyorsun | yüzmüyorsun | yüzüyor musun? | yüzmüyor musun? |
+| **O** | yüzüyor | yüzmüyor | yüzüyor mu? | yüzmüyor mu? |
+| **Biz** | yüzüyoruz | yüzmüyoruz | yüzüyor muyuz? | yüzmüyor muyuz? |
+| **Siz** | yüzüyorsunuz | yüzmüyorsunuz | yüzüyor musunuz? | yüzmüyor musunuz? |
+| **Onlar** | yüzüyorlar | yüzmüyorlar | yüzüyorlar mı? | yüzmüyorlar mı? |
+
+
