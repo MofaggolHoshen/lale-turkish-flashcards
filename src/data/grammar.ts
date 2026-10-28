@@ -582,12 +582,38 @@ export const grammarLevels: GrammarLevel[] = [
       },
       {
         id: "a1-unit-3",
-        title: "Unit 3 – Direction, origin, and wants",
+        title: "Unit 3 – Daily actions, direction, and wants",
         summary:
-          "Use the dative case for destinations, the ablative case for origins, and -mak/-mek istemek to talk about what you want to do.",
+          "Talk about actions happening now with the present continuous, use the dative and ablative cases for movement, and express what you want to do.",
         sections: [
           {
-            title: "1) Dative case: -(y)a / -(y)e",
+            title: "1) Present continuous: -(I)yor",
+            description:
+              "Use the present continuous for actions happening now, near-future plans, and sometimes regular actions. The form changes with the verb's final vowel; negative forms use -ma/-me, which changes before -yor.",
+            examples: [
+              { tr: "Kitap okuyorum.", en: "I am reading a book." },
+              { tr: "Müzik dinliyorum.", en: "I am listening to music." },
+              { tr: "Biz yemek yiyoruz.", en: "We are eating." },
+              { tr: "O okula gidiyor.", en: "He/she is going to school." },
+              { tr: "Ben kitap okumuyorum.", en: "I am not reading a book." },
+              { tr: "Sen geliyor musun?", en: "Are you coming?" },
+              { tr: "Eve gelmiyor musun?", en: "Aren't you coming home?" },
+              { tr: "Bekliyorum.", en: "I am waiting." },
+              { tr: "Oynuyorum.", en: "I am playing." },
+              { tr: "Yiyor ve diyor.", en: "He/she eats and says." },
+              { tr: "Gidiyor, ediyor, tadıyor.", en: "He/she goes, does, tastes." },
+            ],
+            tips: [
+              "With many consonant-final verbs, the last vowel selects -ıyor, -iyor, -uyor, or -üyor: kalıyor, giriyor, koşuyor, görüyor.",
+              "After a final -ı, -i, -u, or -ü, add -yor directly: okuyor, uyuyor.",
+              "Final -a/-e often changes before -yor: ara → arıyor, bekle → bekliyor.",
+              "For negatives, add -ma/-me before -yor: okumuyor, sevmiyor.",
+              "Common irregular forms include ye → yiyor, de → diyor, git → gidiyor, and et → ediyor.",
+              "In questions, keep the question particle separate: geliyor musun?, gelmiyor mu?",
+            ],
+          },
+          {
+            title: "2) Dative case: -(y)a / -(y)e",
             description:
               "The dative case marks a destination, direction, or recipient. Choose -a after a back vowel and -e after a front vowel; add y between two vowels. Many Turkish words ending in p, ç, t, or k soften before a vowel-starting suffix.",
             examples: [
@@ -608,7 +634,7 @@ export const grammarLevels: GrammarLevel[] = [
             ],
           },
           {
-            title: "2) Ablative case: -dan / -den / -tan / -ten",
+            title: "3) Ablative case: -dan / -den / -tan / -ten",
             description:
               "The ablative case expresses movement away from a place, a source, or 'from'. Vowel harmony selects a or e, and the suffix begins with t after the voiceless consonants f, s, t, k, ç, ş, h, and p.",
             examples: [
@@ -628,7 +654,7 @@ export const grammarLevels: GrammarLevel[] = [
             ],
           },
           {
-            title: "3) Expressing wants: -mak / -mek istemek",
+            title: "4) Expressing wants: -mak / -mek istemek",
             description:
               "To say that someone wants to do something, use the verb's infinitive in -mak or -mek followed by istemek conjugated for the person. The infinitive vowel follows vowel harmony.",
             examples: [
@@ -651,6 +677,9 @@ export const grammarLevels: GrammarLevel[] = [
           },
         ],
         practice: [
+          "Ben kitap okumuyorum, müzik dinliyorum.",
+          "Eve gelmiyor musun?",
+          "Yemek yiyoruz.",
           "Okula gidiyorum.",
           "Kitap → kitaba; ağaç → ağaca.",
           "Marketten geliyorum.",
@@ -661,6 +690,37 @@ export const grammarLevels: GrammarLevel[] = [
           "Gitmek istiyor musun?",
         ],
         quiz: [
+          {
+            prompt: "Which sentence means 'I am listening to music'?",
+            options: [
+              "Müzik dinliyorum.",
+              "Müzik dinlemiyorum.",
+              "Müzik dinliyor musun?",
+              "Müzik dinlemek istiyorum.",
+            ],
+            answer: "Müzik dinliyorum.",
+            explanation:
+              "Dinliyorum is the first-person singular present continuous form of dinlemek.",
+          },
+          {
+            prompt: "Which is the correct negative form of okumak in the present continuous?",
+            options: ["Okumuyor", "Okunmuyor", "Okumiyor", "Okumayor"],
+            answer: "Okumuyor",
+            explanation:
+              "The negative marker -ma becomes -m- before -yor, giving oku-ma-yor → okumuyor.",
+          },
+          {
+            prompt: "How do you ask 'Are you coming?'",
+            options: [
+              "Geliyor musun?",
+              "Geliyorsun mu?",
+              "Geliyor muyum?",
+              "Gelmiyor musun?",
+            ],
+            answer: "Geliyor musun?",
+            explanation:
+              "Place the separate question particle after geliyor, then add the personal ending: musun.",
+          },
           {
             prompt: "Which sentence means 'I am going to school'?",
             options: [
@@ -734,6 +794,151 @@ export const grammarLevels: GrammarLevel[] = [
             answer: "Gitmek istiyor musun?",
             explanation:
               "In a yes/no question, the question suffix follows istiyor and takes the personal ending: musun.",
+          },
+        ],
+      },
+      {
+        id: "a1-unit-4",
+        title: "Unit 4 – My family, friends, and world",
+        summary:
+          "Talk about family and belongings with possessive suffixes, describe countries, nationalities, and languages, and use kendi and hep.",
+        sections: [
+          {
+            title: "1) Possessive suffixes",
+            description:
+              "Possessive suffixes show who something belongs to. Their vowels follow vowel harmony, and third-person possession uses a linking s after vowel-final nouns. When a case suffix follows third-person possession, add n between the suffixes.",
+            examples: [
+              { tr: "Benim babam.", en: "My father." },
+              { tr: "Senin evin.", en: "Your house." },
+              { tr: "Onun annesi.", en: "His/her mother." },
+              { tr: "Bizim okulumuz.", en: "Our school." },
+              { tr: "Sizin ülkeniz.", en: "Your country." },
+              { tr: "Onların arkadaşları.", en: "Their friends." },
+              { tr: "Onun evine gidiyorum.", en: "I am going to his/her house." },
+              { tr: "Onun kitabında resimler var.", en: "There are pictures in his/her book." },
+              { tr: "Benim şehrim kalabalık.", en: "My city is crowded." },
+            ],
+            tips: [
+              "Common endings are -(I)m (my), -(I)n (your, singular), -(s)I (his/her), -(I)mIz (our), -(I)nIz (your, plural/formal), and -lArI (their).",
+              "The exact vowel in a suffix follows the last vowel of the noun: evim, kolum, köyüm.",
+              "Some two-syllable words with a narrow second-syllable vowel drop it before a vowel-initial suffix: şehir → şehrim, burun → burnu.",
+              "Add n before a case suffix after third-person possession: evi → evine, kitabı → kitabında.",
+            ],
+          },
+          {
+            title: "2) Countries, nationalities, and languages",
+            description:
+              "Country names, nationality words, and language names are learned as related forms. Language names commonly use -CA, whose consonant and vowel harmonize with the word.",
+            examples: [
+              { tr: "Türkiye — Türk / Türkiyeli — Türkçe", en: "Türkiye — Turkish person — Turkish language." },
+              { tr: "Almanya — Alman / Almanyalı — Almanca", en: "Germany — German person — German language." },
+              { tr: "Japonya — Japon / Japonyalı — Japonca", en: "Japan — Japanese person — Japanese language." },
+              { tr: "Mısır — Arap / Mısırlı — Arapça", en: "Egypt — Arab/Egyptian — Arabic." },
+              { tr: "Fransa — Fransız / Fransalı — Fransızca", en: "France — French person — French language." },
+              { tr: "Çin — Çinli — Çince", en: "China — Chinese person — Chinese language." },
+              { tr: "Ben Kazakistanlıyım. Kazakça biliyorum.", en: "I am from Kazakhstan. I know Kazakh." },
+            ],
+            tips: [
+              "Some nationalities have more than one common form: Türk/Türkiyeli, Alman/Almanyalı.",
+              "The language suffix is -ca/-ce/-ça/-çe. It becomes ç after f, s, t, k, ç, ş, h, or p: İngilizce, Türkçe, Arapça.",
+              "Country, nationality, and language forms are not always predictable from one another; learn common forms together.",
+            ],
+          },
+          {
+            title: "3) Kendi: self and emphasis",
+            description:
+              "Kendi takes a possessive suffix to refer back to the subject or to emphasize who performs an action. It can also take a case suffix: kendime, kendine, kendisine.",
+            examples: [
+              { tr: "Ben kendim ütü yapıyorum.", en: "I do the ironing myself." },
+              { tr: "Ödevini kendin yap.", en: "Do your homework yourself." },
+              { tr: "Biz kendimize yemek yapıyoruz.", en: "We are cooking for ourselves." },
+              { tr: "Kendiniz bir yazı yazın.", en: "Write a text yourselves." },
+              { tr: "Ben kendime kazak örüyorum.", en: "I am knitting myself a sweater." },
+              { tr: "Ayşe kendisine kitap alıyor.", en: "Ayşe is buying a book for herself." },
+            ],
+            tips: [
+              "Match kendi to the person: kendim, kendin, kendisi, kendimiz, kendiniz, kendileri.",
+              "Use a case ending when the meaning requires one: kendime (to/for myself), kendine (to/for yourself), kendisine (to/for him/herself).",
+            ],
+          },
+          {
+            title: "4) Hep: all of us, all of you, all of them",
+            description:
+              "Hep combines with possessive endings to refer to an entire group. Hepsi means 'all of them' and can also follow a noun in the genitive.",
+            examples: [
+              { tr: "Hepimiz öğrenciyiz.", en: "We are all students." },
+              { tr: "Hepiniz çok çalışkansınız.", en: "You are all very hardworking." },
+              { tr: "Bu meyvelerin hepsi taze.", en: "All of these fruits are fresh." },
+              { tr: "Hepimize kitap hediye ediyor.", en: "He/she is giving a book to all of us." },
+              { tr: "Hepimiz iyi anlaşıyoruz.", en: "We all get along well." },
+            ],
+            tips: [
+              "Hepimiz = all of us; hepiniz = all of you; hepsi = all of them.",
+              "These forms can take case endings: hepimize (to all of us), hepsine (to all of them), hepsinden (from all of them).",
+            ],
+          },
+        ],
+        practice: [
+          "Benim ailem İstanbul'da yaşıyor.",
+          "Onun evi okula yakın mı?",
+          "Ben Kazakistanlıyım. Kazakça biliyorum.",
+          "Ben kendim ütü yapıyorum.",
+          "Biz kendimize yemek yapıyoruz.",
+          "Hepimiz öğrenciyiz.",
+          "Bu meyvelerin hepsi taze.",
+        ],
+        quiz: [
+          {
+            prompt: "Which phrase means 'our school'?",
+            options: ["Okulum", "Okulun", "Okulumuz", "Okulunuz"],
+            answer: "Okulumuz",
+            explanation:
+              "The first-person plural possessive ending -(I)mIz makes okul → okulumuz.",
+          },
+          {
+            prompt: "Which is the correct form for 'his/her house'?",
+            options: ["Evim", "Evin", "Evi", "Evimiz"],
+            answer: "Evi",
+            explanation:
+              "The third-person singular possessive ending is -(s)I: ev + i → evi.",
+          },
+          {
+            prompt: "Which phrase means 'in his/her book'?",
+            options: ["Kitabında", "Kitabına", "Kitabından", "Kitabımda"],
+            answer: "Kitabında",
+            explanation:
+              "After third-person possession kitabı, add n before the locative ending: kitabı + n + da.",
+          },
+          {
+            prompt: "What is the Turkish word for the German language?",
+            options: ["Almanca", "Almança", "Almanyaca", "Almancağ"],
+            answer: "Almanca",
+            explanation:
+              "The language form is Almanca; country and language names are not always formed by a single predictable suffix.",
+          },
+          {
+            prompt: "Which phrase means 'I do it myself'?",
+            options: [
+              "Ben kendim yapıyorum.",
+              "Ben kendin yapıyorum.",
+              "Ben kendimiz yapıyorum.",
+              "Ben hepsi yapıyorum.",
+            ],
+            answer: "Ben kendim yapıyorum.",
+            explanation:
+              "Kendim agrees with ben and emphasizes that I do the action myself.",
+          },
+          {
+            prompt: "Which phrase means 'We are all students'?",
+            options: [
+              "Hepimiz öğrenciyiz.",
+              "Hepiniz öğrenciyiz.",
+              "Hepsi öğrenciyiz.",
+              "Hepimiz öğrenci misiniz?",
+            ],
+            answer: "Hepimiz öğrenciyiz.",
+            explanation:
+              "Hepimiz means 'all of us'; öğrenciyiz agrees with the first-person plural subject.",
           },
         ],
       },
