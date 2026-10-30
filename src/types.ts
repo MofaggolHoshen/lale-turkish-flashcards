@@ -44,7 +44,11 @@ export type Category =
   | "nature"
   | "animals"
   | "verbs"
-  | "adjectives";
+  | "adjectives"
+  | "unit_1"
+  | "unit_2"
+  | "unit_3"
+  | "unit_4";
 
 export type TranslationDirection = "tr-en" | "en-tr";
 export type Dictionary = Record<string, string>;
