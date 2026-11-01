@@ -44,6 +44,14 @@ describe("Textbook unit vocabulary", () => {
         ["yabancı dil", "foreign language"],
       ]),
     );
+    expect(CATEGORIES.unit_5).toEqual(
+      expect.arrayContaining([
+        ["balayı", "honeymoon"],
+        ["yıldönümü", "anniversary"],
+        ["evlenmek", "to get married"],
+        ["vedalaşmak", "to say goodbye"],
+      ]),
+    );
     expect(TR_EN.yemek).toBe("to eat");
   });
 });
