@@ -66,4 +66,49 @@
 | Hızlı | Fast | দ্রুত |
 | İçecek | Drink | পানীয় |
 | İstasyon | Station | স্টেশন |
+| İyi | Good | ভালো |
+| Kaç | How many | কত |
+| Kaçıncı | Which one / What order | কততম / কোনটি |
+| Kantin | Canteen | ক্যান্টিন |
+| Kapalı | Closed | বন্ধ |
+| Kasap | Butcher | মাংস বিক্রেতা |
+| Kasiyer | Cashier | কাশিয়ার |
+| Kat | Floor | তলা / ফ্লোর |
+| Kırmızı | Red | লাল |
+| Kıskanç | Jealous | ঈর্ষান্বিত |
+| Kibar | Polite | ভদ্র |
+| Kilo | Weight / Kilo | ওজন / কিলো |
+| Kitaplık | Bookcase | বইয়ের তাক |
+| Kolay | Easy | সহজ |
+| Komik | Funny | হাস্যকর |
+| Konuşkan | Talkative | বাক্পটু |
+| Koridor | Corridor | করিডর |
+| Kötü | Bad | খারাপ |
+| Kuaför | Hairdresser | চুলের দোকান / নাপিত |
+| Kuyumcu | Jeweler | গহনা বিক্রেতা |
+| Lamba | Lamp | বাতি |
+| Mahalle | Neighborhood | পাড়া |
+| Manav | Greengrocer | সবজি বিক্রেতা |
+| Market | Market | বাজার |
+| Mutfak | Kitchen | রান্নাঘর |
+| Mutlu | Happy | সুখী |
+| Mutsuz | Unhappy | অসুখী |
+| Nerede | Where | কোথায় |
+| Nesne | Object | বস্তু |
+| Niçin | Why | কেন |
+| Ocak | January / Stove | জানুয়ারি / স্টোভ |
+| Ofis | Office | অফিস |
+| Orada | There | সেখানে |
+| Öğleden sonra | Afternoon | দুপুরের পরে |
+| Önemli | Important | গুরুত্বপূর্ণ |
+| Önemsiz | Unimportant | অগুরুত্বপূর্ণ |
+| Pahalı | Expensive | দামি |
+| Pastane | Patisserie | পেস্ট্রি / কফিশপ |
+| Pembe | Pink | গোলাপী |
+| Postane | Post office | পোস্ট অফিস |
+| Projektör | Projector | প্রজেক্টর |
+| Psikolog | Psychologist | মনোবিজ্ঞানী |
+| Resepsiyonist | Receptionist | রিসেপশনিস্ট |
+| Sabah | Morning | সকাল |
+| Sakin | Calm | শান্ত |
 
