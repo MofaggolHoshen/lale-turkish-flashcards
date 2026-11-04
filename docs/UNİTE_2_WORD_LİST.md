@@ -111,4 +111,48 @@
 | Resepsiyonist | Receptionist | রিসেপশনিস্ট |
 | Sabah | Morning | সকাল |
 | Sakin | Calm | শান্ত |
+| Sayı | Number | সংখ্যা |
+| Sehpa | Coffee table | কফি টেবিল |
+| Sekreter | Secretary | সচিব / ব্যক্তিগত সহকারী |
+| Semt | District | এলাকা |
+| Sessiz | Silent / Quiet | নীরব |
+| Sıcak | Hot | গরম |
+| Sıfat | Adjective | বিশেষণ |
+| Sinirli | Angry | রাগী |
+| Sosyal | Social | সামাজিক |
+| Soyadı | Surname | পরিবার নাম |
+| Şehir | City | শহর |
+| Şimdi | Now | এখন |
+| Şişman | Fat | মোটা |
+| Tabak | Plate | থালা |
+| Tarih | Date / History | তারিখ / ইতিহাস |
+| Tatil | Holiday | ছুটি |
+| Tehlikeli | Dangerous | বিপজ্জনক |
+| Tembel | Lazy | অলস |
+| Tezgâhtar | Salesclerk | বিক্রেতা |
+| Tuzlu | Salty | লবণাক্ত |
+| Ucuz | Cheap | সস্তা |
+| Uzak | Far | দূরে |
+| Üst | Top / Upper | উপরের অংশ |
+| Var | There is / Exist | আছে |
+| Yakın | Near | কাছের |
+| Yastık | Pillow | বালিশ |
+| Yaş | Age | বয়স |
+| Yaşlı | Old | বয়স্ক |
+| Yavaş | Slow | ধীর |
+| Yazı tahtası | Whiteboard | সাদা বোর্ড |
+| Yer | Place / Floor | স্থান / মেঝে |
+| Yıl | Year | বছর |
+| Yiyecek | Food | খাবার |
+| Yoğun | Busy / Intense | ব্যস্ত / ঘন |
+| Yok | Non-existent / No | নেই |
+| Yorgun | Tired | ক্লান্ত |
+| Zamir | Pronoun | সর্বনাম |
+| Zayıf | Weak / Thin | দুর্বল / পাতলা |
+| Zengin | Rich | ধনী |
+| Aramak (Fiil) | To call / To search | ডাকতে / খুঁজতে |
 
+## Notes
+
+- This is an OCR-based extraction from the PDF and may still include a few unclear words.
+- If you want, I can also turn this into a cleaner, student-friendly version with only the most accurate Turkish-English-Bangla entries.
