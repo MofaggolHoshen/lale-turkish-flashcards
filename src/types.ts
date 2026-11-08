@@ -24,7 +24,8 @@ export type Tab =
   | "add"
   | "library"
   | "grammar"
-  | "story";
+  | "story"
+  | "conjugation";
 export type ReviewMode = "due" | "mastered" | "all";
 export type Category =
   | "greetings"

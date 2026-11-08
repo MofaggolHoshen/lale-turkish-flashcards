@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, {
+  lazy,
+  Suspense,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 import { C } from "./styles/theme";
 import { getRepository } from "./repositories";
 import { DAY_MS } from "./utils/flashcards";
@@ -11,6 +17,12 @@ import { VocabularyView } from "./components/VocabularyView";
 import { GrammarView } from "./components/GrammarView";
 import { StoryView } from "./components/StoryView";
 import type { Meta, ReviewMode, Tab, Word } from "./types";
+
+const ConjugationView = lazy(() =>
+  import("./components/ConjugationView").then((module) => ({
+    default: module.ConjugationView,
+  })),
+);
 
 const todayStr = () => new Date().toDateString();
 
@@ -144,6 +156,17 @@ export default function App() {
           />
         )}
         {tab === "grammar" && <GrammarView />}
+        {tab === "conjugation" && (
+          <Suspense
+            fallback={
+              <div style={{ color: C.inkSoft, padding: 18 }}>
+                Loading conjugation data…
+              </div>
+            }
+          >
+            <ConjugationView />
+          </Suspense>
+        )}
         {tab === "story" && <StoryView />}
         {tab === "review" && (
           <Review
@@ -196,5 +219,3 @@ export default function App() {
     </div>
   );
 }
-
-
