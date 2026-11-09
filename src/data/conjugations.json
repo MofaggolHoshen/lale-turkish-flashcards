@@ -1,7 +1,7 @@
 [
   {
     "lemma": "acı",
-    "englishMeaning": null,
+    "englishMeaning": "hot / bitter",
     "bengaliMeaning": "ঝাল/তিক্ত",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -103,7 +103,7 @@
   },
   {
     "lemma": "açıklamak",
-    "englishMeaning": null,
+    "englishMeaning": "to explain",
     "bengaliMeaning": "ব্যাখ্যা করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -256,7 +256,7 @@
   },
   {
     "lemma": "acıkmak",
-    "englishMeaning": null,
+    "englishMeaning": "to get hungry",
     "bengaliMeaning": "ক্ষুধার্ত হওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -409,7 +409,7 @@
   },
   {
     "lemma": "acil",
-    "englishMeaning": null,
+    "englishMeaning": "urgent",
     "bengaliMeaning": "জরুরি",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -613,7 +613,7 @@
   },
   {
     "lemma": "adil",
-    "englishMeaning": null,
+    "englishMeaning": "fair",
     "bengaliMeaning": "ন্যায়পরায়ণ",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -664,7 +664,7 @@
   },
   {
     "lemma": "adil olmayan",
-    "englishMeaning": null,
+    "englishMeaning": "unfair",
     "bengaliMeaning": "অন্যায়/ন্যায়পরায়ণ নয়",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -715,7 +715,7 @@
   },
   {
     "lemma": "affetmek",
-    "englishMeaning": null,
+    "englishMeaning": "to forgive",
     "bengaliMeaning": "ক্ষমা করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -868,7 +868,7 @@
   },
   {
     "lemma": "ağır",
-    "englishMeaning": null,
+    "englishMeaning": "heavy",
     "bengaliMeaning": "ভারী",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -919,7 +919,7 @@
   },
   {
     "lemma": "ağlamak",
-    "englishMeaning": null,
+    "englishMeaning": "to cry",
     "bengaliMeaning": "কাঁদা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -1072,7 +1072,7 @@
   },
   {
     "lemma": "akıllı",
-    "englishMeaning": null,
+    "englishMeaning": "intelligent",
     "bengaliMeaning": "বুদ্ধিমান",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -1139,7 +1139,7 @@
   },
   {
     "lemma": "aktif",
-    "englishMeaning": null,
+    "englishMeaning": "active",
     "bengaliMeaning": "সক্রিয়",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -1190,7 +1190,7 @@
   },
   {
     "lemma": "alçak",
-    "englishMeaning": null,
+    "englishMeaning": "low",
     "bengaliMeaning": "নিচু",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -1394,7 +1394,7 @@
   },
   {
     "lemma": "Alman",
-    "englishMeaning": null,
+    "englishMeaning": "German",
     "bengaliMeaning": "জার্মান",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -1445,7 +1445,7 @@
   },
   {
     "lemma": "Almanca",
-    "englishMeaning": null,
+    "englishMeaning": "German language",
     "bengaliMeaning": "জার্মান ভাষা",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -1614,7 +1614,7 @@
   },
   {
     "lemma": "anlaşmak",
-    "englishMeaning": null,
+    "englishMeaning": "to agree",
     "bengaliMeaning": "সম্মত হওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -1767,7 +1767,7 @@
   },
   {
     "lemma": "anlatmak",
-    "englishMeaning": null,
+    "englishMeaning": "to describe / to tell",
     "bengaliMeaning": "বর্ণনা করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -1920,7 +1920,7 @@
   },
   {
     "lemma": "anormal",
-    "englishMeaning": null,
+    "englishMeaning": "abnormal",
     "bengaliMeaning": "অস্বাভাবিক",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -1971,7 +1971,7 @@
   },
   {
     "lemma": "aptal",
-    "englishMeaning": null,
+    "englishMeaning": "foolish",
     "bengaliMeaning": "বোকা",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -2191,7 +2191,7 @@
   },
   {
     "lemma": "Arap",
-    "englishMeaning": null,
+    "englishMeaning": "Arab",
     "bengaliMeaning": "আরব",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -2258,7 +2258,7 @@
   },
   {
     "lemma": "artmak",
-    "englishMeaning": null,
+    "englishMeaning": "to increase",
     "bengaliMeaning": "বাড়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -2411,7 +2411,7 @@
   },
   {
     "lemma": "aşçı",
-    "englishMeaning": null,
+    "englishMeaning": "cook / chef",
     "bengaliMeaning": "রাঁধুনি",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -2765,7 +2765,7 @@
   },
   {
     "lemma": "aydınlık",
-    "englishMeaning": null,
+    "englishMeaning": "bright",
     "bengaliMeaning": "আলোকিত",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -2816,7 +2816,7 @@
   },
   {
     "lemma": "ayırmak",
-    "englishMeaning": null,
+    "englishMeaning": "to separate",
     "bengaliMeaning": "আলাদা করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -3020,7 +3020,7 @@
   },
   {
     "lemma": "ayrılmak",
-    "englishMeaning": null,
+    "englishMeaning": "to leave / to depart",
     "bengaliMeaning": "ছেড়ে যাওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -3173,7 +3173,7 @@
   },
   {
     "lemma": "azalmak",
-    "englishMeaning": null,
+    "englishMeaning": "to decrease",
     "bengaliMeaning": "কমা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -3326,7 +3326,7 @@
   },
   {
     "lemma": "bağırmak",
-    "englishMeaning": null,
+    "englishMeaning": "to shout",
     "bengaliMeaning": "চিৎকার করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -3479,7 +3479,7 @@
   },
   {
     "lemma": "bağlamak",
-    "englishMeaning": null,
+    "englishMeaning": "to tie",
     "bengaliMeaning": "বাঁধা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -3801,7 +3801,7 @@
   },
   {
     "lemma": "Bangladeşli",
-    "englishMeaning": null,
+    "englishMeaning": "Bangladeshi",
     "bengaliMeaning": "বাংলাদেশি",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -3884,7 +3884,7 @@
   },
   {
     "lemma": "başarısız",
-    "englishMeaning": null,
+    "englishMeaning": "unsuccessful",
     "bengaliMeaning": "ব্যর্থ",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -3935,7 +3935,7 @@
   },
   {
     "lemma": "başarmak",
-    "englishMeaning": null,
+    "englishMeaning": "to succeed",
     "bengaliMeaning": "সফল হওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -4088,7 +4088,7 @@
   },
   {
     "lemma": "basit",
-    "englishMeaning": null,
+    "englishMeaning": "simple",
     "bengaliMeaning": "সরল",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -4292,7 +4292,7 @@
   },
   {
     "lemma": "başlangıç",
-    "englishMeaning": null,
+    "englishMeaning": "beginning",
     "bengaliMeaning": "শুরু",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -4308,7 +4308,7 @@
   },
   {
     "lemma": "bayat",
-    "englishMeaning": null,
+    "englishMeaning": "stale",
     "bengaliMeaning": "বাসি",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -4359,7 +4359,7 @@
   },
   {
     "lemma": "beğenmek",
-    "englishMeaning": null,
+    "englishMeaning": "to like",
     "bengaliMeaning": "পছন্দ করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -4716,7 +4716,7 @@
   },
   {
     "lemma": "bencil",
-    "englishMeaning": null,
+    "englishMeaning": "selfish",
     "bengaliMeaning": "স্বার্থপর",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -4818,7 +4818,7 @@
   },
   {
     "lemma": "bilgi",
-    "englishMeaning": null,
+    "englishMeaning": "information",
     "bengaliMeaning": "তথ্য",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -5156,7 +5156,7 @@
   },
   {
     "lemma": "bırakmak",
-    "englishMeaning": null,
+    "englishMeaning": "to leave / to let go",
     "bengaliMeaning": "ছেড়ে দেওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -5309,7 +5309,7 @@
   },
   {
     "lemma": "birleştirmek",
-    "englishMeaning": null,
+    "englishMeaning": "to combine",
     "bengaliMeaning": "একত্র করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -5768,7 +5768,7 @@
   },
   {
     "lemma": "bölmek",
-    "englishMeaning": null,
+    "englishMeaning": "to divide",
     "bengaliMeaning": "ভাগ করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -5972,7 +5972,7 @@
   },
   {
     "lemma": "boşaltmak",
-    "englishMeaning": null,
+    "englishMeaning": "to empty",
     "bengaliMeaning": "খালি করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -6125,7 +6125,7 @@
   },
   {
     "lemma": "boyamak",
-    "englishMeaning": null,
+    "englishMeaning": "to paint",
     "bengaliMeaning": "রং করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -6278,7 +6278,7 @@
   },
   {
     "lemma": "bozmak",
-    "englishMeaning": null,
+    "englishMeaning": "to break / to damage",
     "bengaliMeaning": "নষ্ট করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -6431,7 +6431,7 @@
   },
   {
     "lemma": "bozulmak",
-    "englishMeaning": null,
+    "englishMeaning": "to break / to become damaged",
     "bengaliMeaning": "নষ্ট হওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -6957,7 +6957,7 @@
   },
   {
     "lemma": "büyümek",
-    "englishMeaning": null,
+    "englishMeaning": "to grow",
     "bengaliMeaning": "বড় হওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -7110,7 +7110,7 @@
   },
   {
     "lemma": "çağırmak",
-    "englishMeaning": null,
+    "englishMeaning": "to call / to invite",
     "bengaliMeaning": "ডাকা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -7467,7 +7467,7 @@
   },
   {
     "lemma": "çalmak",
-    "englishMeaning": null,
+    "englishMeaning": "to play (an instrument)",
     "bengaliMeaning": "বাজানো",
     "partOfSpeech": "verb",
     "tenses": [
@@ -7636,7 +7636,7 @@
   },
   {
     "lemma": "çekmek",
-    "englishMeaning": null,
+    "englishMeaning": "to pull",
     "bengaliMeaning": "টানা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -7856,7 +7856,7 @@
   },
   {
     "lemma": "cevaplamak",
-    "englishMeaning": null,
+    "englishMeaning": "to answer",
     "bengaliMeaning": "উত্তর দেওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -8060,7 +8060,7 @@
   },
   {
     "lemma": "çiftçi",
-    "englishMeaning": null,
+    "englishMeaning": "farmer",
     "bengaliMeaning": "কৃষক",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -8076,7 +8076,7 @@
   },
   {
     "lemma": "çıkarmak",
-    "englishMeaning": null,
+    "englishMeaning": "to remove / to take off",
     "bengaliMeaning": "খুলে ফেলা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -8484,7 +8484,7 @@
   },
   {
     "lemma": "çizmek",
-    "englishMeaning": null,
+    "englishMeaning": "to draw",
     "bengaliMeaning": "আঁকা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -8653,7 +8653,7 @@
   },
   {
     "lemma": "cömert",
-    "englishMeaning": null,
+    "englishMeaning": "generous",
     "bengaliMeaning": "উদার",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -8704,7 +8704,7 @@
   },
   {
     "lemma": "çözmek",
-    "englishMeaning": null,
+    "englishMeaning": "to solve",
     "bengaliMeaning": "সমাধান করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -8857,7 +8857,7 @@
   },
   {
     "lemma": "cümle",
-    "englishMeaning": null,
+    "englishMeaning": "sentence",
     "bengaliMeaning": "বাক্য",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -8873,7 +8873,7 @@
   },
   {
     "lemma": "dağıtmak",
-    "englishMeaning": null,
+    "englishMeaning": "to distribute",
     "bengaliMeaning": "বিতরণ করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -9026,7 +9026,7 @@
   },
   {
     "lemma": "dakik",
-    "englishMeaning": null,
+    "englishMeaning": "punctual",
     "bengaliMeaning": "সময়নিষ্ঠ",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -9144,7 +9144,7 @@
   },
   {
     "lemma": "değerli",
-    "englishMeaning": null,
+    "englishMeaning": "valuable",
     "bengaliMeaning": "মূল্যবান",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -9195,7 +9195,7 @@
   },
   {
     "lemma": "değersiz",
-    "englishMeaning": null,
+    "englishMeaning": "worthless",
     "bengaliMeaning": "মূল্যহীন",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -9246,7 +9246,7 @@
   },
   {
     "lemma": "değişmek",
-    "englishMeaning": null,
+    "englishMeaning": "to change",
     "bengaliMeaning": "বদলানো",
     "partOfSpeech": "verb",
     "tenses": [
@@ -9399,7 +9399,7 @@
   },
   {
     "lemma": "değiştirmek",
-    "englishMeaning": null,
+    "englishMeaning": "to change / to alter",
     "bengaliMeaning": "বদলে দেওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -9705,7 +9705,7 @@
   },
   {
     "lemma": "denemek",
-    "englishMeaning": null,
+    "englishMeaning": "to try",
     "bengaliMeaning": "চেষ্টা করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -9858,7 +9858,7 @@
   },
   {
     "lemma": "derin",
-    "englishMeaning": null,
+    "englishMeaning": "deep",
     "bengaliMeaning": "গভীর",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -9925,7 +9925,7 @@
   },
   {
     "lemma": "desteklemek",
-    "englishMeaning": null,
+    "englishMeaning": "to support",
     "bengaliMeaning": "সমর্থন করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -10129,7 +10129,7 @@
   },
   {
     "lemma": "dikmek",
-    "englishMeaning": null,
+    "englishMeaning": "to sew",
     "bengaliMeaning": "সেলাই করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -10282,7 +10282,7 @@
   },
   {
     "lemma": "dil",
-    "englishMeaning": null,
+    "englishMeaning": "language",
     "bengaliMeaning": "ভাষা",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -10298,7 +10298,7 @@
   },
   {
     "lemma": "dinç",
-    "englishMeaning": null,
+    "englishMeaning": "energetic / fit",
     "bengaliMeaning": "সতেজ",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -10655,7 +10655,7 @@
   },
   {
     "lemma": "doğal",
-    "englishMeaning": null,
+    "englishMeaning": "natural",
     "bengaliMeaning": "প্রাকৃতিক",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -10859,7 +10859,7 @@
   },
   {
     "lemma": "doğru",
-    "englishMeaning": null,
+    "englishMeaning": "correct / right",
     "bengaliMeaning": "সঠিক",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -10926,7 +10926,7 @@
   },
   {
     "lemma": "dokunmak",
-    "englishMeaning": null,
+    "englishMeaning": "to touch",
     "bengaliMeaning": "স্পর্শ করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -11232,7 +11232,7 @@
   },
   {
     "lemma": "doldurmak",
-    "englishMeaning": null,
+    "englishMeaning": "to fill",
     "bengaliMeaning": "ভরা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -11589,7 +11589,7 @@
   },
   {
     "lemma": "doymak",
-    "englishMeaning": null,
+    "englishMeaning": "to become full",
     "bengaliMeaning": "পেট ভরা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -11758,7 +11758,7 @@
   },
   {
     "lemma": "durdurmak",
-    "englishMeaning": null,
+    "englishMeaning": "to stop",
     "bengaliMeaning": "থামানো",
     "partOfSpeech": "verb",
     "tenses": [
@@ -12064,7 +12064,7 @@
   },
   {
     "lemma": "dürüst",
-    "englishMeaning": null,
+    "englishMeaning": "honest",
     "bengaliMeaning": "সৎ",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -12115,7 +12115,7 @@
   },
   {
     "lemma": "düşmek",
-    "englishMeaning": null,
+    "englishMeaning": "to fall",
     "bengaliMeaning": "পড়ে যাওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -12574,7 +12574,7 @@
   },
   {
     "lemma": "düz",
-    "englishMeaning": null,
+    "englishMeaning": "flat",
     "bengaliMeaning": "সমতল",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -12676,7 +12676,7 @@
   },
   {
     "lemma": "düzensiz",
-    "englishMeaning": null,
+    "englishMeaning": "untidy / irregular",
     "bengaliMeaning": "অগোছালো",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -12727,7 +12727,7 @@
   },
   {
     "lemma": "eğri",
-    "englishMeaning": null,
+    "englishMeaning": "crooked",
     "bengaliMeaning": "বাঁকা",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -12829,7 +12829,7 @@
   },
   {
     "lemma": "endişelenmek",
-    "englishMeaning": null,
+    "englishMeaning": "to worry",
     "bengaliMeaning": "উদ্বিগ্ন হওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -12982,7 +12982,7 @@
   },
   {
     "lemma": "enerjik",
-    "englishMeaning": null,
+    "englishMeaning": "energetic",
     "bengaliMeaning": "উদ্যমী",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -13151,7 +13151,7 @@
   },
   {
     "lemma": "esmek",
-    "englishMeaning": null,
+    "englishMeaning": "to blow (wind)",
     "bengaliMeaning": "বাতাস বওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -13304,7 +13304,7 @@
   },
   {
     "lemma": "esnek",
-    "englishMeaning": null,
+    "englishMeaning": "flexible",
     "bengaliMeaning": "নমনীয়",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -13626,7 +13626,7 @@
   },
   {
     "lemma": "fakülte",
-    "englishMeaning": null,
+    "englishMeaning": "faculty / college",
     "bengaliMeaning": "অনুষদ",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -13693,7 +13693,7 @@
   },
   {
     "lemma": "faydalı",
-    "englishMeaning": null,
+    "englishMeaning": "useful",
     "bengaliMeaning": "উপকারী",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -13760,7 +13760,7 @@
   },
   {
     "lemma": "fırsat",
-    "englishMeaning": null,
+    "englishMeaning": "opportunity",
     "bengaliMeaning": "সুযোগ",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -13776,7 +13776,7 @@
   },
   {
     "lemma": "fit",
-    "englishMeaning": null,
+    "englishMeaning": "fit",
     "bengaliMeaning": "ফিট",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -13827,7 +13827,7 @@
   },
   {
     "lemma": "Fransız",
-    "englishMeaning": null,
+    "englishMeaning": "French",
     "bengaliMeaning": "ফরাসি",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -13961,7 +13961,7 @@
   },
   {
     "lemma": "geçerli",
-    "englishMeaning": null,
+    "englishMeaning": "valid",
     "bengaliMeaning": "বৈধ",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -14012,7 +14012,7 @@
   },
   {
     "lemma": "geçersiz",
-    "englishMeaning": null,
+    "englishMeaning": "invalid",
     "bengaliMeaning": "অবৈধ",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -14063,7 +14063,7 @@
   },
   {
     "lemma": "geçimsiz",
-    "englishMeaning": null,
+    "englishMeaning": "unfriendly / quarrelsome",
     "bengaliMeaning": "অমিশুক",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -14114,7 +14114,7 @@
   },
   {
     "lemma": "geçirmek",
-    "englishMeaning": null,
+    "englishMeaning": "to spend (time)",
     "bengaliMeaning": "কাটানো (সময়)",
     "partOfSpeech": "verb",
     "tenses": [
@@ -14420,7 +14420,7 @@
   },
   {
     "lemma": "gelişmek",
-    "englishMeaning": null,
+    "englishMeaning": "to develop",
     "bengaliMeaning": "উন্নতি করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -14726,7 +14726,7 @@
   },
   {
     "lemma": "gemi",
-    "englishMeaning": null,
+    "englishMeaning": "ship",
     "bengaliMeaning": "জাহাজ",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -14793,7 +14793,7 @@
   },
   {
     "lemma": "genel",
-    "englishMeaning": null,
+    "englishMeaning": "general",
     "bengaliMeaning": "সাধারণ",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -14895,7 +14895,7 @@
   },
   {
     "lemma": "gerçek",
-    "englishMeaning": null,
+    "englishMeaning": "truth / reality",
     "bengaliMeaning": "সত্য/বাস্তব",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -14911,7 +14911,7 @@
   },
   {
     "lemma": "gerekli",
-    "englishMeaning": null,
+    "englishMeaning": "necessary",
     "bengaliMeaning": "প্রয়োজনীয়",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -14962,7 +14962,7 @@
   },
   {
     "lemma": "gereksiz",
-    "englishMeaning": null,
+    "englishMeaning": "unnecessary",
     "bengaliMeaning": "অপ্রয়োজনীয়",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -15013,7 +15013,7 @@
   },
   {
     "lemma": "getirmek",
-    "englishMeaning": null,
+    "englishMeaning": "to bring",
     "bengaliMeaning": "আনা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -15625,7 +15625,7 @@
   },
   {
     "lemma": "giyinmek",
-    "englishMeaning": null,
+    "englishMeaning": "to get dressed",
     "bengaliMeaning": "পোশাক পরা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -15778,7 +15778,7 @@
   },
   {
     "lemma": "giymek",
-    "englishMeaning": null,
+    "englishMeaning": "to wear",
     "bengaliMeaning": "পরা (পোশাক)",
     "partOfSpeech": "verb",
     "tenses": [
@@ -15931,7 +15931,7 @@
   },
   {
     "lemma": "göndermek",
-    "englishMeaning": null,
+    "englishMeaning": "to send",
     "bengaliMeaning": "পাঠানো",
     "partOfSpeech": "verb",
     "tenses": [
@@ -16237,7 +16237,7 @@
   },
   {
     "lemma": "görünmek",
-    "englishMeaning": null,
+    "englishMeaning": "to appear",
     "bengaliMeaning": "দেখা যাওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -16543,7 +16543,7 @@
   },
   {
     "lemma": "göstermek",
-    "englishMeaning": null,
+    "englishMeaning": "to show",
     "bengaliMeaning": "দেখানো",
     "partOfSpeech": "verb",
     "tenses": [
@@ -16696,7 +16696,7 @@
   },
   {
     "lemma": "götürmek",
-    "englishMeaning": null,
+    "englishMeaning": "to take / to carry",
     "bengaliMeaning": "নিয়ে যাওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -17104,7 +17104,7 @@
   },
   {
     "lemma": "gülümsemek",
-    "englishMeaning": null,
+    "englishMeaning": "to smile",
     "bengaliMeaning": "মুচকি হাসা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -17257,7 +17257,7 @@
   },
   {
     "lemma": "gürültülü",
-    "englishMeaning": null,
+    "englishMeaning": "noisy",
     "bengaliMeaning": "কোলাহলপূর্ণ",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -17308,7 +17308,7 @@
   },
   {
     "lemma": "güvenli",
-    "englishMeaning": null,
+    "englishMeaning": "safe",
     "bengaliMeaning": "নিরাপদ",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -17359,7 +17359,7 @@
   },
   {
     "lemma": "güvenmek",
-    "englishMeaning": null,
+    "englishMeaning": "to trust",
     "bengaliMeaning": "ভরসা করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -17563,7 +17563,7 @@
   },
   {
     "lemma": "haber",
-    "englishMeaning": null,
+    "englishMeaning": "news",
     "bengaliMeaning": "খবর",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -17579,7 +17579,7 @@
   },
   {
     "lemma": "hafif",
-    "englishMeaning": null,
+    "englishMeaning": "light",
     "bengaliMeaning": "হালকা",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -17713,7 +17713,7 @@
   },
   {
     "lemma": "hastalanmak",
-    "englishMeaning": null,
+    "englishMeaning": "to get sick",
     "bengaliMeaning": "অসুস্থ হওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -18035,7 +18035,7 @@
   },
   {
     "lemma": "hatırlatmak",
-    "englishMeaning": null,
+    "englishMeaning": "to remind",
     "bengaliMeaning": "মনে করিয়ে দেওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -18188,7 +18188,7 @@
   },
   {
     "lemma": "havaalanı",
-    "englishMeaning": null,
+    "englishMeaning": "airport",
     "bengaliMeaning": "বিমানবন্দর",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -18424,7 +18424,7 @@
   },
   {
     "lemma": "hesaplamak",
-    "englishMeaning": null,
+    "englishMeaning": "to calculate",
     "bengaliMeaning": "হিসাব করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -18593,7 +18593,7 @@
   },
   {
     "lemma": "hissetmek",
-    "englishMeaning": null,
+    "englishMeaning": "to feel",
     "bengaliMeaning": "অনুভব করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -18950,7 +18950,7 @@
   },
   {
     "lemma": "ihtiyaç",
-    "englishMeaning": null,
+    "englishMeaning": "need",
     "bengaliMeaning": "প্রয়োজন",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -18966,7 +18966,7 @@
   },
   {
     "lemma": "ilginç",
-    "englishMeaning": null,
+    "englishMeaning": "interesting",
     "bengaliMeaning": "আকর্ষণীয়",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -19017,7 +19017,7 @@
   },
   {
     "lemma": "ılık",
-    "englishMeaning": null,
+    "englishMeaning": "lukewarm",
     "bengaliMeaning": "কুসুম গরম",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -19068,7 +19068,7 @@
   },
   {
     "lemma": "imkânsız",
-    "englishMeaning": null,
+    "englishMeaning": "impossible",
     "bengaliMeaning": "অসম্ভব",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -19119,7 +19119,7 @@
   },
   {
     "lemma": "inanmak",
-    "englishMeaning": null,
+    "englishMeaning": "to believe",
     "bengaliMeaning": "বিশ্বাস করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -19272,7 +19272,7 @@
   },
   {
     "lemma": "ince",
-    "englishMeaning": null,
+    "englishMeaning": "thin",
     "bengaliMeaning": "পাতলা",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -19323,7 +19323,7 @@
   },
   {
     "lemma": "indirmek",
-    "englishMeaning": null,
+    "englishMeaning": "to lower / to download",
     "bengaliMeaning": "নামানো",
     "partOfSpeech": "verb",
     "tenses": [
@@ -19476,7 +19476,7 @@
   },
   {
     "lemma": "İngiliz",
-    "englishMeaning": null,
+    "englishMeaning": "English",
     "bengaliMeaning": "ইংরেজ",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -19527,7 +19527,7 @@
   },
   {
     "lemma": "İngilizce",
-    "englishMeaning": null,
+    "englishMeaning": "English language",
     "bengaliMeaning": "ইংরেজি",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -19543,7 +19543,7 @@
   },
   {
     "lemma": "inmek",
-    "englishMeaning": null,
+    "englishMeaning": "to descend / to get off",
     "bengaliMeaning": "নামা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -19712,7 +19712,7 @@
   },
   {
     "lemma": "ısınmak",
-    "englishMeaning": null,
+    "englishMeaning": "to warm up",
     "bengaliMeaning": "গরম হওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -19865,7 +19865,7 @@
   },
   {
     "lemma": "ıslak",
-    "englishMeaning": null,
+    "englishMeaning": "wet",
     "bengaliMeaning": "ভেজা",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -19916,7 +19916,7 @@
   },
   {
     "lemma": "ıslanmak",
-    "englishMeaning": null,
+    "englishMeaning": "to get wet",
     "bengaliMeaning": "ভেজা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -20238,7 +20238,7 @@
   },
   {
     "lemma": "İtalyan",
-    "englishMeaning": null,
+    "englishMeaning": "Italian",
     "bengaliMeaning": "ইতালীয়",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -20289,7 +20289,7 @@
   },
   {
     "lemma": "itmek",
-    "englishMeaning": null,
+    "englishMeaning": "to push",
     "bengaliMeaning": "ঠেলা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -20493,7 +20493,7 @@
   },
   {
     "lemma": "iyileşmek",
-    "englishMeaning": null,
+    "englishMeaning": "to recover / to get better",
     "bengaliMeaning": "সুস্থ হওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -20799,7 +20799,7 @@
   },
   {
     "lemma": "kaba",
-    "englishMeaning": null,
+    "englishMeaning": "rude",
     "bengaliMeaning": "অভদ্র",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -20815,7 +20815,7 @@
   },
   {
     "lemma": "kaçmak",
-    "englishMeaning": null,
+    "englishMeaning": "to escape / to run away",
     "bengaliMeaning": "পালানো",
     "partOfSpeech": "verb",
     "tenses": [
@@ -21086,7 +21086,7 @@
   },
   {
     "lemma": "kaldırmak",
-    "englishMeaning": null,
+    "englishMeaning": "to lift / to raise",
     "bengaliMeaning": "তোলা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -21255,7 +21255,7 @@
   },
   {
     "lemma": "kalın",
-    "englishMeaning": null,
+    "englishMeaning": "thick",
     "bengaliMeaning": "মোটা",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -21306,7 +21306,7 @@
   },
   {
     "lemma": "kaliteli",
-    "englishMeaning": null,
+    "englishMeaning": "high-quality",
     "bengaliMeaning": "মানসম্মত",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -21357,7 +21357,7 @@
   },
   {
     "lemma": "kalitesiz",
-    "englishMeaning": null,
+    "englishMeaning": "low-quality",
     "bengaliMeaning": "নিম্নমানের",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -21934,7 +21934,7 @@
   },
   {
     "lemma": "karanlık",
-    "englishMeaning": null,
+    "englishMeaning": "dark",
     "bengaliMeaning": "অন্ধকার",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -21985,7 +21985,7 @@
   },
   {
     "lemma": "kare",
-    "englishMeaning": null,
+    "englishMeaning": "square",
     "bengaliMeaning": "চৌকো",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -22036,7 +22036,7 @@
   },
   {
     "lemma": "karmaşık",
-    "englishMeaning": null,
+    "englishMeaning": "complicated",
     "bengaliMeaning": "জটিল",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -22087,7 +22087,7 @@
   },
   {
     "lemma": "katı",
-    "englishMeaning": null,
+    "englishMeaning": "solid / firm",
     "bengaliMeaning": "কঠিন/দৃঢ়",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -22138,7 +22138,7 @@
   },
   {
     "lemma": "kaybetmek",
-    "englishMeaning": null,
+    "englishMeaning": "to lose",
     "bengaliMeaning": "হারানো",
     "partOfSpeech": "verb",
     "tenses": [
@@ -22291,7 +22291,7 @@
   },
   {
     "lemma": "kaybolmak",
-    "englishMeaning": null,
+    "englishMeaning": "to get lost",
     "bengaliMeaning": "হারিয়ে যাওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -22444,7 +22444,7 @@
   },
   {
     "lemma": "kazanmak",
-    "englishMeaning": null,
+    "englishMeaning": "to win",
     "bengaliMeaning": "জেতা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -22597,7 +22597,7 @@
   },
   {
     "lemma": "kelime",
-    "englishMeaning": null,
+    "englishMeaning": "word",
     "bengaliMeaning": "শব্দ",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -22613,7 +22613,7 @@
   },
   {
     "lemma": "keşfetmek",
-    "englishMeaning": null,
+    "englishMeaning": "to discover",
     "bengaliMeaning": "আবিষ্কার করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -22766,7 +22766,7 @@
   },
   {
     "lemma": "kesmek",
-    "englishMeaning": null,
+    "englishMeaning": "to cut",
     "bengaliMeaning": "কাটা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -22970,7 +22970,7 @@
   },
   {
     "lemma": "kirli",
-    "englishMeaning": null,
+    "englishMeaning": "dirty",
     "bengaliMeaning": "নোংরা",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -23021,7 +23021,7 @@
   },
   {
     "lemma": "kırmak",
-    "englishMeaning": null,
+    "englishMeaning": "to break",
     "bengaliMeaning": "ভাঙা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -23292,7 +23292,7 @@
   },
   {
     "lemma": "kızmak",
-    "englishMeaning": null,
+    "englishMeaning": "to get angry",
     "bengaliMeaning": "রাগ করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -23547,7 +23547,7 @@
   },
   {
     "lemma": "komşu",
-    "englishMeaning": null,
+    "englishMeaning": "neighbor",
     "bengaliMeaning": "প্রতিবেশী",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -23563,7 +23563,7 @@
   },
   {
     "lemma": "konforlu",
-    "englishMeaning": null,
+    "englishMeaning": "comfortable",
     "bengaliMeaning": "আরামদায়ক",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -23614,7 +23614,7 @@
   },
   {
     "lemma": "konforsuz",
-    "englishMeaning": null,
+    "englishMeaning": "uncomfortable",
     "bengaliMeaning": "অসুবিধাজনক",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -23818,7 +23818,7 @@
   },
   {
     "lemma": "korkak",
-    "englishMeaning": null,
+    "englishMeaning": "cowardly",
     "bengaliMeaning": "ভীরু",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -24752,7 +24752,7 @@
   },
   {
     "lemma": "kurmak",
-    "englishMeaning": null,
+    "englishMeaning": "to establish / to build",
     "bengaliMeaning": "গড়ে তোলা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -24905,7 +24905,7 @@
   },
   {
     "lemma": "kuru",
-    "englishMeaning": null,
+    "englishMeaning": "dry",
     "bengaliMeaning": "শুকনো",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -24956,7 +24956,7 @@
   },
   {
     "lemma": "kurumak",
-    "englishMeaning": null,
+    "englishMeaning": "to dry (become dry)",
     "bengaliMeaning": "শুকানো",
     "partOfSpeech": "verb",
     "tenses": [
@@ -25262,7 +25262,7 @@
   },
   {
     "lemma": "lezzetli",
-    "englishMeaning": null,
+    "englishMeaning": "delicious",
     "bengaliMeaning": "সুস্বাদু",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -25313,7 +25313,7 @@
   },
   {
     "lemma": "lezzetsiz",
-    "englishMeaning": null,
+    "englishMeaning": "tasteless",
     "bengaliMeaning": "স্বাদহীন",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -25364,7 +25364,7 @@
   },
   {
     "lemma": "lider",
-    "englishMeaning": null,
+    "englishMeaning": "leader",
     "bengaliMeaning": "নেতা",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -25380,7 +25380,7 @@
   },
   {
     "lemma": "lüks",
-    "englishMeaning": null,
+    "englishMeaning": "luxurious",
     "bengaliMeaning": "বিলাসবহুল",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -25530,7 +25530,7 @@
   },
   {
     "lemma": "meraklı",
-    "englishMeaning": null,
+    "englishMeaning": "curious",
     "bengaliMeaning": "কৌতূহলী",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -25581,7 +25581,7 @@
   },
   {
     "lemma": "meşakkatli",
-    "englishMeaning": null,
+    "englishMeaning": "arduous / difficult",
     "bengaliMeaning": "কষ্টসাধ্য",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -25683,7 +25683,7 @@
   },
   {
     "lemma": "meşhur",
-    "englishMeaning": null,
+    "englishMeaning": "famous",
     "bengaliMeaning": "বিখ্যাত",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -25734,7 +25734,7 @@
   },
   {
     "lemma": "mevcut",
-    "englishMeaning": null,
+    "englishMeaning": "existing / available",
     "bengaliMeaning": "বিদ্যমান",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -25836,7 +25836,7 @@
   },
   {
     "lemma": "misafir",
-    "englishMeaning": null,
+    "englishMeaning": "guest",
     "bengaliMeaning": "অতিথি",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -25852,7 +25852,7 @@
   },
   {
     "lemma": "modern",
-    "englishMeaning": null,
+    "englishMeaning": "modern",
     "bengaliMeaning": "আধুনিক",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -25954,7 +25954,7 @@
   },
   {
     "lemma": "müdür",
-    "englishMeaning": null,
+    "englishMeaning": "manager / director",
     "bengaliMeaning": "ম্যানেজার",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -25986,7 +25986,7 @@
   },
   {
     "lemma": "mümkün",
-    "englishMeaning": null,
+    "englishMeaning": "possible",
     "bengaliMeaning": "সম্ভব",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -26037,7 +26037,7 @@
   },
   {
     "lemma": "Müslüman",
-    "englishMeaning": null,
+    "englishMeaning": "Muslim",
     "bengaliMeaning": "মুসলিম",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -26085,7 +26085,7 @@
   },
   {
     "lemma": "mutfaklı",
-    "englishMeaning": null,
+    "englishMeaning": "with a kitchen",
     "bengaliMeaning": "রান্নাঘরযুক্ত",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -26187,7 +26187,7 @@
   },
   {
     "lemma": "müzisyen",
-    "englishMeaning": null,
+    "englishMeaning": "musician",
     "bengaliMeaning": "সংগীতশিল্পী",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -26203,7 +26203,7 @@
   },
   {
     "lemma": "nazik",
-    "englishMeaning": null,
+    "englishMeaning": "polite / kind",
     "bengaliMeaning": "নম্র",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -26254,7 +26254,7 @@
   },
   {
     "lemma": "negatif",
-    "englishMeaning": null,
+    "englishMeaning": "negative",
     "bengaliMeaning": "নেতিবাচক",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -26305,7 +26305,7 @@
   },
   {
     "lemma": "neşeli",
-    "englishMeaning": null,
+    "englishMeaning": "cheerful",
     "bengaliMeaning": "প্রফুল্ল",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -26356,7 +26356,7 @@
   },
   {
     "lemma": "neşesiz",
-    "englishMeaning": null,
+    "englishMeaning": "cheerless",
     "bengaliMeaning": "নিরানন্দ",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -26474,7 +26474,7 @@
   },
   {
     "lemma": "ödemek",
-    "englishMeaning": null,
+    "englishMeaning": "to pay",
     "bengaliMeaning": "মূল্য পরিশোধ করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -26812,7 +26812,7 @@
   },
   {
     "lemma": "öğretmek",
-    "englishMeaning": null,
+    "englishMeaning": "to teach",
     "bengaliMeaning": "শেখানো",
     "partOfSpeech": "verb",
     "tenses": [
@@ -26981,7 +26981,7 @@
   },
   {
     "lemma": "öksürmek",
-    "englishMeaning": null,
+    "englishMeaning": "to cough",
     "bengaliMeaning": "কাশা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -27134,7 +27134,7 @@
   },
   {
     "lemma": "okul",
-    "englishMeaning": null,
+    "englishMeaning": "school",
     "bengaliMeaning": "স্কুল",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -27303,7 +27303,7 @@
   },
   {
     "lemma": "ölçmek",
-    "englishMeaning": null,
+    "englishMeaning": "to measure",
     "bengaliMeaning": "মাপা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -27609,7 +27609,7 @@
   },
   {
     "lemma": "ölmek",
-    "englishMeaning": null,
+    "englishMeaning": "to die",
     "bengaliMeaning": "মারা যাওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -27762,7 +27762,7 @@
   },
   {
     "lemma": "onarmak",
-    "englishMeaning": null,
+    "englishMeaning": "to repair",
     "bengaliMeaning": "মেরামত করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -27915,7 +27915,7 @@
   },
   {
     "lemma": "öncelikli",
-    "englishMeaning": null,
+    "englishMeaning": "priority / high-priority",
     "bengaliMeaning": "অগ্রাধিকারপ্রাপ্ত",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -28017,7 +28017,7 @@
   },
   {
     "lemma": "önermek",
-    "englishMeaning": null,
+    "englishMeaning": "to suggest",
     "bengaliMeaning": "প্রস্তাব করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -28323,7 +28323,7 @@
   },
   {
     "lemma": "örnek",
-    "englishMeaning": null,
+    "englishMeaning": "example",
     "bengaliMeaning": "উদাহরণ",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -28677,7 +28677,7 @@
   },
   {
     "lemma": "oyuncu",
-    "englishMeaning": null,
+    "englishMeaning": "actor / player",
     "bengaliMeaning": "অভিনেতা",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -28693,7 +28693,7 @@
   },
   {
     "lemma": "özel",
-    "englishMeaning": null,
+    "englishMeaning": "special / private",
     "bengaliMeaning": "বিশেষ",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -28744,7 +28744,7 @@
   },
   {
     "lemma": "özgür",
-    "englishMeaning": null,
+    "englishMeaning": "free",
     "bengaliMeaning": "স্বাধীন",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -29015,7 +29015,7 @@
   },
   {
     "lemma": "parlak",
-    "englishMeaning": null,
+    "englishMeaning": "bright / shiny",
     "bengaliMeaning": "উজ্জ্বল",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -29066,7 +29066,7 @@
   },
   {
     "lemma": "parlamak",
-    "englishMeaning": null,
+    "englishMeaning": "to shine",
     "bengaliMeaning": "জ্বলজ্বল করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -29219,7 +29219,7 @@
   },
   {
     "lemma": "pasif",
-    "englishMeaning": null,
+    "englishMeaning": "passive",
     "bengaliMeaning": "নিষ্ক্রিয়",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -29270,7 +29270,7 @@
   },
   {
     "lemma": "patron",
-    "englishMeaning": null,
+    "englishMeaning": "boss",
     "bengaliMeaning": "বস",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -29286,7 +29286,7 @@
   },
   {
     "lemma": "paylaşmak",
-    "englishMeaning": null,
+    "englishMeaning": "to share",
     "bengaliMeaning": "ভাগ করে নেওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -29659,7 +29659,7 @@
   },
   {
     "lemma": "plan",
-    "englishMeaning": null,
+    "englishMeaning": "plan",
     "bengaliMeaning": "পরিকল্পনা",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -29675,7 +29675,7 @@
   },
   {
     "lemma": "planlamak",
-    "englishMeaning": null,
+    "englishMeaning": "to plan",
     "bengaliMeaning": "পরিকল্পনা করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -29844,7 +29844,7 @@
   },
   {
     "lemma": "popüler",
-    "englishMeaning": null,
+    "englishMeaning": "popular",
     "bengaliMeaning": "জনপ্রিয়",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -29895,7 +29895,7 @@
   },
   {
     "lemma": "pozitif",
-    "englishMeaning": null,
+    "englishMeaning": "positive",
     "bengaliMeaning": "ইতিবাচক",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -29946,7 +29946,7 @@
   },
   {
     "lemma": "pratik",
-    "englishMeaning": null,
+    "englishMeaning": "practical",
     "bengaliMeaning": "ব্যবহারিক",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -29997,7 +29997,7 @@
   },
   {
     "lemma": "problem",
-    "englishMeaning": null,
+    "englishMeaning": "problem",
     "bengaliMeaning": "সমস্যা",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -30013,7 +30013,7 @@
   },
   {
     "lemma": "rahat",
-    "englishMeaning": null,
+    "englishMeaning": "comfortable",
     "bengaliMeaning": "আরামদায়ক",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -30064,7 +30064,7 @@
   },
   {
     "lemma": "rahatsız",
-    "englishMeaning": null,
+    "englishMeaning": "uncomfortable",
     "bengaliMeaning": "অস্বস্তিকর",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -30115,7 +30115,7 @@
   },
   {
     "lemma": "reddetmek",
-    "englishMeaning": null,
+    "englishMeaning": "to reject",
     "bengaliMeaning": "প্রত্যাখ্যান করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -30268,7 +30268,7 @@
   },
   {
     "lemma": "renkli",
-    "englishMeaning": null,
+    "englishMeaning": "colorful",
     "bengaliMeaning": "রঙিন",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -30319,7 +30319,7 @@
   },
   {
     "lemma": "renksiz",
-    "englishMeaning": null,
+    "englishMeaning": "colorless",
     "bengaliMeaning": "রঙহীন",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -30469,7 +30469,7 @@
   },
   {
     "lemma": "sabırlı",
-    "englishMeaning": null,
+    "englishMeaning": "patient",
     "bengaliMeaning": "ধৈর্যশীল",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -30520,7 +30520,7 @@
   },
   {
     "lemma": "sabırsız",
-    "englishMeaning": null,
+    "englishMeaning": "impatient",
     "bengaliMeaning": "অধৈর্য",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -30571,7 +30571,7 @@
   },
   {
     "lemma": "sağlamak",
-    "englishMeaning": null,
+    "englishMeaning": "to provide / to ensure",
     "bengaliMeaning": "সরবরাহ করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -30826,7 +30826,7 @@
   },
   {
     "lemma": "sakinleşmek",
-    "englishMeaning": null,
+    "englishMeaning": "to calm down",
     "bengaliMeaning": "শান্ত হওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -30979,7 +30979,7 @@
   },
   {
     "lemma": "saklamak",
-    "englishMeaning": null,
+    "englishMeaning": "to hide / to keep",
     "bengaliMeaning": "লুকিয়ে রাখা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -31132,7 +31132,7 @@
   },
   {
     "lemma": "sanatçı",
-    "englishMeaning": null,
+    "englishMeaning": "artist",
     "bengaliMeaning": "শিল্পী",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -31317,7 +31317,7 @@
   },
   {
     "lemma": "şanslı",
-    "englishMeaning": null,
+    "englishMeaning": "lucky",
     "bengaliMeaning": "ভাগ্যবান",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -31368,7 +31368,7 @@
   },
   {
     "lemma": "şanssız",
-    "englishMeaning": null,
+    "englishMeaning": "unlucky",
     "bengaliMeaning": "দুর্ভাগা",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -31470,7 +31470,7 @@
   },
   {
     "lemma": "sarılmak",
-    "englishMeaning": null,
+    "englishMeaning": "to hug",
     "bengaliMeaning": "জড়িয়ে ধরা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -31623,7 +31623,7 @@
   },
   {
     "lemma": "şaşırmak",
-    "englishMeaning": null,
+    "englishMeaning": "to be surprised",
     "bengaliMeaning": "অবাক হওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -31776,7 +31776,7 @@
   },
   {
     "lemma": "satmak",
-    "englishMeaning": null,
+    "englishMeaning": "to sell",
     "bengaliMeaning": "বিক্রি করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -31929,7 +31929,7 @@
   },
   {
     "lemma": "saygılı",
-    "englishMeaning": null,
+    "englishMeaning": "respectful",
     "bengaliMeaning": "শ্রদ্ধাশীল",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -31980,7 +31980,7 @@
   },
   {
     "lemma": "saygısız",
-    "englishMeaning": null,
+    "englishMeaning": "disrespectful",
     "bengaliMeaning": "অশ্রদ্ধাশীল",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -32031,7 +32031,7 @@
   },
   {
     "lemma": "saymak",
-    "englishMeaning": null,
+    "englishMeaning": "to count",
     "bengaliMeaning": "গোনা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -32184,7 +32184,7 @@
   },
   {
     "lemma": "sebep",
-    "englishMeaning": null,
+    "englishMeaning": "reason / cause",
     "bengaliMeaning": "কারণ",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -32200,7 +32200,7 @@
   },
   {
     "lemma": "seçmek",
-    "englishMeaning": null,
+    "englishMeaning": "to choose",
     "bengaliMeaning": "বাছাই করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -32369,7 +32369,7 @@
   },
   {
     "lemma": "serin",
-    "englishMeaning": null,
+    "englishMeaning": "cool",
     "bengaliMeaning": "শীতল",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -32420,7 +32420,7 @@
   },
   {
     "lemma": "sert",
-    "englishMeaning": null,
+    "englishMeaning": "hard / firm",
     "bengaliMeaning": "শক্ত",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -32522,7 +32522,7 @@
   },
   {
     "lemma": "sevecen",
-    "englishMeaning": null,
+    "englishMeaning": "affectionate",
     "bengaliMeaning": "স্নেহশীল",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -32573,7 +32573,7 @@
   },
   {
     "lemma": "sevinmek",
-    "englishMeaning": null,
+    "englishMeaning": "to be glad",
     "bengaliMeaning": "খুশি হওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -32930,7 +32930,7 @@
   },
   {
     "lemma": "sığ",
-    "englishMeaning": null,
+    "englishMeaning": "shallow",
     "bengaliMeaning": "অগভীর",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -32981,7 +32981,7 @@
   },
   {
     "lemma": "sıkıcı",
-    "englishMeaning": null,
+    "englishMeaning": "boring",
     "bengaliMeaning": "বিরক্তিকর",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -33032,7 +33032,7 @@
   },
   {
     "lemma": "silmek",
-    "englishMeaning": null,
+    "englishMeaning": "to erase / to wipe",
     "bengaliMeaning": "মোছা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -33185,7 +33185,7 @@
   },
   {
     "lemma": "sınav",
-    "englishMeaning": null,
+    "englishMeaning": "exam",
     "bengaliMeaning": "পরীক্ষা",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -33252,7 +33252,7 @@
   },
   {
     "lemma": "sıvı",
-    "englishMeaning": null,
+    "englishMeaning": "liquid",
     "bengaliMeaning": "তরল",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -33354,7 +33354,7 @@
   },
   {
     "lemma": "şoför",
-    "englishMeaning": null,
+    "englishMeaning": "driver",
     "bengaliMeaning": "ড্রাইভার",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -33421,7 +33421,7 @@
   },
   {
     "lemma": "soğumak",
-    "englishMeaning": null,
+    "englishMeaning": "to cool down",
     "bengaliMeaning": "ঠান্ডা হওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -33590,7 +33590,7 @@
   },
   {
     "lemma": "son",
-    "englishMeaning": null,
+    "englishMeaning": "end / last",
     "bengaliMeaning": "শেষ",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -33606,7 +33606,7 @@
   },
   {
     "lemma": "söndürmek",
-    "englishMeaning": null,
+    "englishMeaning": "to extinguish / to put out",
     "bengaliMeaning": "নেভানো",
     "partOfSpeech": "verb",
     "tenses": [
@@ -33759,7 +33759,7 @@
   },
   {
     "lemma": "sonuç",
-    "englishMeaning": null,
+    "englishMeaning": "result",
     "bengaliMeaning": "ফলাফল",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -34097,7 +34097,7 @@
   },
   {
     "lemma": "sporcu",
-    "englishMeaning": null,
+    "englishMeaning": "athlete",
     "bengaliMeaning": "খেলোয়াড়",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -34113,7 +34113,7 @@
   },
   {
     "lemma": "süpürmek",
-    "englishMeaning": null,
+    "englishMeaning": "to sweep",
     "bengaliMeaning": "ঝাড়ু দেওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -34419,7 +34419,7 @@
   },
   {
     "lemma": "susamak",
-    "englishMeaning": null,
+    "englishMeaning": "to be thirsty",
     "bengaliMeaning": "তৃষ্ণার্ত হওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -34572,7 +34572,7 @@
   },
   {
     "lemma": "takmak",
-    "englishMeaning": null,
+    "englishMeaning": "to attach / to put on",
     "bengaliMeaning": "লাগানো",
     "partOfSpeech": "verb",
     "tenses": [
@@ -34878,7 +34878,7 @@
   },
   {
     "lemma": "tanıtmak",
-    "englishMeaning": null,
+    "englishMeaning": "to introduce",
     "bengaliMeaning": "পরিচয় করানো",
     "partOfSpeech": "verb",
     "tenses": [
@@ -35031,7 +35031,7 @@
   },
   {
     "lemma": "tartışmak",
-    "englishMeaning": null,
+    "englishMeaning": "to discuss / to argue",
     "bengaliMeaning": "তর্ক করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -35184,7 +35184,7 @@
   },
   {
     "lemma": "taşımak",
-    "englishMeaning": null,
+    "englishMeaning": "to carry / to transport",
     "bengaliMeaning": "বহন করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -35337,7 +35337,7 @@
   },
   {
     "lemma": "taşınmak",
-    "englishMeaning": null,
+    "englishMeaning": "to move (house)",
     "bengaliMeaning": "বাসা বদলানো",
     "partOfSpeech": "verb",
     "tenses": [
@@ -35506,7 +35506,7 @@
   },
   {
     "lemma": "tatlı",
-    "englishMeaning": null,
+    "englishMeaning": "sweet",
     "bengaliMeaning": "মিষ্টি",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -35557,7 +35557,7 @@
   },
   {
     "lemma": "tatmak",
-    "englishMeaning": null,
+    "englishMeaning": "to taste",
     "bengaliMeaning": "স্বাদ নেওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -35710,7 +35710,7 @@
   },
   {
     "lemma": "taze",
-    "englishMeaning": null,
+    "englishMeaning": "fresh",
     "bengaliMeaning": "তাজা",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -35761,7 +35761,7 @@
   },
   {
     "lemma": "tecrübeli",
-    "englishMeaning": null,
+    "englishMeaning": "experienced",
     "bengaliMeaning": "অভিজ্ঞ",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -35812,7 +35812,7 @@
   },
   {
     "lemma": "tecrübesiz",
-    "englishMeaning": null,
+    "englishMeaning": "inexperienced",
     "bengaliMeaning": "অনভিজ্ঞ",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -35879,7 +35879,7 @@
   },
   {
     "lemma": "tekrarlamak",
-    "englishMeaning": null,
+    "englishMeaning": "to repeat",
     "bengaliMeaning": "পুনরাবৃত্তি করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -36303,7 +36303,7 @@
   },
   {
     "lemma": "temkinli",
-    "englishMeaning": null,
+    "englishMeaning": "cautious",
     "bengaliMeaning": "সাবধানী",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -36354,7 +36354,7 @@
   },
   {
     "lemma": "tenha",
-    "englishMeaning": null,
+    "englishMeaning": "secluded / quiet",
     "bengaliMeaning": "নির্জন",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -36405,7 +36405,7 @@
   },
   {
     "lemma": "terlemek",
-    "englishMeaning": null,
+    "englishMeaning": "to sweat",
     "bengaliMeaning": "ঘামা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -36558,7 +36558,7 @@
   },
   {
     "lemma": "titremek",
-    "englishMeaning": null,
+    "englishMeaning": "to tremble / to shiver",
     "bengaliMeaning": "কাঁপা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -36864,7 +36864,7 @@
   },
   {
     "lemma": "tren",
-    "englishMeaning": null,
+    "englishMeaning": "train",
     "bengaliMeaning": "ট্রেন",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -36896,7 +36896,7 @@
   },
   {
     "lemma": "Türk",
-    "englishMeaning": null,
+    "englishMeaning": "Turkish",
     "bengaliMeaning": "তুর্কি",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -36947,7 +36947,7 @@
   },
   {
     "lemma": "Türkçe",
-    "englishMeaning": null,
+    "englishMeaning": "Turkish language",
     "bengaliMeaning": "তুর্কি ভাষা",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -37014,7 +37014,7 @@
   },
   {
     "lemma": "tutmak",
-    "englishMeaning": null,
+    "englishMeaning": "to hold / to keep",
     "bengaliMeaning": "ধরা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -37234,7 +37234,7 @@
   },
   {
     "lemma": "uçmak",
-    "englishMeaning": null,
+    "englishMeaning": "to fly",
     "bengaliMeaning": "ওড়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -37470,7 +37470,7 @@
   },
   {
     "lemma": "ünlü",
-    "englishMeaning": null,
+    "englishMeaning": "famous",
     "bengaliMeaning": "খ্যাতিমান",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -37521,7 +37521,7 @@
   },
   {
     "lemma": "unutkan",
-    "englishMeaning": null,
+    "englishMeaning": "forgetful",
     "bengaliMeaning": "ভুলোমনা",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -37572,7 +37572,7 @@
   },
   {
     "lemma": "unutmak",
-    "englishMeaning": null,
+    "englishMeaning": "to forget",
     "bengaliMeaning": "ভুলে যাওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -37725,7 +37725,7 @@
   },
   {
     "lemma": "üşümek",
-    "englishMeaning": null,
+    "englishMeaning": "to feel cold",
     "bengaliMeaning": "শীত লাগা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -37878,7 +37878,7 @@
   },
   {
     "lemma": "uyanmak",
-    "englishMeaning": null,
+    "englishMeaning": "to wake up",
     "bengaliMeaning": "জেগে ওঠা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -38031,7 +38031,7 @@
   },
   {
     "lemma": "uyarmak",
-    "englishMeaning": null,
+    "englishMeaning": "to warn",
     "bengaliMeaning": "সতর্ক করা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -38235,7 +38235,7 @@
   },
   {
     "lemma": "uygunsuz",
-    "englishMeaning": null,
+    "englishMeaning": "inappropriate",
     "bengaliMeaning": "অনুপযুক্ত",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -38541,7 +38541,7 @@
   },
   {
     "lemma": "üzülmek",
-    "englishMeaning": null,
+    "englishMeaning": "to be sad / to feel upset",
     "bengaliMeaning": "দুঃখ পাওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -38898,7 +38898,7 @@
   },
   {
     "lemma": "vazgeçmek",
-    "englishMeaning": null,
+    "englishMeaning": "to give up",
     "bengaliMeaning": "হাল ছাড়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -39255,7 +39255,7 @@
   },
   {
     "lemma": "yağmak",
-    "englishMeaning": null,
+    "englishMeaning": "to rain / to fall (precipitation)",
     "bengaliMeaning": "বর্ষণ হওয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -39408,7 +39408,7 @@
   },
   {
     "lemma": "yakalamak",
-    "englishMeaning": null,
+    "englishMeaning": "to catch",
     "bengaliMeaning": "ধরে ফেলা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -39765,7 +39765,7 @@
   },
   {
     "lemma": "yalancı",
-    "englishMeaning": null,
+    "englishMeaning": "lying / dishonest",
     "bengaliMeaning": "মিথ্যাবাদী",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -39816,7 +39816,7 @@
   },
   {
     "lemma": "yalnız",
-    "englishMeaning": null,
+    "englishMeaning": "alone",
     "bengaliMeaning": "একা",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -39918,7 +39918,7 @@
   },
   {
     "lemma": "yanmak",
-    "englishMeaning": null,
+    "englishMeaning": "to burn",
     "bengaliMeaning": "জ্বলা",
     "partOfSpeech": "verb",
     "tenses": [
@@ -40071,7 +40071,7 @@
   },
   {
     "lemma": "yapay",
-    "englishMeaning": null,
+    "englishMeaning": "artificial",
     "bengaliMeaning": "কৃত্রিম",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -40275,7 +40275,7 @@
   },
   {
     "lemma": "yardım",
-    "englishMeaning": null,
+    "englishMeaning": "help",
     "bengaliMeaning": "সাহায্য",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -40291,7 +40291,7 @@
   },
   {
     "lemma": "yardımsever",
-    "englishMeaning": null,
+    "englishMeaning": "helpful",
     "bengaliMeaning": "সহায়ক",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -40766,7 +40766,7 @@
   },
   {
     "lemma": "yazar",
-    "englishMeaning": null,
+    "englishMeaning": "writer",
     "bengaliMeaning": "লেখক",
     "partOfSpeech": "noun",
     "tenses": [],
@@ -41139,7 +41139,7 @@
   },
   {
     "lemma": "yerli",
-    "englishMeaning": null,
+    "englishMeaning": "local / native",
     "bengaliMeaning": "স্থানীয়",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -41241,7 +41241,7 @@
   },
   {
     "lemma": "yıkamak",
-    "englishMeaning": null,
+    "englishMeaning": "to wash",
     "bengaliMeaning": "ধোয়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -41410,7 +41410,7 @@
   },
   {
     "lemma": "yırtmak",
-    "englishMeaning": null,
+    "englishMeaning": "to tear",
     "bengaliMeaning": "ছেঁড়া",
     "partOfSpeech": "verb",
     "tenses": [
@@ -41783,7 +41783,7 @@
   },
   {
     "lemma": "yüksek",
-    "englishMeaning": null,
+    "englishMeaning": "high / tall",
     "bengaliMeaning": "উঁচু",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -41834,7 +41834,7 @@
   },
   {
     "lemma": "yumuşak",
-    "englishMeaning": null,
+    "englishMeaning": "soft",
     "bengaliMeaning": "নরম",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -42038,7 +42038,7 @@
   },
   {
     "lemma": "yuvarlak",
-    "englishMeaning": null,
+    "englishMeaning": "round",
     "bengaliMeaning": "গোল",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -42242,7 +42242,7 @@
   },
   {
     "lemma": "zararlı",
-    "englishMeaning": null,
+    "englishMeaning": "harmful",
     "bengaliMeaning": "ক্ষতিকর",
     "partOfSpeech": "adjective",
     "tenses": [],
@@ -42344,7 +42344,7 @@
   },
   {
     "lemma": "zeki",
-    "englishMeaning": null,
+    "englishMeaning": "clever",
     "bengaliMeaning": "মেধাবী",
     "partOfSpeech": "adjective",
     "tenses": [],
