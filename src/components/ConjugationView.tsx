@@ -286,7 +286,15 @@ export function ConjugationView() {
                 id="conjugation-suggestions"
                 role="listbox"
                 aria-label="Matching Turkish words"
-                style={{ listStyle: "none", margin: 0, padding: 4 }}
+                style={{
+                  listStyle: "none",
+                  margin: 0,
+                  padding: 4,
+                  maxHeight: "min(60vh, 320px)",
+                  overflowY: "auto",
+                  overscrollBehavior: "contain",
+                  WebkitOverflowScrolling: "touch",
+                }}
               >
                 {matches.map((word, index) => (
                   <li key={`${word.lemma}-${word.partOfSpeech}`}>
