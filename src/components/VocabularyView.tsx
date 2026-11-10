@@ -10,10 +10,12 @@ import { ActionButton } from "./common/ActionButton";
 import { FlashcardNav } from "./common/FlashcardNav";
 import { CategoryCardGrid } from "./vocabulary/CategoryCardGrid";
 import { CategoryWordList } from "./vocabulary/CategoryWordList";
+import { DictionarySearch } from "./vocabulary/DictionarySearch";
 
 export function VocabularyView({ words, updateWords, registerPractice }) {
   const [view, setView] = useState("grid");
   const [category, setCategory] = useState(null);
+  const [query, setQuery] = useState("");
   const [justAdded, setJustAdded] = useState(() => new Set());
 
   const inGarden = (tr) => justAdded.has(tr) || words.some((w) => w.tr === tr);
@@ -138,18 +140,26 @@ export function VocabularyView({ words, updateWords, registerPractice }) {
         🌷 {words.length} word{words.length === 1 ? "" : "s"} currently in your
         garden
       </div>
-      <CategoryCardGrid
-        categories={CATEGORY_ORDER.map((cat) => ({
-          key: cat,
-          label: CATEGORY_META[cat].label,
-          count: CATEGORIES[cat].length,
-          icon: CATEGORY_META[cat].icon,
-        }))}
-        onSelect={(cat) => {
-          setCategory(cat);
-          setView("list");
-        }}
+      <DictionarySearch
+        query={query}
+        onQueryChange={setQuery}
+        inGarden={inGarden}
+        onAddToGarden={addToGarden}
       />
+      {!query.trim() && (
+        <CategoryCardGrid
+          categories={CATEGORY_ORDER.map((cat) => ({
+            key: cat,
+            label: CATEGORY_META[cat].label,
+            count: CATEGORIES[cat].length,
+            icon: CATEGORY_META[cat].icon,
+          }))}
+          onSelect={(cat) => {
+            setCategory(cat);
+            setView("list");
+          }}
+        />
+      )}
     </div>
   );
 }
