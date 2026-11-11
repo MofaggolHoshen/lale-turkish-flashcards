@@ -113,11 +113,14 @@ export default function App() {
       style={{
         fontFamily: "'Inter', system-ui, sans-serif",
         background: C.paper,
-        minHeight: 560,
+        minHeight: "calc(100vh - 48px)",
         color: C.ink,
         borderRadius: 16,
         overflow: "hidden",
         border: `1px solid ${C.line}`,
+        boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <style>{`
@@ -135,7 +138,10 @@ export default function App() {
 
       <Header tab={tab} setTab={setTab} dueCount={due.length} />
 
-      <div className="lale-content" style={{ padding: "24px 28px 32px" }}>
+      <div
+        className="lale-content"
+        style={{ padding: "24px 28px 32px", flex: 1 }}
+      >
         {tab === "home" && (
           <Home
             words={words}
