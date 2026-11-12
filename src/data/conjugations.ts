@@ -36,3 +36,10 @@ export function normalizeSearchText(value: string): string {
 }
 
 export const conjugationWords = sourceWords as ConjugationWord[];
+
+export function findConjugationWord(lemma: string): ConjugationWord | undefined {
+  const normalizedLemma = normalizeSearchText(lemma.trim());
+  return conjugationWords.find(
+    (word) => normalizeSearchText(word.lemma) === normalizedLemma,
+  );
+}
