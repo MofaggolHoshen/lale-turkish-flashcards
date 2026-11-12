@@ -1,4 +1,4 @@
-import { Search, X } from "lucide-react";
+import { BookOpenText, Search, X } from "lucide-react";
 
 import { searchVocabulary } from "../../data/vocabularySearch";
 import { C, inputStyle } from "../../styles/theme";
@@ -10,6 +10,7 @@ type DictionarySearchProps = {
   onQueryChange: (query: string) => void;
   inGarden: (tr: string) => boolean;
   onAddToGarden: (tr: string, en: string) => void;
+  onShowConjugation: (tr: string) => void;
 };
 
 export function DictionarySearch({
@@ -17,6 +18,7 @@ export function DictionarySearch({
   onQueryChange,
   inGarden,
   onAddToGarden,
+  onShowConjugation,
 }: DictionarySearchProps) {
   const results = searchVocabulary(query);
 
@@ -146,21 +148,35 @@ export function DictionarySearch({
                         {result.categories.join(", ")}
                       </div>
                     </div>
-                    <ActionButton
-                      onClick={() => onAddToGarden(result.tr, result.meanings[0])}
-                      variant={added ? "primary" : "ghost"}
-                      disabled={added}
-                      style={{
-                        fontSize: 12,
-                        padding: "6px 10px",
-                        fontWeight: 800,
-                        background: added ? "#DCEFEC" : C.paperDeep,
-                        color: added ? C.turquoise : C.cobalt,
-                        border: added ? "1px solid #DCEFEC" : `1px solid ${C.line}`,
-                      }}
-                    >
-                      {added ? "✓ In garden" : "+ Add to garden"}
-                    </ActionButton>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                      <ActionButton
+                        onClick={() => onShowConjugation(result.tr)}
+                        variant="secondary"
+                        style={{
+                          fontSize: 12,
+                          padding: "6px 10px",
+                          fontWeight: 800,
+                        }}
+                      >
+                        <BookOpenText size={14} />
+                        Conjugation
+                      </ActionButton>
+                      <ActionButton
+                        onClick={() => onAddToGarden(result.tr, result.meanings[0])}
+                        variant={added ? "primary" : "ghost"}
+                        disabled={added}
+                        style={{
+                          fontSize: 12,
+                          padding: "6px 10px",
+                          fontWeight: 800,
+                          background: added ? "#DCEFEC" : C.paperDeep,
+                          color: added ? C.turquoise : C.cobalt,
+                          border: added ? "1px solid #DCEFEC" : `1px solid ${C.line}`,
+                        }}
+                      >
+                        {added ? "✓ In garden" : "+ Add to garden"}
+                      </ActionButton>
+                    </div>
                   </div>
                 );
               })}
