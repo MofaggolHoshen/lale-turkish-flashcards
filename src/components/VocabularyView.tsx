@@ -11,12 +11,14 @@ import { FlashcardNav } from "./common/FlashcardNav";
 import { CategoryCardGrid } from "./vocabulary/CategoryCardGrid";
 import { CategoryWordList } from "./vocabulary/CategoryWordList";
 import { DictionarySearch } from "./vocabulary/DictionarySearch";
+import { WordConjugationModal } from "./WordConjugationModal";
 
 export function VocabularyView({ words, updateWords, registerPractice }) {
   const [view, setView] = useState("grid");
   const [category, setCategory] = useState(null);
   const [query, setQuery] = useState("");
   const [justAdded, setJustAdded] = useState(() => new Set());
+  const [conjugationLemma, setConjugationLemma] = useState<string | null>(null);
 
   const inGarden = (tr) => justAdded.has(tr) || words.some((w) => w.tr === tr);
   const addToGarden = (tr, en) => {
@@ -55,112 +57,126 @@ export function VocabularyView({ words, updateWords, registerPractice }) {
     const items = CATEGORIES[category];
     const meta = CATEGORY_META[category];
     return (
+      <>
+        <div>
+          <button
+            onClick={() => {
+              setView("grid");
+              setCategory(null);
+            }}
+            className="lale-btn"
+            style={{
+              ...btnStyle("transparent", C.inkSoft, false),
+              padding: "4px 0",
+              marginBottom: 6,
+            }}
+          >
+            <ChevronLeft size={15} style={{ verticalAlign: -2 }} /> Categories
+          </button>
+          <div
+            style={{
+              color: C.turquoise,
+              fontSize: 12.5,
+              fontWeight: 700,
+              marginBottom: 10,
+            }}
+          >
+            🌷 {words.length} word{words.length === 1 ? "" : "s"} currently in
+            your garden
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              gap: 12,
+              marginBottom: 16,
+            }}
+          >
+            <div
+              className="lale-display"
+              style={{ fontSize: 21, fontWeight: 600 }}
+            >
+              {meta.label} ({items.length})
+            </div>
+            <button
+              className="lale-btn"
+              onClick={() => setView("practice")}
+              style={btnStyle(C.turquoise, "#04292A", false)}
+            >
+              <BookOpen size={16} style={{ marginRight: 6, verticalAlign: -3 }} />
+              Practice this category
+            </button>
+          </div>
+
+          <CategoryWordList
+            items={items}
+            emojiMap={EMOJI}
+            inGarden={inGarden}
+            onAddToGarden={addToGarden}
+            onShowConjugation={setConjugationLemma}
+          />
+        </div>
+        <WordConjugationModal
+          lemma={conjugationLemma}
+          onClose={() => setConjugationLemma(null)}
+        />
+      </>
+    );
+  }
+
+  return (
+    <>
       <div>
-        <button
-          onClick={() => {
-            setView("grid");
-            setCategory(null);
-          }}
-          className="lale-btn"
-          style={{
-            ...btnStyle("transparent", C.inkSoft, false),
-            padding: "4px 0",
-            marginBottom: 6,
-          }}
+        <div
+          className="lale-display"
+          style={{ fontSize: 22, fontWeight: 600, marginBottom: 4 }}
         >
-          <ChevronLeft size={15} style={{ verticalAlign: -2 }} /> Categories
-        </button>
+          Vocabulary
+        </div>
+        <div style={{ color: C.inkSoft, fontSize: 13.5, marginBottom: 6 }}>
+          Browse words by category, then practice them as flashcards.
+        </div>
         <div
           style={{
             color: C.turquoise,
             fontSize: 12.5,
             fontWeight: 700,
-            marginBottom: 10,
+            marginBottom: 18,
           }}
         >
-          🌷 {words.length} word{words.length === 1 ? "" : "s"} currently in
-          your garden
+          🌷 {words.length} word{words.length === 1 ? "" : "s"} currently in your
+          garden
         </div>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: 12,
-            marginBottom: 16,
-          }}
-        >
-          <div
-            className="lale-display"
-            style={{ fontSize: 21, fontWeight: 600 }}
-          >
-            {meta.label} ({items.length})
-          </div>
-          <button
-            className="lale-btn"
-            onClick={() => setView("practice")}
-            style={btnStyle(C.turquoise, "#04292A", false)}
-          >
-            <BookOpen size={16} style={{ marginRight: 6, verticalAlign: -3 }} />
-            Practice this category
-          </button>
-        </div>
-
-        <CategoryWordList
-          items={items}
-          emojiMap={EMOJI}
+        <DictionarySearch
+          query={query}
+          onQueryChange={setQuery}
           inGarden={inGarden}
           onAddToGarden={addToGarden}
+          onShowConjugation={setConjugationLemma}
         />
+        {!query.trim() && (
+          <CategoryCardGrid
+            categories={CATEGORY_ORDER.map((cat) => ({
+              key: cat,
+              label: CATEGORY_META[cat].label,
+              count: CATEGORIES[cat].length,
+              icon: CATEGORY_META[cat].icon,
+            }))}
+            onSelect={(cat) => {
+              setCategory(cat);
+              setView("list");
+            }}
+          />
+        )}
       </div>
-    );
-  }
-
-  return (
-    <div>
-      <div
-        className="lale-display"
-        style={{ fontSize: 22, fontWeight: 600, marginBottom: 4 }}
-      >
-        Vocabulary
-      </div>
-      <div style={{ color: C.inkSoft, fontSize: 13.5, marginBottom: 6 }}>
-        Browse words by category, then practice them as flashcards.
-      </div>
-      <div
-        style={{
-          color: C.turquoise,
-          fontSize: 12.5,
-          fontWeight: 700,
-          marginBottom: 18,
-        }}
-      >
-        🌷 {words.length} word{words.length === 1 ? "" : "s"} currently in your
-        garden
-      </div>
-      <DictionarySearch
-        query={query}
-        onQueryChange={setQuery}
-        inGarden={inGarden}
-        onAddToGarden={addToGarden}
+      <WordConjugationModal
+        lemma={conjugationLemma}
+        onClose={() => setConjugationLemma(null)}
       />
-      {!query.trim() && (
-        <CategoryCardGrid
-          categories={CATEGORY_ORDER.map((cat) => ({
-            key: cat,
-            label: CATEGORY_META[cat].label,
-            count: CATEGORIES[cat].length,
-            icon: CATEGORY_META[cat].icon,
-          }))}
-          onSelect={(cat) => {
-            setCategory(cat);
-            setView("list");
-          }}
-        />
-      )}
-    </div>
+    </>
   );
 }
 
