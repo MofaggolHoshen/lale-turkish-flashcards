@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   conjugationWords,
+  findConjugationWord,
   normalizeSearchText,
   PERSONS,
 } from "./conjugations";
@@ -46,5 +47,11 @@ describe("conjugation data", () => {
   it("normalizes Turkish letters for forgiving search", () => {
     expect(normalizeSearchText("ŞİŞE")).toBe("sise");
     expect(normalizeSearchText("ışık")).toBe("isik");
+  });
+
+  it("finds a conjugation entry by normalized lemma", () => {
+    expect(findConjugationWord("GELMEK")?.lemma).toBe("gelmek");
+    expect(findConjugationWord("OGRETMEN")?.lemma).toBe("öğretmen");
+    expect(findConjugationWord("not-in-the-conjugation-list")).toBeUndefined();
   });
 });

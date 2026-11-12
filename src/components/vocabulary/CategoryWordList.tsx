@@ -1,4 +1,4 @@
-import { Volume2 } from "lucide-react";
+import { BookOpenText, Volume2 } from "lucide-react";
 import { SpeakButton } from "../SpeakButton";
 import { C } from "../../styles/theme";
 import { ActionButton } from "../common/ActionButton";
@@ -9,6 +9,7 @@ type CategoryWordListProps = {
   emojiMap: Record<string, string>;
   inGarden: (tr: string) => boolean;
   onAddToGarden: (tr: string, en: string) => void;
+  onShowConjugation: (tr: string) => void;
 };
 
 export function CategoryWordList({
@@ -16,6 +17,7 @@ export function CategoryWordList({
   emojiMap,
   inGarden,
   onAddToGarden,
+  onShowConjugation,
 }: CategoryWordListProps) {
   // Convert items to [english, turkish] format for the cycle hook
   const wordPairs: Array<[string, string]> = items.map(([tr, en]) => [en, tr]);
@@ -86,6 +88,7 @@ export function CategoryWordList({
               display: "flex",
               alignItems: "center",
               gap: 14,
+              flexWrap: "wrap",
               background: isCurrentWord && isPlaying ? "#F0FFFE" : "#fff",
               border: `1px solid ${isCurrentWord && isPlaying ? C.turquoise : C.line}`,
               borderRadius: 10,
@@ -108,21 +111,35 @@ export function CategoryWordList({
               <SpeakButton text={tr} size={14} />
               <span style={{ color: C.inkSoft, fontWeight: 500 }}>→ {en}</span>
             </div>
-            <ActionButton
-              onClick={() => onAddToGarden(tr, en)}
-              variant={inGarden(tr) ? "primary" : "ghost"}
-              disabled={inGarden(tr)}
-              style={{
-                fontSize: 12,
-                padding: "6px 10px",
-                fontWeight: 800,
-                background: inGarden(tr) ? "#DCEFEC" : C.paperDeep,
-                color: inGarden(tr) ? C.turquoise : C.cobalt,
-                border: inGarden(tr) ? "1px solid #DCEFEC" : `1px solid ${C.line}`,
-              }}
-            >
-              {inGarden(tr) ? "✓ In garden" : "+ Add to garden"}
-            </ActionButton>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+              <ActionButton
+                onClick={() => onShowConjugation(tr)}
+                variant="secondary"
+                style={{
+                  fontSize: 12,
+                  padding: "6px 10px",
+                  fontWeight: 800,
+                }}
+              >
+                <BookOpenText size={14} />
+                Conjugation
+              </ActionButton>
+              <ActionButton
+                onClick={() => onAddToGarden(tr, en)}
+                variant={inGarden(tr) ? "primary" : "ghost"}
+                disabled={inGarden(tr)}
+                style={{
+                  fontSize: 12,
+                  padding: "6px 10px",
+                  fontWeight: 800,
+                  background: inGarden(tr) ? "#DCEFEC" : C.paperDeep,
+                  color: inGarden(tr) ? C.turquoise : C.cobalt,
+                  border: inGarden(tr) ? "1px solid #DCEFEC" : `1px solid ${C.line}`,
+                }}
+              >
+                {inGarden(tr) ? "✓ In garden" : "+ Add to garden"}
+              </ActionButton>
+            </div>
           </div>
         );
       })}
