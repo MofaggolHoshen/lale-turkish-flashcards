@@ -14,6 +14,14 @@ npm run dev
 
 Then open the URL it prints (usually http://localhost:5173).
 
+## Install and use offline
+
+On a deployed HTTPS site, use your browser's **Install app** or **Add to Home
+Screen** option to install Lâle. The app shell and static assets are cached on
+the first online visit, so the app can be reopened offline. Your words and
+progress remain in the browser's local storage; online translation lookups still
+require an internet connection.
+
 ## Build for deployment
 
 ```bash
