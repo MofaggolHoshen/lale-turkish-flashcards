@@ -113,6 +113,7 @@ export function AddWord({ words, updateWords, onAdded }) {
           />
           {tr.trim() && (
             <button
+              type="button"
               className="lale-btn"
               onClick={() => speak(tr.trim())}
               title="Hear pronunciation"
