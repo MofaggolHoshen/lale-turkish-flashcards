@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BookOpen, Play, Square } from "lucide-react";
 import { stories } from "../data/story";
 import { C } from "../styles/theme";
-import { speak } from "../services/speech";
+import { cancelSpeech, speak } from "../services/speech";
 import { PageHeader } from "./common/PageHeader";
 
 export function StoryView() {
@@ -19,7 +19,7 @@ export function StoryView() {
   };
 
   const stopPlaying = () => {
-    window.speechSynthesis.cancel();
+    cancelSpeech();
     setIsPlaying(false);
   };
 
