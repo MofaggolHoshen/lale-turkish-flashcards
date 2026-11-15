@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { speakSequence } from "../services/speech";
+import { cancelSpeech, speakSequence } from "../services/speech";
 
 interface UseAutoPlayCycleReturn {
   isPlaying: boolean;
@@ -77,9 +77,7 @@ export function useAutoPlayCycle(
       sequenceIntervalRef.current = null;
     }
     // Cancel any ongoing speech
-    if ("speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-    }
+    cancelSpeech();
     // Release wake lock when stopped
     releaseWakeLock();
     // Update media session state
