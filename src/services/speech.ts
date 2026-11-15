@@ -1,14 +1,79 @@
-export function speak(text: string, lang = "tr-TR"): void {
-  try {
-    if (!("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = lang;
-    utterance.rate = 0.9;
-    window.speechSynthesis.speak(utterance);
-  } catch (error) {
-    console.error("speech failed", error);
+let activeUtterance: SpeechSynthesisUtterance | null = null;
+let finishActiveUtterance: (() => void) | null = null;
+let speechSession = 0;
+
+function getSpeechSynthesis(): SpeechSynthesis | null {
+  if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+    return null;
   }
+  return window.speechSynthesis;
+}
+
+export function cancelSpeech(): void {
+  const synthesis = getSpeechSynthesis();
+  speechSession += 1;
+  activeUtterance = null;
+  const finish = finishActiveUtterance;
+  finishActiveUtterance = null;
+  synthesis?.cancel();
+  finish?.();
+}
+
+function speakUtterance(
+  synthesis: SpeechSynthesis,
+  text: string,
+  lang: string,
+  session: number,
+): Promise<void> {
+  if (!text.trim() || session !== speechSession) return Promise.resolve();
+
+  return new Promise((resolve) => {
+    try {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang;
+      utterance.rate = 0.9;
+      activeUtterance = utterance;
+
+      const finish = () => {
+        if (activeUtterance === utterance) {
+          activeUtterance = null;
+          finishActiveUtterance = null;
+        }
+        resolve();
+      };
+      finishActiveUtterance = finish;
+      utterance.onend = finish;
+      utterance.onerror = (event) => {
+        if (event.error !== "interrupted" && event.error !== "canceled") {
+          console.error("speech failed", event.error);
+        }
+        finish();
+      };
+
+      synthesis.resume();
+      synthesis.speak(utterance);
+    } catch (error) {
+      activeUtterance = null;
+      finishActiveUtterance = null;
+      console.error("speech failed", error);
+      resolve();
+    }
+  });
+}
+
+export function speak(text: string, lang = "tr-TR"): void {
+  const synthesis = getSpeechSynthesis();
+  if (!synthesis || !text.trim()) return;
+
+  if (
+    activeUtterance ||
+    synthesis.speaking ||
+    synthesis.pending ||
+    synthesis.paused
+  ) {
+    cancelSpeech();
+  }
+  void speakUtterance(synthesis, text, lang, speechSession);
 }
 
 /**
@@ -19,35 +84,16 @@ export async function speakSequence(
   enText: string,
   trText: string,
 ): Promise<void> {
-  return new Promise((resolve) => {
-    try {
-      if (!("speechSynthesis" in window)) {
-        resolve();
-        return;
-      }
+  const synthesis = getSpeechSynthesis();
+  if (!synthesis) return;
 
-      window.speechSynthesis.cancel();
-
-      // Speak English
-      const enUtterance = new SpeechSynthesisUtterance(enText);
-      enUtterance.lang = "en-US";
-      enUtterance.rate = 0.9;
-
-      // Speak Turkish after English + pause
-      enUtterance.onend = () => {
-        setTimeout(() => {
-          const trUtterance = new SpeechSynthesisUtterance(trText);
-          trUtterance.lang = "tr-TR";
-          trUtterance.rate = 0.9;
-          trUtterance.onend = () => resolve();
-          window.speechSynthesis.speak(trUtterance);
-        }, 500); // 500ms pause between English and Turkish
-      };
-
-      window.speechSynthesis.speak(enUtterance);
-    } catch (error) {
-      console.error("speech sequence failed", error);
-      resolve();
-    }
-  });
+  cancelSpeech();
+  const session = speechSession;
+  try {
+    await speakUtterance(synthesis, enText, "en-US", session);
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    await speakUtterance(synthesis, trText, "tr-TR", session);
+  } catch (error) {
+    console.error("speech sequence failed", error);
+  }
 }
