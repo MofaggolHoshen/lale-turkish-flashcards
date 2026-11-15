@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { speakSequence } from "../services/speech";
+import { cancelSpeech, speakSequence } from "../services/speech";
 
 interface UseAutoPlaySequenceReturn {
   isPlaying: boolean;
@@ -17,7 +17,7 @@ export function useAutoPlaySequence(
 ): UseAutoPlaySequenceReturn {
   const [isPlaying, setIsPlaying] = useState(false);
   const playingRef = useRef(false);
-  const sequenceIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const sequenceIntervalRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const stop = () => {
     playingRef.current = false;
@@ -27,9 +27,7 @@ export function useAutoPlaySequence(
       sequenceIntervalRef.current = null;
     }
     // Cancel any ongoing speech
-    if ("speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-    }
+    cancelSpeech();
   };
 
   const play = async () => {
