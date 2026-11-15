@@ -19,6 +19,7 @@ export function SpeakButton({ text, lang = "tr-TR", size = 15 }) {
 
   return (
     <button
+      type="button"
       className="lale-btn"
       onClick={handleClick}
       onPointerDown={handlePointerDown}
