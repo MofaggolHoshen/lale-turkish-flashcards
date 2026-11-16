@@ -985,6 +985,173 @@ export const grammarLevels: GrammarLevel[] = [
           },
         ],
       },
+      {
+        id: "a1-unit-5",
+        title: "Unit 5 – Time, schedules, and routines",
+        summary:
+          "Talk about the clock, tell when things happen, and connect time phrases with before, after, and duration markers.",
+        sections: [
+          {
+            title: "1) Telling time in Turkish",
+            description:
+              "Turkish tells time with saat + number and then uses the time marker to show whether it is exactly on the hour, past, or before the next hour. Common phrases are saat kaç?, saat yedide, buçuk, çeyrek, and geçiyor/kala/var.",
+            examples: [
+              { tr: "Saat kaç?", en: "What time is it?" },
+              { tr: "Saat sekiz.", en: "It is eight o'clock." },
+              { tr: "Saat yedide kalkıyorum.", en: "I get up at seven o'clock." },
+              { tr: "Saat onu çeyrek geçiyor.", en: "It is quarter past ten." },
+              { tr: "Dörde çeyrek var.", en: "It is a quarter to four." },
+              { tr: "Saat altı buçuk.", en: "It is half past six." },
+              { tr: "Saat beşi on geçiyor.", en: "It is ten past five." },
+              { tr: "Yediye beş kala otobüs kalkıyor.", en: "The bus leaves five minutes to seven." },
+              { tr: "Ders saat dokuzda başlıyor.", en: "The lesson starts at nine o'clock." },
+              { tr: "Film akşam sekizde başlıyor.", en: "The film starts at eight in the evening." },
+            ],
+            tips: [
+              "For exact times, say saat + time: saat sekiz, saat dokuzda.",
+              "Use buçuk for 30 minutes: saat altı buçuk = 6:30.",
+              "Use çeyrek for 15 minutes: çeyrek geçiyor = past, çeyrek var = to the next hour.",
+              "Use kala / var for 'to' and geçiyor for 'past': yediye beş kala, onu çeyrek geçiyor.",
+            ],
+          },
+          {
+            title: "2) From ... until ...: -dan ... kadar",
+            description:
+              "Use a noun + dan + noun + (y)a kadar to say a time span from one moment to another. The phrase means 'from ... until ...'.",
+            examples: [
+              { tr: "Bugün sabahtan akşama kadar okuldayım.", en: "Today I am at school from morning until evening." },
+              { tr: "Saat 12.30'dan 15.30'a kadar toplantı var.", en: "There is a meeting from 12:30 to 15:30." },
+              { tr: "Pazartesiden cumaya kadar çalışıyorum.", en: "I work from Monday to Friday." },
+              { tr: "Sınıf sabah sekizden öğleye kadar açık.", en: "The classroom is open from eight in the morning until noon." },
+              { tr: "Yazdan kışa kadar çok değişir.", en: "It changes a lot from summer to winter." },
+              { tr: "Ocaktan şubata kadar tatil var.", en: "There is a holiday from January to February." },
+            ],
+            tips: [
+              "The structure is 'point A + dan + point B + a kadar'.",
+              "The word kadar usually means 'until' or 'up to'.",
+              "If the time phrase ends in a vowel, you often hear a glide: 15.30'a, 9'a, 12'ye.",
+            ],
+          },
+          {
+            title: "3) Before and after: -dan önce / -dan sonra",
+            description:
+              "Use a time point plus dan önce or dan sonra to say what happens before or after a time or event. In everyday speech, this is a very common way to link time and schedule.",
+            examples: [
+              { tr: "Dersin 10'dan önce bitmesi gerekiyor.", en: "The lesson needs to end before 10 o'clock." },
+              { tr: "Toplantıdan sonra eve gidiyorum.", en: "After the meeting, I go home." },
+              { tr: "İşten sonra arkadaşlarımla kahve içiyorum.", en: "After work, I drink coffee with my friends." },
+              { tr: "Hastaneden önce markete uğradım.", en: "I stopped by the market before the hospital." },
+              { tr: "Saat sekizden sonra ders yok.", en: "There are no classes after eight." },
+              { tr: "Karneden sonra arka kapıdan çıkıyoruz.", en: "After the card check, we leave through the back door." },
+            ],
+            tips: [
+              "A simple pattern is [event] + dan önce / sonra.",
+              "Use önce for 'before' and sonra for 'after'.",
+              "These are flexible with both clock times and events: işten sonra, dersin ardından, yemekten sonra.",
+            ],
+          },
+          {
+            title: "4) Before and after an action: -madan önce / -dikten sonra",
+            description:
+              "Use the infinitive stem plus -madan önce to say 'before doing something' and -dikten sonra to say 'after doing something'. These patterns are more specific than simple time adverbs.",
+            examples: [
+              { tr: "Yemek yemeden önce elimi yıkıyorum.", en: "Before eating, I wash my hands." },
+              { tr: "Ödevimi bitirdikten sonra dışarı çıkıyorum.", en: "After finishing my homework, I go outside." },
+              { tr: "Uyumadan önce kitap okuyorum.", en: "Before sleeping, I read a book." },
+              { tr: "Ders çalıştıktan sonra dinleniyorum.", en: "After studying, I rest." },
+              { tr: "Kahve içmeden önce bana haber ver.", en: "Before drinking coffee, let me know." },
+              { tr: "Temizledikten sonra eve gidiyoruz.", en: "After cleaning, we go home." },
+            ],
+            tips: [
+              "Use the infinitive stem + -madan önce for 'before doing'.",
+              "Use the past participle + -dikten sonra for 'after doing'.",
+              "These forms are especially useful for routines and daily actions.",
+            ],
+          },
+          {
+            title: "5) Since ...: -dan beri",
+            description:
+              "Use a time expression + dan beri to say 'since when' or 'for how long'. This frame is very common in speaking about routines, jobs, and lasting situations.",
+            examples: [
+              { tr: "İki aydan beri Türkçe öğreniyorum.", en: "I have been learning Turkish for two months." },
+              { tr: "2019'dan beri burada yaşıyorum.", en: "I have been living here since 2019." },
+              { tr: "Saat sekizden beri çalışıyorum.", en: "I have been working since eight o'clock." },
+              { tr: "Bu okuldan beri arkadaşız.", en: "We have been friends since this school." },
+              { tr: "Birkaç yıldan beri İstanbul'dayım.", en: "I have been in Istanbul for a few years." },
+              { tr: "On yıldan beri aynı işte çalışıyorum.", en: "I have been working at the same job for ten years." },
+            ],
+            tips: [
+              "Use [time] + dan beri to say 'since ...' or 'for ...'.",
+              "This often answers the question Ne zamandan beri? = Since when?",
+              "The phrase can be used with time points, dates, or durations, not only with clock times.",
+            ],
+          },
+        ],
+        practice: [
+          "Saat kaç? Saat dokuz buçuk.",
+          "Yediye beş kala otobüs kalkıyor.",
+          "Derslerden sonra kütüphaneye gidiyorum.",
+          "Yemek yemeden önce elimi yıkıyorum.",
+          "Ödevimi bitirdikten sonra dışarı çıkıyorum.",
+          "İki aydan beri Türkçe öğreniyorum.",
+          "Saat 12.30'dan 15.30'a kadar toplantı var.",
+          "Sabah sekizden akşama kadar çalışıyorum.",
+        ],
+        quiz: [
+          {
+            prompt: "Which phrase means 'quarter past ten'?",
+            options: ["Onu çeyrek geçiyor", "Onu yarım geçiyor", "Onu beş geçiyor", "Ona çeyrek var"],
+            answer: "Onu çeyrek geçiyor",
+            explanation:
+              "Turkish uses saat + (y)I + dakika + geçiyor for 'past' times, and çeyrek = 15 minutes.",
+          },
+          {
+            prompt: "What does 'dörde çeyrek var' mean?",
+            options: ["It is quarter past four.", "It is quarter to four.", "It is half past four.", "It is four fifteen."],
+            answer: "It is quarter to four.",
+            explanation:
+              "çeyrek var means 'a quarter to', so 3:45 is expressed as dörde çeyrek var.",
+          },
+          {
+            prompt: "Which sentence means 'Before eating, I wash my hands'?",
+            options: [
+              "Yemek yemeden önce elimi yıkıyorum.",
+              "Yemek yedikten sonra elimi yıkıyorum.",
+              "Yemekten önce elimi yıkıyorum.",
+              "Yemek yedikten önce elimi yıkıyorum.",
+            ],
+            answer: "Yemek yemeden önce elimi yıkıyorum.",
+            explanation:
+              "The pattern [verb stem] +madan önce means 'before doing something'.",
+          },
+          {
+            prompt: "Which phrase means 'from morning until evening'?",
+            options: ["Sabahtan akşama kadar", "Sabahdan önce", "Akşamdan önce", "Sabahdan sonra"],
+            answer: "Sabahtan akşama kadar",
+            explanation:
+              "The structure [time] + dan + [time] + a kadar means 'from ... until ...'.",
+          },
+          {
+            prompt: "Which sentence means 'I have been learning Turkish for two months'?",
+            options: [
+              "İki aydan beri Türkçe öğreniyorum.",
+              "İki ay sonra Türkçe öğreniyorum.",
+              "İki ay önce Türkçe öğreniyorum.",
+              "İki ay kadar Türkçe öğreniyorum.",
+            ],
+            answer: "İki aydan beri Türkçe öğreniyorum.",
+            explanation:
+              "-dan beri is used to say 'since/for' in the sense of an ongoing action from a point in time.",
+          },
+          {
+            prompt: "Which pattern means 'after doing something'?",
+            options: ["-madan önce", "-dikten sonra", "-dan sonra", "-dan önce"],
+            answer: "-dikten sonra",
+            explanation:
+              "-dikten sonra is the common form for 'after doing ...'.",
+          },
+        ],
+      },
     ],
   },
   {
