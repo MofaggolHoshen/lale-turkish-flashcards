@@ -1,6 +1,29 @@
+const speechRates = [0.6, 0.75, 0.9, 1, 1.25] as const;
+let speechRate: (typeof speechRates)[number] = 0.75;
+const speechRateListeners = new Set<() => void>();
+
 let activeUtterance: SpeechSynthesisUtterance | null = null;
 let finishActiveUtterance: (() => void) | null = null;
 let speechSession = 0;
+
+export function getSpeechRate(): number {
+  return speechRate;
+}
+
+export function subscribeSpeechRate(listener: () => void): () => void {
+  speechRateListeners.add(listener);
+  return () => speechRateListeners.delete(listener);
+}
+
+export function cycleSpeechRate(): number {
+  const currentIndex = speechRates.indexOf(
+    speechRate as (typeof speechRates)[number],
+  );
+  speechRate = speechRates[(currentIndex + 1) % speechRates.length];
+  if (activeUtterance) activeUtterance.rate = speechRate;
+  speechRateListeners.forEach((listener) => listener());
+  return speechRate;
+}
 
 function getSpeechSynthesis(): SpeechSynthesis | null {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) {
@@ -31,7 +54,7 @@ function speakUtterance(
     try {
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = lang;
-      utterance.rate = 0.9;
+      utterance.rate = speechRate;
       activeUtterance = utterance;
 
       const finish = () => {
