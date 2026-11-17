@@ -4,6 +4,7 @@ import { stories } from "../data/story";
 import { C } from "../styles/theme";
 import { cancelSpeech, speak } from "../services/speech";
 import { PageHeader } from "./common/PageHeader";
+import { ReadingSpeedButton } from "./ReadingSpeedButton";
 
 export function StoryView() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -29,26 +30,29 @@ export function StoryView() {
         title="Story"
         subtitle="Read the Turkish story first, then check the translation."
         action={
-          <button
-            className="lale-btn"
-            onClick={isPlaying ? stopPlaying : playTurkish}
-            aria-label={isPlaying ? "Stop Turkish story" : "Play Turkish story"}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 7,
-              border: "none",
-              borderRadius: 8,
-              padding: "9px 13px",
-              cursor: "pointer",
-              background: C.turquoise,
-              color: "#04292A",
-              fontWeight: 700,
-            }}
-          >
-            {isPlaying ? <Square size={15} /> : <Play size={15} />}
-            {isPlaying ? "Stop" : "Play Turkish"}
-          </button>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <ReadingSpeedButton />
+            <button
+              className="lale-btn"
+              onClick={isPlaying ? stopPlaying : playTurkish}
+              aria-label={isPlaying ? "Stop Turkish story" : "Play Turkish story"}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 7,
+                border: "none",
+                borderRadius: 8,
+                padding: "9px 13px",
+                cursor: "pointer",
+                background: C.turquoise,
+                color: "#04292A",
+                fontWeight: 700,
+              }}
+            >
+              {isPlaying ? <Square size={15} /> : <Play size={15} />}
+              {isPlaying ? "Stop" : "Play Turkish"}
+            </button>
+          </div>
         }
       />
 
