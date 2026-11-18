@@ -32,6 +32,14 @@ function getSpeechSynthesis(): SpeechSynthesis | null {
   return window.speechSynthesis;
 }
 
+export function isSpeechSupported(): boolean {
+  return (
+    typeof window !== "undefined" &&
+    "speechSynthesis" in window &&
+    typeof SpeechSynthesisUtterance !== "undefined"
+  );
+}
+
 export function cancelSpeech(): void {
   const synthesis = getSpeechSynthesis();
   speechSession += 1;
@@ -47,30 +55,39 @@ function speakUtterance(
   text: string,
   lang: string,
   session: number,
-): Promise<void> {
-  if (!text.trim() || session !== speechSession) return Promise.resolve();
+  onBoundary?: (charIndex: number) => void,
+): Promise<boolean> {
+  if (!text.trim() || session !== speechSession) return Promise.resolve(false);
 
-  return new Promise((resolve) => {
+  return new Promise<boolean>((resolve) => {
     try {
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = lang;
       utterance.rate = speechRate;
       activeUtterance = utterance;
 
-      const finish = () => {
+      let settled = false;
+      const finish = (completed: boolean) => {
+        if (settled) return;
+        settled = true;
         if (activeUtterance === utterance) {
           activeUtterance = null;
           finishActiveUtterance = null;
         }
-        resolve();
+        resolve(completed);
       };
-      finishActiveUtterance = finish;
-      utterance.onend = finish;
+      finishActiveUtterance = () => finish(false);
+      utterance.onboundary = (event) => {
+        if (session === speechSession && activeUtterance === utterance) {
+          onBoundary?.(event.charIndex);
+        }
+      };
+      utterance.onend = () => finish(true);
       utterance.onerror = (event) => {
         if (event.error !== "interrupted" && event.error !== "canceled") {
           console.error("speech failed", event.error);
         }
-        finish();
+        finish(false);
       };
 
       synthesis.resume();
@@ -79,7 +96,7 @@ function speakUtterance(
       activeUtterance = null;
       finishActiveUtterance = null;
       console.error("speech failed", error);
-      resolve();
+      resolve(false);
     }
   });
 }
@@ -97,6 +114,18 @@ export function speak(text: string, lang = "tr-TR"): void {
     cancelSpeech();
   }
   void speakUtterance(synthesis, text, lang, speechSession);
+}
+
+export function speakWithProgress(
+  text: string,
+  lang: string,
+  onBoundary: (charIndex: number) => void,
+): Promise<boolean> {
+  const synthesis = getSpeechSynthesis();
+  if (!synthesis || !text.trim()) return Promise.resolve(false);
+
+  cancelSpeech();
+  return speakUtterance(synthesis, text, lang, speechSession, onBoundary);
 }
 
 /**
