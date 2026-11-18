@@ -16,6 +16,7 @@ import { LibraryView } from "./components/LibraryView";
 import { VocabularyView } from "./components/VocabularyView";
 import { GrammarView } from "./components/GrammarView";
 import { StoryView } from "./components/StoryView";
+import { ReadAloudView } from "./components/ReadAloudView";
 import type { Meta, ReviewMode, Tab, Word } from "./types";
 
 const ConjugationView = lazy(() =>
@@ -174,6 +175,7 @@ export default function App() {
           </Suspense>
         )}
         {tab === "story" && <StoryView />}
+        {tab === "read" && <ReadAloudView />}
         {tab === "review" && (
           <Review
             words={words}

@@ -25,6 +25,7 @@ export type Tab =
   | "library"
   | "grammar"
   | "story"
+  | "read"
   | "conjugation";
 export type ReviewMode = "due" | "mastered" | "all";
 export type Category =
