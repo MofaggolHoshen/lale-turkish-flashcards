@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Pause, Play, RotateCcw } from "lucide-react";
+import { Pause, Play, Repeat, RotateCcw } from "lucide-react";
 import { C } from "../styles/theme";
 import {
   cancelSpeech,
@@ -10,6 +10,7 @@ import { PageHeader } from "./common/PageHeader";
 import { ReadingSpeedButton } from "./ReadingSpeedButton";
 
 type ReadingLanguage = "tr-TR" | "en-US";
+type SelectedPassage = { text: string; start: number };
 
 const languages: { code: ReadingLanguage; label: string }[] = [
   { code: "tr-TR", label: "Turkish" },
@@ -21,6 +22,9 @@ export function ReadAloudView() {
   const [language, setLanguage] = useState<ReadingLanguage>("tr-TR");
   const [isPlaying, setIsPlaying] = useState(false);
   const [activeWordIndex, setActiveWordIndex] = useState(-1);
+  const [selectedPassage, setSelectedPassage] =
+    useState<SelectedPassage | null>(null);
+  const textDisplayRef = useRef<HTMLElement>(null);
   const playingRef = useRef(false);
   const runIdRef = useRef(0);
   const supported = isSpeechSupported();
@@ -37,6 +41,54 @@ export function ReadAloudView() {
     },
     [],
   );
+
+  useEffect(() => {
+    const updateSelection = () => {
+      const container = textDisplayRef.current;
+      const selection = window.getSelection();
+      if (
+        !container ||
+        !selection ||
+        selection.isCollapsed ||
+        selection.rangeCount === 0
+      ) {
+        setSelectedPassage(null);
+        return;
+      }
+
+      const range = selection.getRangeAt(0);
+      if (
+        !container.contains(range.startContainer) ||
+        !container.contains(range.endContainer)
+      ) {
+        setSelectedPassage(null);
+        return;
+      }
+
+      const selectedText = selection.toString();
+      const trimmedText = selectedText.trim();
+      if (!trimmedText) {
+        setSelectedPassage(null);
+        return;
+      }
+
+      const prefixRange = range.cloneRange();
+      prefixRange.selectNodeContents(container);
+      prefixRange.setEnd(range.startContainer, range.startOffset);
+      const start =
+        prefixRange.toString().length +
+        (selectedText.length - selectedText.trimStart().length);
+
+      setSelectedPassage((current) =>
+        current?.text === trimmedText && current.start === start
+          ? current
+          : { text: trimmedText, start },
+      );
+    };
+
+    document.addEventListener("selectionchange", updateSelection);
+    return () => document.removeEventListener("selectionchange", updateSelection);
+  }, []);
 
   const stop = () => {
     playingRef.current = false;
@@ -55,29 +107,24 @@ export function ReadAloudView() {
     void readFromWord(0);
   };
 
-  const readFromWord = async (startWordIndex: number) => {
-    if (!supported || !text.trim()) return;
+  const repeatPassage = async (passage: string, startCharacter: number) => {
+    if (!supported || !passage.trim()) return;
 
     playingRef.current = true;
     const runId = ++runIdRef.current;
     setIsPlaying(true);
-    const startCharacter = words[startWordIndex]?.start ?? 0;
-    const textToRead = text.slice(startCharacter);
-    const wordsToRead = words.slice(startWordIndex);
 
     try {
       while (playingRef.current && runIdRef.current === runId) {
         const completed = await speakWithProgress(
-          textToRead,
+          passage,
           language,
           (charIndex) => {
             if (runIdRef.current !== runId) return;
-            const wordIndex = wordsToRead.findIndex(
-              (word) => charIndex < word.end - startCharacter,
+            const wordIndex = words.findIndex(
+              (word) => startCharacter + charIndex < word.end,
             );
-            setActiveWordIndex(
-              wordIndex < 0 ? -1 : startWordIndex + wordIndex,
-            );
+            setActiveWordIndex(wordIndex);
           },
         );
         if (!completed || !playingRef.current || runIdRef.current !== runId) {
@@ -96,6 +143,11 @@ export function ReadAloudView() {
     }
   };
 
+  const readFromWord = (startWordIndex: number) => {
+    const startCharacter = words[startWordIndex]?.start ?? 0;
+    void repeatPassage(text.slice(startCharacter), startCharacter);
+  };
+
   let wordIndex = 0;
 
   return (
@@ -106,6 +158,46 @@ export function ReadAloudView() {
         action={
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <ReadingSpeedButton />
+            <button
+              type="button"
+              className="lale-btn"
+              onMouseDown={(event) => event.preventDefault()}
+              onClick={() =>
+                selectedPassage &&
+                void repeatPassage(selectedPassage.text, selectedPassage.start)
+              }
+              disabled={
+                !supported ||
+                !selectedPassage ||
+                isPlaying ||
+                !selectedPassage.text
+              }
+              aria-label="Repeat selected text"
+              title={
+                selectedPassage
+                  ? `Repeat: ${selectedPassage.text}`
+                  : "Select a word or sentence in the text below"
+              }
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 7,
+                border: `1px solid ${C.line}`,
+                borderRadius: 8,
+                padding: "9px 13px",
+                cursor:
+                  supported && selectedPassage && !isPlaying
+                    ? "pointer"
+                    : "not-allowed",
+                background: "#fff",
+                color: C.cobalt,
+                fontWeight: 700,
+                opacity: supported && selectedPassage && !isPlaying ? 1 : 0.55,
+              }}
+            >
+              <Repeat size={15} />
+              Repeat selection
+            </button>
             <button
               type="button"
               className="lale-btn"
@@ -191,6 +283,7 @@ export function ReadAloudView() {
       />
 
       <section
+        ref={textDisplayRef}
         aria-label="Text being read"
         aria-live="off"
         style={{
@@ -223,6 +316,7 @@ export function ReadAloudView() {
                   color: "inherit",
                   font: "inherit",
                   lineHeight: "inherit",
+                  userSelect: "text",
                   borderRadius: 4,
                   cursor: "pointer",
                   background:
