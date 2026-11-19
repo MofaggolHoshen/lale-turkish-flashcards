@@ -25,6 +25,7 @@ export function ReadAloudView() {
   const runIdRef = useRef(0);
   const supported = isSpeechSupported();
   const words = Array.from(text.matchAll(/\S+/g), (match) => ({
+    start: match.index ?? 0,
     end: (match.index ?? 0) + match[0].length,
   }));
 
@@ -45,25 +46,40 @@ export function ReadAloudView() {
     setIsPlaying(false);
   };
 
-  const play = async () => {
+  const play = () => {
     if (isPlaying) {
       stop();
       return;
     }
 
+    void readFromWord(0);
+  };
+
+  const readFromWord = async (startWordIndex: number) => {
     if (!supported || !text.trim()) return;
 
     playingRef.current = true;
     const runId = ++runIdRef.current;
     setIsPlaying(true);
+    const startCharacter = words[startWordIndex]?.start ?? 0;
+    const textToRead = text.slice(startCharacter);
+    const wordsToRead = words.slice(startWordIndex);
 
     try {
       while (playingRef.current && runIdRef.current === runId) {
-        const completed = await speakWithProgress(text, language, (charIndex) => {
-          if (runIdRef.current !== runId) return;
-          const wordIndex = words.findIndex((word) => charIndex < word.end);
-          setActiveWordIndex(wordIndex);
-        });
+        const completed = await speakWithProgress(
+          textToRead,
+          language,
+          (charIndex) => {
+            if (runIdRef.current !== runId) return;
+            const wordIndex = wordsToRead.findIndex(
+              (word) => charIndex < word.end - startCharacter,
+            );
+            setActiveWordIndex(
+              wordIndex < 0 ? -1 : startWordIndex + wordIndex,
+            );
+          },
+        );
         if (!completed || !playingRef.current || runIdRef.current !== runId) {
           break;
         }
@@ -86,7 +102,7 @@ export function ReadAloudView() {
     <div>
       <PageHeader
         title="Read aloud"
-        subtitle="Paste or type text to hear it read repeatedly. Stop whenever you're ready."
+        subtitle="Paste or type text, then select Read to loop or click any word to start from there."
         action={
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <ReadingSpeedButton />
@@ -194,10 +210,21 @@ export function ReadAloudView() {
             if (/^\s+$/.test(match[0])) return match[0];
             const currentWordIndex = wordIndex++;
             return (
-              <span
+              <button
                 key={`${match.index}-${currentWordIndex}`}
+                type="button"
+                onClick={() => void readFromWord(currentWordIndex)}
+                aria-label={`Read from ${match[0]}`}
+                title="Read from this word"
                 style={{
+                  appearance: "none",
+                  border: "none",
+                  padding: "0 1px",
+                  color: "inherit",
+                  font: "inherit",
+                  lineHeight: "inherit",
                   borderRadius: 4,
+                  cursor: "pointer",
                   background:
                     activeWordIndex === currentWordIndex
                       ? "#F3CE78"
@@ -210,7 +237,7 @@ export function ReadAloudView() {
                 }}
               >
                 {match[0]}
-              </span>
+              </button>
             );
           })
         ) : (
