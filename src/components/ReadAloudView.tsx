@@ -10,7 +10,12 @@ import { PageHeader } from "./common/PageHeader";
 import { ReadingSpeedButton } from "./ReadingSpeedButton";
 
 type ReadingLanguage = "tr-TR" | "en-US";
-type SelectedPassage = { text: string; start: number };
+type SelectedPassage = {
+  text: string;
+  start: number;
+  top: number;
+  left: number;
+};
 
 const languages: { code: ReadingLanguage; label: string }[] = [
   { code: "tr-TR", label: "Turkish" },
@@ -78,16 +83,34 @@ export function ReadAloudView() {
       const start =
         prefixRange.toString().length +
         (selectedText.length - selectedText.trimStart().length);
+      const bounds = range.getBoundingClientRect();
+      const top =
+        bounds.bottom + 48 <= window.innerHeight
+          ? bounds.bottom + 8
+          : Math.max(8, bounds.top - 48);
+      const left = Math.max(
+        8,
+        Math.min(bounds.left, window.innerWidth - 180),
+      );
 
       setSelectedPassage((current) =>
-        current?.text === trimmedText && current.start === start
+        current?.text === trimmedText &&
+        current.start === start &&
+        current.top === top &&
+        current.left === left
           ? current
-          : { text: trimmedText, start },
+          : { text: trimmedText, start, top, left },
       );
     };
 
     document.addEventListener("selectionchange", updateSelection);
-    return () => document.removeEventListener("selectionchange", updateSelection);
+    window.addEventListener("scroll", updateSelection, true);
+    window.addEventListener("resize", updateSelection);
+    return () => {
+      document.removeEventListener("selectionchange", updateSelection);
+      window.removeEventListener("scroll", updateSelection, true);
+      window.removeEventListener("resize", updateSelection);
+    };
   }, []);
 
   const stop = () => {
@@ -158,46 +181,6 @@ export function ReadAloudView() {
         action={
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <ReadingSpeedButton />
-            <button
-              type="button"
-              className="lale-btn"
-              onMouseDown={(event) => event.preventDefault()}
-              onClick={() =>
-                selectedPassage &&
-                void repeatPassage(selectedPassage.text, selectedPassage.start)
-              }
-              disabled={
-                !supported ||
-                !selectedPassage ||
-                isPlaying ||
-                !selectedPassage.text
-              }
-              aria-label="Repeat selected text"
-              title={
-                selectedPassage
-                  ? `Repeat: ${selectedPassage.text}`
-                  : "Select a word or sentence in the text below"
-              }
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 7,
-                border: `1px solid ${C.line}`,
-                borderRadius: 8,
-                padding: "9px 13px",
-                cursor:
-                  supported && selectedPassage && !isPlaying
-                    ? "pointer"
-                    : "not-allowed",
-                background: "#fff",
-                color: C.cobalt,
-                fontWeight: 700,
-                opacity: supported && selectedPassage && !isPlaying ? 1 : 0.55,
-              }}
-            >
-              <Repeat size={15} />
-              Repeat selection
-            </button>
             <button
               type="button"
               className="lale-btn"
@@ -340,6 +323,40 @@ export function ReadAloudView() {
           </span>
         )}
       </section>
+
+      {selectedPassage && (
+        <button
+          type="button"
+          className="lale-btn"
+          onMouseDown={(event) => event.preventDefault()}
+          onClick={() =>
+            void repeatPassage(selectedPassage.text, selectedPassage.start)
+          }
+          disabled={!supported}
+          aria-label={`Repeat selected text: ${selectedPassage.text}`}
+          style={{
+            position: "fixed",
+            top: selectedPassage.top,
+            left: selectedPassage.left,
+            zIndex: 10,
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 7,
+            border: `1px solid ${C.line}`,
+            borderRadius: 8,
+            padding: "9px 13px",
+            cursor: supported ? "pointer" : "not-allowed",
+            background: "#fff",
+            color: C.cobalt,
+            fontWeight: 700,
+            boxShadow: "0 4px 14px rgba(19,42,51,0.18)",
+            opacity: supported ? 1 : 0.55,
+          }}
+        >
+          <Repeat size={15} />
+          Repeat selection
+        </button>
+      )}
 
       {!supported && (
         <p role="status" style={{ color: C.coral, marginTop: 12 }}>
