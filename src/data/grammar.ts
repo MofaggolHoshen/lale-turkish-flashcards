@@ -1152,6 +1152,196 @@ export const grammarLevels: GrammarLevel[] = [
           },
         ],
       },
+      {
+        id: "a1-unit-6",
+        title: "Unit 6 – Family, surroundings, and comparisons",
+        summary:
+          "Talk about family and relatives, describe places and possessions, use the accusative and -ki suffixes, and compare people or objects.",
+        sections: [
+          {
+            title: "1) Family and noun complements",
+            description:
+              "Turkish uses belirlili (possessive) noun complements to say 'X's Y': the possessor takes -(n)ın/-nIn and the possessed noun takes -(s)ı/-sI. Without the possessor, a noun phrase can form a belirtisiz noun complement.",
+            examples: [
+              { tr: "Annemin adı Aysun.", en: "My mother's name is Aysun." },
+              { tr: "Amcamın arabası yeşil.", en: "My uncle's car is green." },
+              { tr: "Teyzemin oğlu kuzenimdir.", en: "My aunt's son is my cousin." },
+              { tr: "Berk'in kalemi masada.", en: "Berk's pen is on the table." },
+              { tr: "Türkiye'nin başkenti Ankara'dır.", en: "The capital of Türkiye is Ankara." },
+              { tr: "İstanbul Üniversitesi", en: "Istanbul University" },
+            ],
+            tips: [
+              "A person or noun that possesses something uses -(n)ın/-nIn according to vowel harmony.",
+              "The possessed noun then uses -(s)ı/-sİ according to vowel harmony.",
+              "Common relatives include amca (paternal uncle), dayı (maternal uncle), hala (paternal aunt), and teyze (maternal aunt).",
+            ],
+          },
+          {
+            title: "2) Where things are",
+            description:
+              "Location words describe objects and places. In context, these words answer where something is: üstünde, altında, yanında, önünde, arkasında, içinde, arasında, and karşısında.",
+            examples: [
+              { tr: "Dolap yatağın yanında.", en: "The cupboard is beside the bed." },
+              { tr: "Saat dolabın üstünde.", en: "The clock is on top of the cupboard." },
+              { tr: "Vazo sandalyeler arasında.", en: "The vase is between the chairs." },
+              { tr: "Çerçeve yatağın yanında.", en: "The frame is next to the bed." },
+              { tr: "Ferman'ın dükkânı alışveriş merkezinin yanında.", en: "Ferman's shop is next to the shopping centre." },
+              { tr: "İran, Türkiye'nin doğusundadır.", en: "Iran is east of Türkiye." },
+            ],
+            tips: [
+              "The base pattern is a noun in the locative/possessive position plus üstünde, altında, yanında, and so on.",
+              "Use karşısında for 'opposite/across from'.",
+              "Cardinal directions include kuzey, güney, doğu, and batı.",
+            ],
+          },
+          {
+            title: "3) The accusative: -(y)I",
+            description:
+              "Use -(y)i/-yı/-yu/-yü for a definite or specific object. It is required for pronouns, possessive nouns, demonstratives, and many expressions with definite -ki forms.",
+            examples: [
+              { tr: "Tarkan'ı tanıyor musun?", en: "Do you know Tarkan?" },
+              { tr: "Bana kalemini ver.", en: "Give me your pen." },
+              { tr: "Hangi elbiseyi alayım?", en: "Which dress should I buy?" },
+              { tr: "Saat 5'teki vapuru bekliyorum.", en: "I am waiting for the 5 o'clock ferry." },
+              { tr: "Bu şarkıyı biliyor musunuz?", en: "Do you know this song?" },
+              { tr: "Sözlüğü senin masana koyuyorum.", en: "I am putting the dictionary on your table." },
+            ],
+            tips: [
+              "Vowel harmony: a/ı → -ı, e/i → -i, o/u → -u, ö/ü → -ü.",
+              "Use the accusative for specific objects, not every general noun object.",
+              "A consonant or vowel before the suffix may determine whether y or a buffer consonant is used.",
+            ],
+          },
+          {
+            title: "4) The -ki suffix",
+            description:
+              "-ki turns locative or time expressions into adjectives ('the ... one'), or turns possessive phrases and pronouns into a new relative noun ('mine', 'his/hers', 'the one belonging to ...').",
+            examples: [
+              { tr: "Üst kattaki komşu çok sinirli.", en: "The upstairs neighbour is very nervous." },
+              { tr: "Bugünkü konser çok güzel.", en: "Today's concert is very nice." },
+              { tr: "Benim evim yeni, seninki eski.", en: "My house is new; yours is old." },
+              { tr: "Cansu'nun kalemi büyük, Duygu'nunki küçük.", en: "Cansu's pen is big; Duygu's is small." },
+              { tr: "Masa üstündeki dosyayı al.", en: "Take the file that is on top of the table." },
+              { tr: "Yarınki derse geliyorum.", en: "I am coming to tomorrow's lesson." },
+            ],
+            tips: [
+              "After locative nouns or time words, -ki creates an adjective: salondaki, bugünkü.",
+              "After possessive pronouns or names, -ki creates a possessive pronoun: benimkiler, seninki.",
+            ],
+          },
+          {
+            title: "5) Comparatives and superlatives",
+            description:
+              "Use noun + -dan/-den daha + adjective for a comparison, and use en + adjective for 'the most' or 'the best'.",
+            examples: [
+              { tr: "Kerem'in kardeşi benim kardeşimden daha çalışkan.", en: "Kerem's brother is more hardworking than mine." },
+              { tr: "Zürafa filden daha uzun.", en: "The giraffe is taller than the elephant." },
+              { tr: "Gökçe'nin saçı benimkinden daha uzun.", en: "Gökçe's hair is longer than mine." },
+              { tr: "Sınıfın en çalışkan öğrencisi kim?", en: "Who is the most hardworking student in the class?" },
+              { tr: "Türkiye'nin en büyük gölü Van Gölü.", en: "Van Lake is Türkiye's largest lake." },
+              { tr: "Dünyanın en sıcak yeri neresi?", en: "Where is the hottest place in the world?" },
+            ],
+            tips: [
+              "The standard comparative pattern is [other item]-den daha [adjective].",
+              "Use en immediately before the adjective for superlative meaning.",
+              "Body terms and illnesses can be compared naturally: burnum daha büyük, daha az başım ağrıyor.",
+            ],
+          },
+          {
+            title: "6) Body parts and basic health phrases",
+            description:
+              "The unit includes basic body vocabulary and common illness expressions. Add ağrı, bulantı, or the appropriate noun to verbs such as olmak, olmak, çekmek, and ağrımak.",
+            examples: [
+              { tr: "Başım ağrıyor.", en: "I have a headache." },
+              { tr: "Midem bulanıyor.", en: "My stomach feels nauseous." },
+              { tr: "Burnum akıyor.", en: "My nose is running." },
+              { tr: "Tansiyonumu ölçtü.", en: "They took my blood pressure." },
+              { tr: "Bir ağrı kesici alıyım.", en: "Let me take a painkiller." },
+              { tr: "Doktor bir tahlil istedi.", en: "The doctor requested a test." },
+            ],
+            tips: [
+              "Use başım ağrıyor, karnım ağrıyor, and dişim ağrıyor for common pains.",
+              "Key hospital words include doktor, ilaç, iğne, tahlil, tansiyon, and ağrı kesici.",
+            ],
+          },
+        ],
+        practice: [
+          "Annemin kız kardeşi benim teyzemdir.",
+          "Teyzemin oğlu kuzenimdir.",
+          "Saat masanın üstünde.",
+          "Masa üstündeki dosyayı al.",
+          "Yarınki derse geliyorum.",
+          "Zürafa filden daha uzun.",
+          "Türkiye'nin en büyük gölü Van Gölü.",
+          "Üç gündür başım ağrıyor.",
+        ],
+        quiz: [
+          {
+            prompt: "Which sentence means 'My aunt's son is my cousin'?",
+            options: [
+              "Teyzemin oğlu kuzenimdir.",
+              "Teyzemin oğul kuzenim.",
+              "Teyzemin çocuk kuzenim.",
+              "Teyze oğlum kuzenimdir.",
+            ],
+            answer: "Teyzemin oğlu kuzenimdir.",
+            explanation:
+              "Teyzemin is the possessive form of teyze, and oğlu means 'her son'.",
+          },
+          {
+            prompt: "Which phrase means 'the file on top of the table'?",
+            options: ["Masa üstündeki dosya", "Masada dosya üstü", "Dosya masanın üst", "Üstündeki masa dosya"],
+            answer: "Masa üstündeki dosya",
+            explanation:
+              "The locative phrase masa üstündeki uses -ki to turn 'on the table' into an adjective.",
+          },
+          {
+            prompt: "Which noun needs the accusative ending in 'I am waiting for the 5 o'clock ferry'?",
+            options: ["Saat", "5", "Üsküdar vapuru", "Bekliyorum"],
+            answer: "Üsküdar vapuru",
+            explanation:
+              "A definite object with a time modifier uses the accusative: Saat 5'teki Üsküdar vapurunu.",
+          },
+          {
+            prompt: "Which phrase means 'My house is ... yours is old'?",
+            options: ["Benim evim büyük, seninki eski.", "Ben evimde büyük, seninki eski.", "Benim ev büyük, senin ev eski.", "Benim evim yeni, seninki eski."],
+            answer: "Benim evim yeni, seninki eski.",
+            explanation:
+              "Seninki means 'yours/the one belonging to you' and -ki works as a possessive pronoun.",
+          },
+          {
+            prompt: "Which sentence says 'The giraffe is taller than the elephant'?",
+            options: [
+              "Zürafa filden daha uzun.",
+              "Zürafa filden en uzun.",
+              "Zürafadan fil daha uzun.",
+              "Zürafa daha fil uzun.",
+            ],
+            answer: "Zürafa filden daha uzun.",
+            explanation:
+              "Use [comparison item] + den + daha + adjective: filden daha uzun.",
+          },
+          {
+            prompt: "Which sentence means 'Who is the most hardworking student in the class?'",
+            options: [
+              "Sınıfın en çalışkan öğrencisi kim?",
+              "Sınıf daha çalışkan öğrenci kim?",
+              "En sınıfta çalışkan öğrenci kim?",
+              "Sınıfta öğrenciden daha çalışkan kim?",
+            ],
+            answer: "Sınıfın en çalışkan öğrencisi kim?",
+            explanation:
+              "En before an adjective expresses 'the most', and the class is marked with the genitive.",
+          },
+          {
+            prompt: "What does 'Başım ağrıyor' mean?",
+            options: ["I have a headache.", "My nose is running.", "I am hungry.", "I am dizzy."],
+            answer: "I have a headache.",
+            explanation:
+              "Başım is 'my head' and ağrıyor means 'hurts/is aching'.",
+          },
+        ],
+      },
     ],
   },
   {
