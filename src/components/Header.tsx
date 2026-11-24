@@ -10,7 +10,6 @@ export function Header({ tab, setTab, dueCount }) {
     { id: "story", label: "Story" },
     { id: "read", label: "Read aloud" },
     { id: "review", label: `Review${dueCount ? ` (${dueCount})` : ""}` },
-    { id: "add", label: "Add word" },
     { id: "library", label: "Library" },
   ];
 
