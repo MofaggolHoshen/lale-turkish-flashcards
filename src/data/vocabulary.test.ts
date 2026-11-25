@@ -52,6 +52,14 @@ describe("Textbook unit vocabulary", () => {
         ["vedalaşmak", "to say goodbye"],
       ]),
     );
+    expect(CATEGORIES.unit_6).toEqual(
+      expect.arrayContaining([
+        ["anneanne", "maternal grandmother"],
+        ["arkasında", "behind"],
+        ["omuz", "shoulder"],
+        ["baş ağrısı", "headache"],
+      ]),
+    );
     expect(TR_EN.yemek).toBe("to eat");
   });
 });
