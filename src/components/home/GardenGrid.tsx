@@ -1,7 +1,6 @@
 import { LayoutGrid } from "lucide-react";
 
 import { C } from "../../styles/theme";
-import { TulipGlyph } from "../TulipGlyph";
 
 export function GardenGrid({ words }: { words: Array<{ id: string; tr: string; level: number }> }) {
   return (
@@ -38,7 +37,7 @@ export function GardenGrid({ words }: { words: Array<{ id: string; tr: string; l
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(58px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(110px, 1fr))",
             gap: 10,
             background: "#fff",
             border: `1px solid ${C.line}`,
@@ -55,17 +54,21 @@ export function GardenGrid({ words }: { words: Array<{ id: string; tr: string; l
                 title={`${word.tr} — level ${word.level}/5`}
                 style={{
                   display: "flex",
-                  flexDirection: "column",
                   alignItems: "center",
-                  gap: 4,
+                  justifyContent: "center",
+                  minHeight: 44,
+                  padding: "8px 10px",
+                  background: C.paperDeep,
+                  border: `1px solid ${C.line}`,
+                  borderRadius: 9,
                 }}
               >
-                <TulipGlyph level={word.level} size={40} />
                 <span
                   style={{
-                    fontSize: 10.5,
-                    color: C.inkSoft,
-                    maxWidth: 56,
+                    fontSize: 13,
+                    color: C.ink,
+                    fontWeight: 600,
+                    maxWidth: "100%",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
                     whiteSpace: "nowrap",
